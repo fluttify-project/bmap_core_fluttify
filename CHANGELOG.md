@@ -1,3 +1,6 @@
+## 0.0.5
+- roll engine #d0a1b9b
+
 ## 0.0.4
 - enhance: 加入缺少的文件
 
