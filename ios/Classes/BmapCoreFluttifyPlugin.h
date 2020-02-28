@@ -3,9 +3,14 @@
 //////////////////////////////////////////////////////////
 
 #import <Flutter/Flutter.h>
+#import <BaiduMapAPI_Base/BMKUserLocation.h>
+#import <BaiduMapAPI_Base/BMKVersion.h>
+#import <BaiduMapAPI_Base/BMKTypes.h>
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>
+#import <BaiduMapAPI_Base/BMKMapManager.h>
+#import <BaiduMapAPI_Base/BMKGeneralDelegate.h>
 
-
-@interface BmapCoreFluttifyPlugin : NSObject<FlutterPlugin>
+@interface BmapCoreFluttifyPlugin : NSObject<BMKGeneralDelegate, FlutterPlugin>
 
 - (instancetype) initWithFlutterPluginRegistrar: (NSObject <FlutterPluginRegistrar> *) registrar;
 
