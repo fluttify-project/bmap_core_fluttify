@@ -555,14 +555,16 @@ extern BOOL enableLog;
           methodResult(jsonableResult);
       },
       
-      @"::get_latitudeDelta": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKCoordinateSpan::get_latitudeDelta": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::get_latitudeDelta");
+              NSLog(@"BMKCoordinateSpan::get_latitudeDelta");
           }
       
           // ref object
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKCoordinateSpan ref;
+          [dataValue getValue:&ref];
       
           CLLocationDegrees result = ref.latitudeDelta;
       
@@ -572,14 +574,16 @@ extern BOOL enableLog;
           methodResult(jsonableResult);
       },
       
-      @"::get_longitudeDelta": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKCoordinateSpan::get_longitudeDelta": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::get_longitudeDelta");
+              NSLog(@"BMKCoordinateSpan::get_longitudeDelta");
           }
       
           // ref object
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKCoordinateSpan ref;
+          [dataValue getValue:&ref];
       
           CLLocationDegrees result = ref.longitudeDelta;
       
@@ -589,14 +593,16 @@ extern BOOL enableLog;
           methodResult(jsonableResult);
       },
       
-      @"::get_northEast": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKCoordinateBounds::get_northEast": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::get_northEast");
+              NSLog(@"BMKCoordinateBounds::get_northEast");
           }
       
           // ref object
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKCoordinateBounds ref;
+          [dataValue getValue:&ref];
       
           CLLocationCoordinate2D result = ref.northEast;
       
@@ -608,14 +614,16 @@ extern BOOL enableLog;
           methodResult(jsonableResult);
       },
       
-      @"::get_southWest": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKCoordinateBounds::get_southWest": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::get_southWest");
+              NSLog(@"BMKCoordinateBounds::get_southWest");
           }
       
           // ref object
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKCoordinateBounds ref;
+          [dataValue getValue:&ref];
       
           CLLocationCoordinate2D result = ref.southWest;
       
@@ -627,14 +635,16 @@ extern BOOL enableLog;
           methodResult(jsonableResult);
       },
       
-      @"::get_center": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKCoordinateRegion::get_center": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::get_center");
+              NSLog(@"BMKCoordinateRegion::get_center");
           }
       
           // ref object
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKCoordinateRegion ref;
+          [dataValue getValue:&ref];
       
           CLLocationCoordinate2D result = ref.center;
       
@@ -646,14 +656,37 @@ extern BOOL enableLog;
           methodResult(jsonableResult);
       },
       
-      @"::get_latitudeE6": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKCoordinateRegion::get_span": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::get_latitudeE6");
+              NSLog(@"BMKCoordinateRegion::get_span");
           }
       
           // ref object
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKCoordinateRegion ref;
+          [dataValue getValue:&ref];
+      
+          BMKCoordinateSpan result = ref.span;
+      
+          // 返回值: 结构体
+          NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKCoordinateSpan)];
+          HEAP[@(resultValue.hash)] = resultValue;
+          NSNumber* jsonableResult = @(resultValue.hash);
+      
+          methodResult(jsonableResult);
+      },
+      
+      @"BMKGeoPoint::get_latitudeE6": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+          // print log
+          if (enableLog) {
+              NSLog(@"BMKGeoPoint::get_latitudeE6");
+          }
+      
+          // ref object
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKGeoPoint ref;
+          [dataValue getValue:&ref];
       
           int result = ref.latitudeE6;
       
@@ -663,14 +696,16 @@ extern BOOL enableLog;
           methodResult(jsonableResult);
       },
       
-      @"::get_longitudeE6": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKGeoPoint::get_longitudeE6": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::get_longitudeE6");
+              NSLog(@"BMKGeoPoint::get_longitudeE6");
           }
       
           // ref object
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKGeoPoint ref;
+          [dataValue getValue:&ref];
       
           int result = ref.longitudeE6;
       
@@ -680,14 +715,16 @@ extern BOOL enableLog;
           methodResult(jsonableResult);
       },
       
-      @"::get_x": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKMapPoint::get_x": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::get_x");
+              NSLog(@"BMKMapPoint::get_x");
           }
       
           // ref object
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKMapPoint ref;
+          [dataValue getValue:&ref];
       
           double result = ref.x;
       
@@ -697,14 +734,16 @@ extern BOOL enableLog;
           methodResult(jsonableResult);
       },
       
-      @"::get_y": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKMapPoint::get_y": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::get_y");
+              NSLog(@"BMKMapPoint::get_y");
           }
       
           // ref object
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKMapPoint ref;
+          [dataValue getValue:&ref];
       
           double result = ref.y;
       
@@ -714,14 +753,16 @@ extern BOOL enableLog;
           methodResult(jsonableResult);
       },
       
-      @"::get_width": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKMapSize::get_width": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::get_width");
+              NSLog(@"BMKMapSize::get_width");
           }
       
           // ref object
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKMapSize ref;
+          [dataValue getValue:&ref];
       
           double result = ref.width;
       
@@ -731,19 +772,63 @@ extern BOOL enableLog;
           methodResult(jsonableResult);
       },
       
-      @"::get_height": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKMapSize::get_height": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::get_height");
+              NSLog(@"BMKMapSize::get_height");
           }
       
           // ref object
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKMapSize ref;
+          [dataValue getValue:&ref];
       
           double result = ref.height;
       
           // 返回值: Value
           id jsonableResult = @(result);
+      
+          methodResult(jsonableResult);
+      },
+      
+      @"BMKMapRect::get_origin": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+          // print log
+          if (enableLog) {
+              NSLog(@"BMKMapRect::get_origin");
+          }
+      
+          // ref object
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKMapRect ref;
+          [dataValue getValue:&ref];
+      
+          BMKMapPoint result = ref.origin;
+      
+          // 返回值: 结构体
+          NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapPoint)];
+          HEAP[@(resultValue.hash)] = resultValue;
+          NSNumber* jsonableResult = @(resultValue.hash);
+      
+          methodResult(jsonableResult);
+      },
+      
+      @"BMKMapRect::get_size": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+          // print log
+          if (enableLog) {
+              NSLog(@"BMKMapRect::get_size");
+          }
+      
+          // ref object
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKMapRect ref;
+          [dataValue getValue:&ref];
+      
+          BMKMapSize result = ref.size;
+      
+          // 返回值: 结构体
+          NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapSize)];
+          HEAP[@(resultValue.hash)] = resultValue;
+          NSNumber* jsonableResult = @(resultValue.hash);
       
           methodResult(jsonableResult);
       },
@@ -1143,14 +1228,16 @@ extern BOOL enableLog;
           methodResult(resultList);
       },
       
-      @"::get_latitudeDelta_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
+      @"BMKCoordinateSpan::get_latitudeDelta_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
           NSMutableArray* resultList = [NSMutableArray array];
       
           for (int i = 0; i < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; i++) {
               NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:i];
       
               // ref object
-              * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              BMKCoordinateSpan ref;
+              [dataValue getValue:&ref];
       
               CLLocationDegrees result = ref.latitudeDelta;
       
@@ -1163,14 +1250,16 @@ extern BOOL enableLog;
           methodResult(resultList);
       },
       
-      @"::get_longitudeDelta_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
+      @"BMKCoordinateSpan::get_longitudeDelta_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
           NSMutableArray* resultList = [NSMutableArray array];
       
           for (int i = 0; i < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; i++) {
               NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:i];
       
               // ref object
-              * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              BMKCoordinateSpan ref;
+              [dataValue getValue:&ref];
       
               CLLocationDegrees result = ref.longitudeDelta;
       
@@ -1183,14 +1272,16 @@ extern BOOL enableLog;
           methodResult(resultList);
       },
       
-      @"::get_northEast_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
+      @"BMKCoordinateBounds::get_northEast_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
           NSMutableArray* resultList = [NSMutableArray array];
       
           for (int i = 0; i < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; i++) {
               NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:i];
       
               // ref object
-              * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              BMKCoordinateBounds ref;
+              [dataValue getValue:&ref];
       
               CLLocationCoordinate2D result = ref.northEast;
       
@@ -1205,14 +1296,16 @@ extern BOOL enableLog;
           methodResult(resultList);
       },
       
-      @"::get_southWest_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
+      @"BMKCoordinateBounds::get_southWest_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
           NSMutableArray* resultList = [NSMutableArray array];
       
           for (int i = 0; i < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; i++) {
               NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:i];
       
               // ref object
-              * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              BMKCoordinateBounds ref;
+              [dataValue getValue:&ref];
       
               CLLocationCoordinate2D result = ref.southWest;
       
@@ -1227,14 +1320,16 @@ extern BOOL enableLog;
           methodResult(resultList);
       },
       
-      @"::get_center_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
+      @"BMKCoordinateRegion::get_center_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
           NSMutableArray* resultList = [NSMutableArray array];
       
           for (int i = 0; i < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; i++) {
               NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:i];
       
               // ref object
-              * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              BMKCoordinateRegion ref;
+              [dataValue getValue:&ref];
       
               CLLocationCoordinate2D result = ref.center;
       
@@ -1249,14 +1344,40 @@ extern BOOL enableLog;
           methodResult(resultList);
       },
       
-      @"::get_latitudeE6_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
+      @"BMKCoordinateRegion::get_span_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
           NSMutableArray* resultList = [NSMutableArray array];
       
           for (int i = 0; i < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; i++) {
               NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:i];
       
               // ref object
-              * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              BMKCoordinateRegion ref;
+              [dataValue getValue:&ref];
+      
+              BMKCoordinateSpan result = ref.span;
+      
+              // 返回值: 结构体
+              NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKCoordinateSpan)];
+              HEAP[@(resultValue.hash)] = resultValue;
+              NSNumber* jsonableResult = @(resultValue.hash);
+      
+              [resultList addObject:jsonableResult];
+          }
+      
+          methodResult(resultList);
+      },
+      
+      @"BMKGeoPoint::get_latitudeE6_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
+          NSMutableArray* resultList = [NSMutableArray array];
+      
+          for (int i = 0; i < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; i++) {
+              NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:i];
+      
+              // ref object
+              NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              BMKGeoPoint ref;
+              [dataValue getValue:&ref];
       
               int result = ref.latitudeE6;
       
@@ -1269,14 +1390,16 @@ extern BOOL enableLog;
           methodResult(resultList);
       },
       
-      @"::get_longitudeE6_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
+      @"BMKGeoPoint::get_longitudeE6_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
           NSMutableArray* resultList = [NSMutableArray array];
       
           for (int i = 0; i < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; i++) {
               NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:i];
       
               // ref object
-              * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              BMKGeoPoint ref;
+              [dataValue getValue:&ref];
       
               int result = ref.longitudeE6;
       
@@ -1289,14 +1412,16 @@ extern BOOL enableLog;
           methodResult(resultList);
       },
       
-      @"::get_x_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
+      @"BMKMapPoint::get_x_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
           NSMutableArray* resultList = [NSMutableArray array];
       
           for (int i = 0; i < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; i++) {
               NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:i];
       
               // ref object
-              * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              BMKMapPoint ref;
+              [dataValue getValue:&ref];
       
               double result = ref.x;
       
@@ -1309,14 +1434,16 @@ extern BOOL enableLog;
           methodResult(resultList);
       },
       
-      @"::get_y_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
+      @"BMKMapPoint::get_y_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
           NSMutableArray* resultList = [NSMutableArray array];
       
           for (int i = 0; i < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; i++) {
               NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:i];
       
               // ref object
-              * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              BMKMapPoint ref;
+              [dataValue getValue:&ref];
       
               double result = ref.y;
       
@@ -1329,14 +1456,16 @@ extern BOOL enableLog;
           methodResult(resultList);
       },
       
-      @"::get_width_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
+      @"BMKMapSize::get_width_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
           NSMutableArray* resultList = [NSMutableArray array];
       
           for (int i = 0; i < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; i++) {
               NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:i];
       
               // ref object
-              * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              BMKMapSize ref;
+              [dataValue getValue:&ref];
       
               double result = ref.width;
       
@@ -1349,19 +1478,69 @@ extern BOOL enableLog;
           methodResult(resultList);
       },
       
-      @"::get_height_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
+      @"BMKMapSize::get_height_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
           NSMutableArray* resultList = [NSMutableArray array];
       
           for (int i = 0; i < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; i++) {
               NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:i];
       
               // ref object
-              * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              BMKMapSize ref;
+              [dataValue getValue:&ref];
       
               double result = ref.height;
       
               // 返回值: Value
               id jsonableResult = @(result);
+      
+              [resultList addObject:jsonableResult];
+          }
+      
+          methodResult(resultList);
+      },
+      
+      @"BMKMapRect::get_origin_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
+          NSMutableArray* resultList = [NSMutableArray array];
+      
+          for (int i = 0; i < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; i++) {
+              NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:i];
+      
+              // ref object
+              NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              BMKMapRect ref;
+              [dataValue getValue:&ref];
+      
+              BMKMapPoint result = ref.origin;
+      
+              // 返回值: 结构体
+              NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapPoint)];
+              HEAP[@(resultValue.hash)] = resultValue;
+              NSNumber* jsonableResult = @(resultValue.hash);
+      
+              [resultList addObject:jsonableResult];
+          }
+      
+          methodResult(resultList);
+      },
+      
+      @"BMKMapRect::get_size_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
+          NSMutableArray* resultList = [NSMutableArray array];
+      
+          for (int i = 0; i < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; i++) {
+              NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:i];
+      
+              // ref object
+              NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+              BMKMapRect ref;
+              [dataValue getValue:&ref];
+      
+              BMKMapSize result = ref.size;
+      
+              // 返回值: 结构体
+              NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapSize)];
+              HEAP[@(resultValue.hash)] = resultValue;
+              NSNumber* jsonableResult = @(resultValue.hash);
       
               [resultList addObject:jsonableResult];
           }
@@ -1798,10 +1977,10 @@ extern BOOL enableLog;
           methodResult(@"success");
       },
       
-      @"::set_latitudeDelta": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKCoordinateSpan::set_latitudeDelta": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::set_latitudeDelta");
+              NSLog(@"BMKCoordinateSpan::set_latitudeDelta");
           }
       
           // args
@@ -1809,16 +1988,18 @@ extern BOOL enableLog;
           CLLocationDegrees latitudeDelta = [args[@"latitudeDelta"] doubleValue];
       
           // ref
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKCoordinateSpan ref;
+          [dataValue getValue:&ref];
       
           ref.latitudeDelta = latitudeDelta;
           methodResult(@"success");
       },
       
-      @"::set_longitudeDelta": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKCoordinateSpan::set_longitudeDelta": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::set_longitudeDelta");
+              NSLog(@"BMKCoordinateSpan::set_longitudeDelta");
           }
       
           // args
@@ -1826,16 +2007,18 @@ extern BOOL enableLog;
           CLLocationDegrees longitudeDelta = [args[@"longitudeDelta"] doubleValue];
       
           // ref
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKCoordinateSpan ref;
+          [dataValue getValue:&ref];
       
           ref.longitudeDelta = longitudeDelta;
           methodResult(@"success");
       },
       
-      @"::set_northEast": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKCoordinateBounds::set_northEast": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::set_northEast");
+              NSLog(@"BMKCoordinateBounds::set_northEast");
           }
       
           // args
@@ -1845,16 +2028,18 @@ extern BOOL enableLog;
           [northEastValue getValue:&northEast];
       
           // ref
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKCoordinateBounds ref;
+          [dataValue getValue:&ref];
       
           ref.northEast = northEast;
           methodResult(@"success");
       },
       
-      @"::set_southWest": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKCoordinateBounds::set_southWest": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::set_southWest");
+              NSLog(@"BMKCoordinateBounds::set_southWest");
           }
       
           // args
@@ -1864,16 +2049,18 @@ extern BOOL enableLog;
           [southWestValue getValue:&southWest];
       
           // ref
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKCoordinateBounds ref;
+          [dataValue getValue:&ref];
       
           ref.southWest = southWest;
           methodResult(@"success");
       },
       
-      @"::set_center": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKCoordinateRegion::set_center": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::set_center");
+              NSLog(@"BMKCoordinateRegion::set_center");
           }
       
           // args
@@ -1883,16 +2070,39 @@ extern BOOL enableLog;
           [centerValue getValue:&center];
       
           // ref
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKCoordinateRegion ref;
+          [dataValue getValue:&ref];
       
           ref.center = center;
           methodResult(@"success");
       },
       
-      @"::set_latitudeE6": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKCoordinateRegion::set_span": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::set_latitudeE6");
+              NSLog(@"BMKCoordinateRegion::set_span");
+          }
+      
+          // args
+          // struct arg
+          NSValue* spanValue = (NSValue*) HEAP[@([args[@"span"] integerValue])];
+          BMKCoordinateSpan span;
+          [spanValue getValue:&span];
+      
+          // ref
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKCoordinateRegion ref;
+          [dataValue getValue:&ref];
+      
+          ref.span = span;
+          methodResult(@"success");
+      },
+      
+      @"BMKGeoPoint::set_latitudeE6": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+          // print log
+          if (enableLog) {
+              NSLog(@"BMKGeoPoint::set_latitudeE6");
           }
       
           // args
@@ -1900,16 +2110,18 @@ extern BOOL enableLog;
           int latitudeE6 = [args[@"latitudeE6"] intValue];
       
           // ref
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKGeoPoint ref;
+          [dataValue getValue:&ref];
       
           ref.latitudeE6 = latitudeE6;
           methodResult(@"success");
       },
       
-      @"::set_longitudeE6": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKGeoPoint::set_longitudeE6": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::set_longitudeE6");
+              NSLog(@"BMKGeoPoint::set_longitudeE6");
           }
       
           // args
@@ -1917,16 +2129,18 @@ extern BOOL enableLog;
           int longitudeE6 = [args[@"longitudeE6"] intValue];
       
           // ref
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKGeoPoint ref;
+          [dataValue getValue:&ref];
       
           ref.longitudeE6 = longitudeE6;
           methodResult(@"success");
       },
       
-      @"::set_x": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKMapPoint::set_x": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::set_x");
+              NSLog(@"BMKMapPoint::set_x");
           }
       
           // args
@@ -1934,16 +2148,18 @@ extern BOOL enableLog;
           double x = [args[@"x"] doubleValue];
       
           // ref
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKMapPoint ref;
+          [dataValue getValue:&ref];
       
           ref.x = x;
           methodResult(@"success");
       },
       
-      @"::set_y": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKMapPoint::set_y": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::set_y");
+              NSLog(@"BMKMapPoint::set_y");
           }
       
           // args
@@ -1951,16 +2167,18 @@ extern BOOL enableLog;
           double y = [args[@"y"] doubleValue];
       
           // ref
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKMapPoint ref;
+          [dataValue getValue:&ref];
       
           ref.y = y;
           methodResult(@"success");
       },
       
-      @"::set_width": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKMapSize::set_width": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::set_width");
+              NSLog(@"BMKMapSize::set_width");
           }
       
           // args
@@ -1968,16 +2186,18 @@ extern BOOL enableLog;
           double width = [args[@"width"] doubleValue];
       
           // ref
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKMapSize ref;
+          [dataValue getValue:&ref];
       
           ref.width = width;
           methodResult(@"success");
       },
       
-      @"::set_height": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+      @"BMKMapSize::set_height": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
-              NSLog(@"::set_height");
+              NSLog(@"BMKMapSize::set_height");
           }
       
           // args
@@ -1985,9 +2205,53 @@ extern BOOL enableLog;
           double height = [args[@"height"] doubleValue];
       
           // ref
-          * ref = (*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKMapSize ref;
+          [dataValue getValue:&ref];
       
           ref.height = height;
+          methodResult(@"success");
+      },
+      
+      @"BMKMapRect::set_origin": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+          // print log
+          if (enableLog) {
+              NSLog(@"BMKMapRect::set_origin");
+          }
+      
+          // args
+          // struct arg
+          NSValue* originValue = (NSValue*) HEAP[@([args[@"origin"] integerValue])];
+          BMKMapPoint origin;
+          [originValue getValue:&origin];
+      
+          // ref
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKMapRect ref;
+          [dataValue getValue:&ref];
+      
+          ref.origin = origin;
+          methodResult(@"success");
+      },
+      
+      @"BMKMapRect::set_size": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+          // print log
+          if (enableLog) {
+              NSLog(@"BMKMapRect::set_size");
+          }
+      
+          // args
+          // struct arg
+          NSValue* sizeValue = (NSValue*) HEAP[@([args[@"size"] integerValue])];
+          BMKMapSize size;
+          [sizeValue getValue:&size];
+      
+          // ref
+          NSValue* dataValue = (NSValue*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+          BMKMapRect ref;
+          [dataValue getValue:&ref];
+      
+          ref.size = size;
           methodResult(@"success");
       },
       
@@ -2408,6 +2672,118 @@ extern BOOL enableLog;
           if (enableLog) NSLog(@"HEAP: %@", HEAP);
       },
       
+      @"ObjectFactory::createBMKCoordinateSpan": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+          // print log
+          if (enableLog) {
+              NSLog(@"ObjectFactory::createBMKCoordinateSpan");
+          }
+      
+          BMKCoordinateSpan data;
+      
+          NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKCoordinateSpan)];
+          HEAP[@(dataValue.hash)] = dataValue;
+      
+          methodResult(@(dataValue.hash));
+      
+          if (enableLog) NSLog(@"HEAP: %@", HEAP);
+      },
+      
+      @"ObjectFactory::createBMKCoordinateBounds": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+          // print log
+          if (enableLog) {
+              NSLog(@"ObjectFactory::createBMKCoordinateBounds");
+          }
+      
+          BMKCoordinateBounds data;
+      
+          NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKCoordinateBounds)];
+          HEAP[@(dataValue.hash)] = dataValue;
+      
+          methodResult(@(dataValue.hash));
+      
+          if (enableLog) NSLog(@"HEAP: %@", HEAP);
+      },
+      
+      @"ObjectFactory::createBMKCoordinateRegion": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+          // print log
+          if (enableLog) {
+              NSLog(@"ObjectFactory::createBMKCoordinateRegion");
+          }
+      
+          BMKCoordinateRegion data;
+      
+          NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKCoordinateRegion)];
+          HEAP[@(dataValue.hash)] = dataValue;
+      
+          methodResult(@(dataValue.hash));
+      
+          if (enableLog) NSLog(@"HEAP: %@", HEAP);
+      },
+      
+      @"ObjectFactory::createBMKGeoPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+          // print log
+          if (enableLog) {
+              NSLog(@"ObjectFactory::createBMKGeoPoint");
+          }
+      
+          BMKGeoPoint data;
+      
+          NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKGeoPoint)];
+          HEAP[@(dataValue.hash)] = dataValue;
+      
+          methodResult(@(dataValue.hash));
+      
+          if (enableLog) NSLog(@"HEAP: %@", HEAP);
+      },
+      
+      @"ObjectFactory::createBMKMapPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+          // print log
+          if (enableLog) {
+              NSLog(@"ObjectFactory::createBMKMapPoint");
+          }
+      
+          BMKMapPoint data;
+      
+          NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKMapPoint)];
+          HEAP[@(dataValue.hash)] = dataValue;
+      
+          methodResult(@(dataValue.hash));
+      
+          if (enableLog) NSLog(@"HEAP: %@", HEAP);
+      },
+      
+      @"ObjectFactory::createBMKMapSize": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+          // print log
+          if (enableLog) {
+              NSLog(@"ObjectFactory::createBMKMapSize");
+          }
+      
+          BMKMapSize data;
+      
+          NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKMapSize)];
+          HEAP[@(dataValue.hash)] = dataValue;
+      
+          methodResult(@(dataValue.hash));
+      
+          if (enableLog) NSLog(@"HEAP: %@", HEAP);
+      },
+      
+      @"ObjectFactory::createBMKMapRect": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+          // print log
+          if (enableLog) {
+              NSLog(@"ObjectFactory::createBMKMapRect");
+          }
+      
+          BMKMapRect data;
+      
+          NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKMapRect)];
+          HEAP[@(dataValue.hash)] = dataValue;
+      
+          methodResult(@(dataValue.hash));
+      
+          if (enableLog) NSLog(@"HEAP: %@", HEAP);
+      },
+      
       @"ObjectFactory::createBMKPlanNode": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
           // print log
           if (enableLog) {
@@ -2472,6 +2848,125 @@ extern BOOL enableLog;
               HEAP[@(ref.hash)] = ref;
       
               [resultList addObject:@(ref.hash)];
+          }
+      
+          methodResult(resultList);
+      
+          if (enableLog) NSLog(@"HEAP: %@", HEAP);
+      },
+      
+      @"ObjectFactory::create_batchBMKCoordinateSpan": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
+          NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+      
+          for (int i = 0; i < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; i++) {
+              BMKCoordinateSpan data;
+      
+              NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKCoordinateSpan)];
+              HEAP[@(dataValue.hash)] = dataValue;
+      
+              [resultList addObject:@(dataValue.hash)];
+          }
+      
+          methodResult(resultList);
+      
+          if (enableLog) NSLog(@"HEAP: %@", HEAP);
+      },
+      
+      @"ObjectFactory::create_batchBMKCoordinateBounds": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
+          NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+      
+          for (int i = 0; i < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; i++) {
+              BMKCoordinateBounds data;
+      
+              NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKCoordinateBounds)];
+              HEAP[@(dataValue.hash)] = dataValue;
+      
+              [resultList addObject:@(dataValue.hash)];
+          }
+      
+          methodResult(resultList);
+      
+          if (enableLog) NSLog(@"HEAP: %@", HEAP);
+      },
+      
+      @"ObjectFactory::create_batchBMKCoordinateRegion": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
+          NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+      
+          for (int i = 0; i < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; i++) {
+              BMKCoordinateRegion data;
+      
+              NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKCoordinateRegion)];
+              HEAP[@(dataValue.hash)] = dataValue;
+      
+              [resultList addObject:@(dataValue.hash)];
+          }
+      
+          methodResult(resultList);
+      
+          if (enableLog) NSLog(@"HEAP: %@", HEAP);
+      },
+      
+      @"ObjectFactory::create_batchBMKGeoPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
+          NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+      
+          for (int i = 0; i < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; i++) {
+              BMKGeoPoint data;
+      
+              NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKGeoPoint)];
+              HEAP[@(dataValue.hash)] = dataValue;
+      
+              [resultList addObject:@(dataValue.hash)];
+          }
+      
+          methodResult(resultList);
+      
+          if (enableLog) NSLog(@"HEAP: %@", HEAP);
+      },
+      
+      @"ObjectFactory::create_batchBMKMapPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
+          NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+      
+          for (int i = 0; i < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; i++) {
+              BMKMapPoint data;
+      
+              NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKMapPoint)];
+              HEAP[@(dataValue.hash)] = dataValue;
+      
+              [resultList addObject:@(dataValue.hash)];
+          }
+      
+          methodResult(resultList);
+      
+          if (enableLog) NSLog(@"HEAP: %@", HEAP);
+      },
+      
+      @"ObjectFactory::create_batchBMKMapSize": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
+          NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+      
+          for (int i = 0; i < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; i++) {
+              BMKMapSize data;
+      
+              NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKMapSize)];
+              HEAP[@(dataValue.hash)] = dataValue;
+      
+              [resultList addObject:@(dataValue.hash)];
+          }
+      
+          methodResult(resultList);
+      
+          if (enableLog) NSLog(@"HEAP: %@", HEAP);
+      },
+      
+      @"ObjectFactory::create_batchBMKMapRect": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
+          NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+      
+          for (int i = 0; i < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; i++) {
+              BMKMapRect data;
+      
+              NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKMapRect)];
+              HEAP[@(dataValue.hash)] = dataValue;
+      
+              [resultList addObject:@(dataValue.hash)];
           }
       
           methodResult(resultList);

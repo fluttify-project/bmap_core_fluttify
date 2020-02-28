@@ -29,11 +29,11 @@ A new flutter plugin project.
   s.vendored_libraries = '**/*.a'
   # ios system framework
   s.frameworks = [
-        
+        "CoreGraphics", "CoreLocation", "OpenGLES", "QuartzCore", "Security", "SystemConfiguration"
   ]
   # ios system library
   s.libraries = [
-        
+        "c++", "sqlite3.0", "z"
   ]
   # resources
   s.resources = '*.framework/*.bundle'
