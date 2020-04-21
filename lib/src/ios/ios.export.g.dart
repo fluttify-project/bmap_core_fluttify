@@ -9,6 +9,7 @@ export 'BMKMapModule.g.dart';
 export 'BMKPermissionCheckResultCode.g.dart';
 export 'BMKCoordinateRegion.g.dart';
 export 'BMKGeneralDelegate.g.dart';
+export 'constants.g.dart';
 export 'BMKOpenErrorCode.g.dart';
 export 'BMKPlanNode.g.dart';
 export 'BMKGeoPoint.g.dart';
