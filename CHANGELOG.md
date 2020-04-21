@@ -1,3 +1,6 @@
+## 0.0.7
+- roll engine #b66adc8b
+
 ## 0.0.6
 - fix: 导出类
 
