@@ -28,7 +28,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.6+d0a1b9b"
+    version: "0.0.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -87,7 +87,7 @@ packages:
       name: foundation_fluttify
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.8"
+    version: "0.6.1"
   image:
     dependency: transitive
     description:
