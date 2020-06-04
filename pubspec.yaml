@@ -1,6 +1,6 @@
 name: bmap_core_fluttify
 description: An `BaiduMap` Core Component, Powered By `Fluttify` Engine, Which Generates Dart Binding For Native SDK.
-version: 0.0.7-dev.2
+version: 0.1.0
 author: yohom <yohombao@qq.com>
 homepage: https://github.com/fluttify-project
 
