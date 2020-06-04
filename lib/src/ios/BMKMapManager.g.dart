@@ -55,7 +55,7 @@ class BMKMapManager extends NSObject  {
   static Future<BMKMapManager> sharedInstance() async {
     // print log
     if (fluttifyLogEnabled) {
-      print('fluttify-dart: BMKMapManager::sharedInstance([])');
+      debugPrint('fluttify-dart: BMKMapManager::sharedInstance([])');
     }
   
     // invoke native method
@@ -69,8 +69,9 @@ class BMKMapManager extends NSObject  {
     if (__result__ == null) {
       return null;
     } else {
-      kNativeObjectPool.add(BMKMapManager()..refId = __result__..tag__ = 'bmap_core_fluttify');
-      return BMKMapManager()..refId = __result__..tag__ = 'bmap_core_fluttify';
+      final __return__ = BMKMapManager()..refId = __result__..tag__ = 'bmap_core_fluttify';
+      kNativeObjectPool.add(__return__);
+      return __return__;
     }
   }
   
@@ -78,7 +79,7 @@ class BMKMapManager extends NSObject  {
   static Future<bool> setCoordinateTypeUsedInBaiduMapSDK(BMK_COORD_TYPE coorType) async {
     // print log
     if (fluttifyLogEnabled) {
-      print('fluttify-dart: BMKMapManager::setCoordinateTypeUsedInBaiduMapSDK([])');
+      debugPrint('fluttify-dart: BMKMapManager::setCoordinateTypeUsedInBaiduMapSDK([])');
     }
   
     // invoke native method
@@ -92,8 +93,9 @@ class BMKMapManager extends NSObject  {
     if (__result__ == null) {
       return null;
     } else {
+      final __return__ = __result__;
     
-      return __result__;
+      return __return__;
     }
   }
   
@@ -101,7 +103,7 @@ class BMKMapManager extends NSObject  {
   static Future<BMK_COORD_TYPE> getCoordinateTypeUsedInBaiduMapSDK() async {
     // print log
     if (fluttifyLogEnabled) {
-      print('fluttify-dart: BMKMapManager::getCoordinateTypeUsedInBaiduMapSDK([])');
+      debugPrint('fluttify-dart: BMKMapManager::getCoordinateTypeUsedInBaiduMapSDK([])');
     }
   
     // invoke native method
@@ -115,8 +117,9 @@ class BMKMapManager extends NSObject  {
     if (__result__ == null) {
       return null;
     } else {
+      final __return__ = BMK_COORD_TYPE.values[__result__];
     
-      return BMK_COORD_TYPE.values[__result__];
+      return __return__;
     }
   }
   
@@ -124,7 +127,7 @@ class BMKMapManager extends NSObject  {
   static Future<void> logEnable_module(bool enable, BMKMapModule mapModule) async {
     // print log
     if (fluttifyLogEnabled) {
-      print('fluttify-dart: BMKMapManager::logEnable([\'enable\':$enable])');
+      debugPrint('fluttify-dart: BMKMapManager::logEnable([\'enable\':$enable])');
     }
   
     // invoke native method
@@ -138,8 +141,9 @@ class BMKMapManager extends NSObject  {
     if (__result__ == null) {
       return null;
     } else {
+      final __return__ = __result__;
     
-      return __result__;
+      return __return__;
     }
   }
   
@@ -147,7 +151,7 @@ class BMKMapManager extends NSObject  {
   Future<bool> start_generalDelegate(String key, BMKGeneralDelegate delegate) async {
     // print log
     if (fluttifyLogEnabled) {
-      print('fluttify-dart: BMKMapManager@$refId::start([\'key\':$key])');
+      debugPrint('fluttify-dart: BMKMapManager@$refId::start([\'key\':$key])');
     }
   
     // invoke native method
@@ -165,7 +169,7 @@ class BMKMapManager extends NSObject  {
             case 'Callback::BMKGeneralDelegate::onGetNetworkState':
               // print log
               if (fluttifyLogEnabled) {
-                print('fluttify-dart-callback: onGetNetworkState([\'iError\':${args['iError']}])');
+                debugPrint('fluttify-dart-callback: onGetNetworkState([\'iError\':${args['iError']}])');
               }
         
               // handle the native call
@@ -174,7 +178,7 @@ class BMKMapManager extends NSObject  {
             case 'Callback::BMKGeneralDelegate::onGetPermissionState':
               // print log
               if (fluttifyLogEnabled) {
-                print('fluttify-dart-callback: onGetPermissionState([\'iError\':${args['iError']}])');
+                debugPrint('fluttify-dart-callback: onGetPermissionState([\'iError\':${args['iError']}])');
               }
         
               // handle the native call
@@ -189,8 +193,9 @@ class BMKMapManager extends NSObject  {
     if (__result__ == null) {
       return null;
     } else {
+      final __return__ = __result__;
     
-      return __result__;
+      return __return__;
     }
   }
   
@@ -198,7 +203,7 @@ class BMKMapManager extends NSObject  {
   Future<int> getTotalSendFlaxLength() async {
     // print log
     if (fluttifyLogEnabled) {
-      print('fluttify-dart: BMKMapManager@$refId::getTotalSendFlaxLength([])');
+      debugPrint('fluttify-dart: BMKMapManager@$refId::getTotalSendFlaxLength([])');
     }
   
     // invoke native method
@@ -212,8 +217,9 @@ class BMKMapManager extends NSObject  {
     if (__result__ == null) {
       return null;
     } else {
+      final __return__ = __result__;
     
-      return __result__;
+      return __return__;
     }
   }
   
@@ -221,7 +227,7 @@ class BMKMapManager extends NSObject  {
   Future<int> getTotalRecvFlaxLength() async {
     // print log
     if (fluttifyLogEnabled) {
-      print('fluttify-dart: BMKMapManager@$refId::getTotalRecvFlaxLength([])');
+      debugPrint('fluttify-dart: BMKMapManager@$refId::getTotalRecvFlaxLength([])');
     }
   
     // invoke native method
@@ -235,8 +241,9 @@ class BMKMapManager extends NSObject  {
     if (__result__ == null) {
       return null;
     } else {
+      final __return__ = __result__;
     
-      return __result__;
+      return __return__;
     }
   }
   
@@ -244,7 +251,7 @@ class BMKMapManager extends NSObject  {
   Future<bool> stop() async {
     // print log
     if (fluttifyLogEnabled) {
-      print('fluttify-dart: BMKMapManager@$refId::stop([])');
+      debugPrint('fluttify-dart: BMKMapManager@$refId::stop([])');
     }
   
     // invoke native method
@@ -258,8 +265,9 @@ class BMKMapManager extends NSObject  {
     if (__result__ == null) {
       return null;
     } else {
+      final __return__ = __result__;
     
-      return __result__;
+      return __return__;
     }
   }
   
