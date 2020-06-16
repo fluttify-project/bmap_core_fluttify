@@ -6,7 +6,6 @@
 import 'dart:typed_data';
 
 import 'package:bmap_core_fluttify/src/ios/ios.export.g.dart';
-import 'package:bmap_core_fluttify/src/android/android.export.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -70,7 +69,7 @@ class BMKMapManager extends NSObject  {
       return null;
     } else {
       final __return__ = BMKMapManager()..refId = __result__..tag__ = 'bmap_core_fluttify';
-      kNativeObjectPool.add(__return__);
+      if (__result__ is Ref) kNativeObjectPool.add(__return__ as Ref);
       return __return__;
     }
   }
@@ -83,7 +82,7 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::setCoordinateTypeUsedInBaiduMapSDK', {"coorType": coorType.index});
+    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::setCoordinateTypeUsedInBaiduMapSDK', {"coorType": coorType.index + 0});
   
   
     // handle native call
@@ -131,7 +130,7 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::logEnable_module', {"enable": enable, "mapModule": mapModule.index});
+    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::logEnable_module', {"enable": enable, "mapModule": mapModule.index + 0});
   
   
     // handle native call
@@ -162,9 +161,6 @@ class BMKMapManager extends NSObject  {
     MethodChannel('BMKMapManager::start_generalDelegate::Callback')
         .setMethodCallHandler((methodCall) async {
           final args = methodCall.arguments as Map;
-          // final refId = args['callerRefId'] as int;
-          // if (refId != this.refId) return;
-  
           switch (methodCall.method) {
             case 'Callback::BMKGeneralDelegate::onGetNetworkState':
               // print log

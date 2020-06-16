@@ -6,14 +6,17 @@
 import 'dart:typed_data';
 
 import 'package:bmap_core_fluttify/src/ios/ios.export.g.dart';
-import 'package:bmap_core_fluttify/src/android/android.export.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
+
+
 mixin BMKGeneralDelegate on NSObject {
+  
+
   
 
   
@@ -39,3 +42,4 @@ mixin BMKGeneralDelegate on NSObject {
   }
   
 }
+

@@ -4,5 +4,5 @@
 //////////////////////////////////////////////////////////
 
 enum BMKMapModule {
-  BMKMapModuleTile
+  BMKMapModuleTile /* 0 */
 }
