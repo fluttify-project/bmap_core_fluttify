@@ -3,7 +3,7 @@
 //////////////////////////////////////////////////////////
 
 #import <Flutter/Flutter.h>
-#import <BaiduMapAPI_Base/BaiduMapAPI_Base.h>
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>
 
 typedef void (^Handler)(NSObject <FlutterPluginRegistrar> *, id, FlutterResult);
 
