@@ -4,7 +4,7 @@
 //////////////////////////////////////////////////////////
 
 enum BMKMapType {
-  BMKMapTypeNone,
-  BMKMapTypeStandard,
-  BMKMapTypeSatellite
+  BMKMapTypeNone /* 0 */,
+  BMKMapTypeStandard /* 1 */,
+  BMKMapTypeSatellite /* 2 */
 }

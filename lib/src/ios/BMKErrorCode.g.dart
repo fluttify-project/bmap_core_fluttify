@@ -4,12 +4,12 @@
 //////////////////////////////////////////////////////////
 
 enum BMKErrorCode {
-  BMKErrorOk,
-  BMKErrorConnect,
-  BMKErrorData,
-  BMKErrorRouteAddr,
-  BMKErrorResultNotFound,
-  BMKErrorLocationFailed,
-  BMKErrorPermissionCheckFailure,
-  BMKErrorParse
+  BMKErrorOk /* 0 */,
+  BMKErrorConnect /* 2 */,
+  BMKErrorData /* 3 */,
+  BMKErrorRouteAddr /* 4 */,
+  BMKErrorResultNotFound /* 100 */,
+  BMKErrorLocationFailed /* 200 */,
+  BMKErrorPermissionCheckFailure /* 300 */,
+  BMKErrorParse /* 310 */
 }

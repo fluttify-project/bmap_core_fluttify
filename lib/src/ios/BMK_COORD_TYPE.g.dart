@@ -4,7 +4,7 @@
 //////////////////////////////////////////////////////////
 
 enum BMK_COORD_TYPE {
-  BMK_COORDTYPE_GPS,
-  BMK_COORDTYPE_COMMON,
-  BMK_COORDTYPE_BD09LL
+  BMK_COORDTYPE_GPS /* 0 */,
+  BMK_COORDTYPE_COMMON /* 0 */,
+  BMK_COORDTYPE_BD09LL /* 0 */
 }
