@@ -5,7 +5,7 @@
 #import "BmapCoreFluttifyPlugin.h"
 #import <objc/runtime.h>
 #import "SubHandler/SubHandler0.h"
-#import "SubHandler/SubHandlerCustom.h"
+#import "SubHandler/Custom/SubHandlerCustom.h"
 
 // Dart端一次方法调用所存在的栈, 只有当MethodChannel传递参数受限时, 再启用这个容器
 extern NSMutableDictionary<NSString*, NSObject*>* STACK;
@@ -68,7 +68,9 @@ extern BOOL enableLog;
   // primitive callback arg
   NSNumber* argiError = @(iError);
 
-  [channel invokeMethod:@"Callback::BMKGeneralDelegate::onGetNetworkState" arguments:@{@"iError": argiError}];
+  dispatch_async(dispatch_get_main_queue(), ^{
+      [channel invokeMethod:@"Callback::BMKGeneralDelegate::onGetNetworkState" arguments:@{@"iError": argiError}];
+  });
   
 }
 
@@ -86,7 +88,9 @@ extern BOOL enableLog;
   // primitive callback arg
   NSNumber* argiError = @(iError);
 
-  [channel invokeMethod:@"Callback::BMKGeneralDelegate::onGetPermissionState" arguments:@{@"iError": argiError}];
+  dispatch_async(dispatch_get_main_queue(), ^{
+      [channel invokeMethod:@"Callback::BMKGeneralDelegate::onGetPermissionState" arguments:@{@"iError": argiError}];
+  });
   
 }
 

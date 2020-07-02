@@ -69,7 +69,7 @@ class BMKMapManager extends NSObject  {
       return null;
     } else {
       final __return__ = BMKMapManager()..refId = __result__..tag__ = 'bmap_core_fluttify';
-      if (__result__ is Ref) kNativeObjectPool.add(__return__ as Ref);
+      if (__return__ is Ref) kNativeObjectPool.add(__return__);
       return __return__;
     }
   }
@@ -82,7 +82,7 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::setCoordinateTypeUsedInBaiduMapSDK', {"coorType": coorType.index + 0});
+    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::setCoordinateTypeUsedInBaiduMapSDK', {"coorType": coorType.toValue()});
   
   
     // handle native call
@@ -116,7 +116,7 @@ class BMKMapManager extends NSObject  {
     if (__result__ == null) {
       return null;
     } else {
-      final __return__ = BMK_COORD_TYPE.values[__result__];
+      final __return__ = (__result__ as int).toBMK_COORD_TYPE();
     
       return __return__;
     }
@@ -130,7 +130,7 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::logEnable_module', {"enable": enable, "mapModule": mapModule.index + 0});
+    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::logEnable_module', {"enable": enable, "mapModule": mapModule.toValue()});
   
   
     // handle native call
@@ -158,7 +158,7 @@ class BMKMapManager extends NSObject  {
   
   
     // handle native call
-    MethodChannel('BMKMapManager::start_generalDelegate::Callback')
+    MethodChannel('BMKGeneralDelegate::Callback')
         .setMethodCallHandler((methodCall) async {
           final args = methodCall.arguments as Map;
           switch (methodCall.method) {
@@ -307,7 +307,7 @@ extension BMKMapManager_Batch on List<BMKMapManager> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::setCoordinateTypeUsedInBaiduMapSDK_batch', [for (int __i__ = 0; __i__ < coorType.length; __i__++) {"coorType": coorType[__i__].index}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::setCoordinateTypeUsedInBaiduMapSDK_batch', [for (int __i__ = 0; __i__ < coorType.length; __i__++) {"coorType": coorType[__i__].toValue()}]);
   
   
     // convert native result to dart side object
@@ -334,7 +334,7 @@ extension BMKMapManager_Batch on List<BMKMapManager> {
     if (resultBatch == null) {
       return null;
     } else {
-      final typedResult = (resultBatch as List).cast<int>().map((__result__) => BMK_COORD_TYPE.values[__result__]).toList();
+      final typedResult = (resultBatch as List).cast<int>().map((__result__) => (__result__ as int).toBMK_COORD_TYPE()).toList();
     
       return typedResult;
     }
@@ -347,7 +347,7 @@ extension BMKMapManager_Batch on List<BMKMapManager> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::logEnable_module_batch', [for (int __i__ = 0; __i__ < enable.length; __i__++) {"enable": enable[__i__], "mapModule": mapModule[__i__].index}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::logEnable_module_batch', [for (int __i__ = 0; __i__ < enable.length; __i__++) {"enable": enable[__i__], "mapModule": mapModule[__i__].toValue()}]);
   
   
     // convert native result to dart side object
