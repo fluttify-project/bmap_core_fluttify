@@ -13,6 +13,7 @@ extern BOOL enableLog;
 
 @implementation BmapCoreFluttifyPlugin (SubHandler0)
 - (NSDictionary<NSString*, Handler>*) getSubHandler0 {
+    __weak __typeof(self)weakSelf = self;
     return @{
         @"BMKMapManager::sharedInstance": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
@@ -31,8 +32,8 @@ extern BOOL enableLog;
         
             // result
             // return a ref
-            HEAP[@((result).hash)] = result;
-            NSNumber* jsonableResult = @((result).hash);
+            HEAP[[NSNumber numberWithLong: (result).hash]] = result;
+            NSNumber* jsonableResult = [NSNumber numberWithLong: (result).hash];
         
             methodResult(jsonableResult);
         },
@@ -108,7 +109,7 @@ extern BOOL enableLog;
             // jsonable arg
             NSString* key = (NSString*) args[@"key"];
             // ref arg
-            id<BMKGeneralDelegate> delegate = (id<BMKGeneralDelegate>) HEAP[@([args[@"delegate"] integerValue])];
+            id<BMKGeneralDelegate> delegate = (id<BMKGeneralDelegate>) HEAP[args[@"delegate"]];
         
             // ref
             BMKMapManager* ref = (BMKMapManager*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
@@ -207,8 +208,8 @@ extern BOOL enableLog;
         
                 // result
                 // return a ref
-                HEAP[@((result).hash)] = result;
-                NSNumber* jsonableResult = @((result).hash);
+                HEAP[[NSNumber numberWithLong: (result).hash]] = result;
+                NSNumber* jsonableResult = [NSNumber numberWithLong: (result).hash];
         
                 [resultList addObject:jsonableResult];
             }
@@ -394,8 +395,8 @@ extern BOOL enableLog;
             CLLocation* result = ref.location;
         
             // return a ref
-            HEAP[@((result).hash)] = result;
-            NSNumber* jsonableResult = @((result).hash);
+            HEAP[[NSNumber numberWithLong: (result).hash]] = result;
+            NSNumber* jsonableResult = [NSNumber numberWithLong: (result).hash];
         
             methodResult(jsonableResult);
         },
@@ -413,8 +414,8 @@ extern BOOL enableLog;
             CLHeading* result = ref.heading;
         
             // return a ref
-            HEAP[@((result).hash)] = result;
-            NSNumber* jsonableResult = @((result).hash);
+            HEAP[[NSNumber numberWithLong: (result).hash]] = result;
+            NSNumber* jsonableResult = [NSNumber numberWithLong: (result).hash];
         
             methodResult(jsonableResult);
         },
@@ -511,8 +512,8 @@ extern BOOL enableLog;
         
             // 返回值: 结构体
             NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+            NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
         
             methodResult(jsonableResult);
         },
@@ -533,8 +534,8 @@ extern BOOL enableLog;
         
             // 返回值: 结构体
             NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+            NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
         
             methodResult(jsonableResult);
         },
@@ -555,8 +556,8 @@ extern BOOL enableLog;
         
             // 返回值: 结构体
             NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+            NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
         
             methodResult(jsonableResult);
         },
@@ -577,8 +578,8 @@ extern BOOL enableLog;
         
             // 返回值: 结构体
             NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKCoordinateSpan)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+            NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
         
             methodResult(jsonableResult);
         },
@@ -719,8 +720,8 @@ extern BOOL enableLog;
         
             // 返回值: 结构体
             NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapPoint)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+            NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
         
             methodResult(jsonableResult);
         },
@@ -741,8 +742,8 @@ extern BOOL enableLog;
         
             // 返回值: 结构体
             NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapSize)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+            NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
         
             methodResult(jsonableResult);
         },
@@ -815,8 +816,8 @@ extern BOOL enableLog;
         
             // 返回值: 结构体
             NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+            NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
         
             methodResult(jsonableResult);
         },
@@ -853,8 +854,8 @@ extern BOOL enableLog;
         
             // 返回值: 结构体
             NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+            NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
         
             methodResult(jsonableResult);
         },
@@ -1089,8 +1090,8 @@ extern BOOL enableLog;
                 CLLocation* result = ref.location;
         
                 // return a ref
-                HEAP[@((result).hash)] = result;
-                NSNumber* jsonableResult = @((result).hash);
+                HEAP[[NSNumber numberWithLong: (result).hash]] = result;
+                NSNumber* jsonableResult = [NSNumber numberWithLong: (result).hash];
         
                 [resultList addObject:jsonableResult];
             }
@@ -1110,8 +1111,8 @@ extern BOOL enableLog;
                 CLHeading* result = ref.heading;
         
                 // return a ref
-                HEAP[@((result).hash)] = result;
-                NSNumber* jsonableResult = @((result).hash);
+                HEAP[[NSNumber numberWithLong: (result).hash]] = result;
+                NSNumber* jsonableResult = [NSNumber numberWithLong: (result).hash];
         
                 [resultList addObject:jsonableResult];
             }
@@ -1218,8 +1219,8 @@ extern BOOL enableLog;
         
                 // 返回值: 结构体
                 NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
-                HEAP[@(resultValue.hash)] = resultValue;
-                NSNumber* jsonableResult = @(resultValue.hash);
+                HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+                NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
         
                 [resultList addObject:jsonableResult];
             }
@@ -1242,8 +1243,8 @@ extern BOOL enableLog;
         
                 // 返回值: 结构体
                 NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
-                HEAP[@(resultValue.hash)] = resultValue;
-                NSNumber* jsonableResult = @(resultValue.hash);
+                HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+                NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
         
                 [resultList addObject:jsonableResult];
             }
@@ -1266,8 +1267,8 @@ extern BOOL enableLog;
         
                 // 返回值: 结构体
                 NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
-                HEAP[@(resultValue.hash)] = resultValue;
-                NSNumber* jsonableResult = @(resultValue.hash);
+                HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+                NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
         
                 [resultList addObject:jsonableResult];
             }
@@ -1290,8 +1291,8 @@ extern BOOL enableLog;
         
                 // 返回值: 结构体
                 NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKCoordinateSpan)];
-                HEAP[@(resultValue.hash)] = resultValue;
-                NSNumber* jsonableResult = @(resultValue.hash);
+                HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+                NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
         
                 [resultList addObject:jsonableResult];
             }
@@ -1446,8 +1447,8 @@ extern BOOL enableLog;
         
                 // 返回值: 结构体
                 NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapPoint)];
-                HEAP[@(resultValue.hash)] = resultValue;
-                NSNumber* jsonableResult = @(resultValue.hash);
+                HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+                NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
         
                 [resultList addObject:jsonableResult];
             }
@@ -1470,8 +1471,8 @@ extern BOOL enableLog;
         
                 // 返回值: 结构体
                 NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapSize)];
-                HEAP[@(resultValue.hash)] = resultValue;
-                NSNumber* jsonableResult = @(resultValue.hash);
+                HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+                NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
         
                 [resultList addObject:jsonableResult];
             }
@@ -1552,8 +1553,8 @@ extern BOOL enableLog;
         
                 // 返回值: 结构体
                 NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
-                HEAP[@(resultValue.hash)] = resultValue;
-                NSNumber* jsonableResult = @(resultValue.hash);
+                HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+                NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
         
                 [resultList addObject:jsonableResult];
             }
@@ -1594,8 +1595,8 @@ extern BOOL enableLog;
         
                 // 返回值: 结构体
                 NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
-                HEAP[@(resultValue.hash)] = resultValue;
-                NSNumber* jsonableResult = @(resultValue.hash);
+                HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+                NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
         
                 [resultList addObject:jsonableResult];
             }
@@ -1848,7 +1849,7 @@ extern BOOL enableLog;
         
             // args
             // ref arg
-            CLLocation* location = (CLLocation*) HEAP[@([args[@"location"] integerValue])];
+            CLLocation* location = (CLLocation*) HEAP[args[@"location"]];
         
             // ref
             BMKUserLocation* ref = (BMKUserLocation*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
@@ -1865,7 +1866,7 @@ extern BOOL enableLog;
         
             // args
             // ref arg
-            CLHeading* heading = (CLHeading*) HEAP[@([args[@"heading"] integerValue])];
+            CLHeading* heading = (CLHeading*) HEAP[args[@"heading"]];
         
             // ref
             BMKUserLocation* ref = (BMKUserLocation*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
@@ -1954,7 +1955,7 @@ extern BOOL enableLog;
         
             // args
             // struct arg
-            NSValue* northEastValue = (NSValue*) HEAP[@([args[@"northEast"] integerValue])];
+            NSValue* northEastValue = (NSValue*) HEAP[args[@"northEast"]];
             CLLocationCoordinate2D northEast;
             [northEastValue getValue:&northEast];
         
@@ -1975,7 +1976,7 @@ extern BOOL enableLog;
         
             // args
             // struct arg
-            NSValue* southWestValue = (NSValue*) HEAP[@([args[@"southWest"] integerValue])];
+            NSValue* southWestValue = (NSValue*) HEAP[args[@"southWest"]];
             CLLocationCoordinate2D southWest;
             [southWestValue getValue:&southWest];
         
@@ -1996,7 +1997,7 @@ extern BOOL enableLog;
         
             // args
             // struct arg
-            NSValue* centerValue = (NSValue*) HEAP[@([args[@"center"] integerValue])];
+            NSValue* centerValue = (NSValue*) HEAP[args[@"center"]];
             CLLocationCoordinate2D center;
             [centerValue getValue:&center];
         
@@ -2017,7 +2018,7 @@ extern BOOL enableLog;
         
             // args
             // struct arg
-            NSValue* spanValue = (NSValue*) HEAP[@([args[@"span"] integerValue])];
+            NSValue* spanValue = (NSValue*) HEAP[args[@"span"]];
             BMKCoordinateSpan span;
             [spanValue getValue:&span];
         
@@ -2152,7 +2153,7 @@ extern BOOL enableLog;
         
             // args
             // struct arg
-            NSValue* originValue = (NSValue*) HEAP[@([args[@"origin"] integerValue])];
+            NSValue* originValue = (NSValue*) HEAP[args[@"origin"]];
             BMKMapPoint origin;
             [originValue getValue:&origin];
         
@@ -2173,7 +2174,7 @@ extern BOOL enableLog;
         
             // args
             // struct arg
-            NSValue* sizeValue = (NSValue*) HEAP[@([args[@"size"] integerValue])];
+            NSValue* sizeValue = (NSValue*) HEAP[args[@"size"]];
             BMKMapSize size;
             [sizeValue getValue:&size];
         
@@ -2245,7 +2246,7 @@ extern BOOL enableLog;
         
             // args
             // struct arg
-            NSValue* ptValue = (NSValue*) HEAP[@([args[@"pt"] integerValue])];
+            NSValue* ptValue = (NSValue*) HEAP[args[@"pt"]];
             CLLocationCoordinate2D pt;
             [ptValue getValue:&pt];
         
@@ -2281,7 +2282,7 @@ extern BOOL enableLog;
         
             // args
             // struct arg
-            NSValue* ptValue = (NSValue*) HEAP[@([args[@"pt"] integerValue])];
+            NSValue* ptValue = (NSValue*) HEAP[args[@"pt"]];
             CLLocationCoordinate2D pt;
             [ptValue getValue:&pt];
         
@@ -2503,7 +2504,7 @@ extern BOOL enableLog;
         
                 // args
                 // ref arg
-                CLLocation* location = (CLLocation*) HEAP[@([args[@"location"] integerValue])];
+                CLLocation* location = (CLLocation*) HEAP[args[@"location"]];
         
                 // ref
                 BMKUserLocation* ref = (BMKUserLocation*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
@@ -2521,7 +2522,7 @@ extern BOOL enableLog;
         
                 // args
                 // ref arg
-                CLHeading* heading = (CLHeading*) HEAP[@([args[@"heading"] integerValue])];
+                CLHeading* heading = (CLHeading*) HEAP[args[@"heading"]];
         
                 // ref
                 BMKUserLocation* ref = (BMKUserLocation*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
@@ -2615,7 +2616,7 @@ extern BOOL enableLog;
         
                 // args
                 // struct arg
-                NSValue* northEastValue = (NSValue*) HEAP[@([args[@"northEast"] integerValue])];
+                NSValue* northEastValue = (NSValue*) HEAP[args[@"northEast"]];
                 CLLocationCoordinate2D northEast;
                 [northEastValue getValue:&northEast];
         
@@ -2637,7 +2638,7 @@ extern BOOL enableLog;
         
                 // args
                 // struct arg
-                NSValue* southWestValue = (NSValue*) HEAP[@([args[@"southWest"] integerValue])];
+                NSValue* southWestValue = (NSValue*) HEAP[args[@"southWest"]];
                 CLLocationCoordinate2D southWest;
                 [southWestValue getValue:&southWest];
         
@@ -2659,7 +2660,7 @@ extern BOOL enableLog;
         
                 // args
                 // struct arg
-                NSValue* centerValue = (NSValue*) HEAP[@([args[@"center"] integerValue])];
+                NSValue* centerValue = (NSValue*) HEAP[args[@"center"]];
                 CLLocationCoordinate2D center;
                 [centerValue getValue:&center];
         
@@ -2681,7 +2682,7 @@ extern BOOL enableLog;
         
                 // args
                 // struct arg
-                NSValue* spanValue = (NSValue*) HEAP[@([args[@"span"] integerValue])];
+                NSValue* spanValue = (NSValue*) HEAP[args[@"span"]];
                 BMKCoordinateSpan span;
                 [spanValue getValue:&span];
         
@@ -2823,7 +2824,7 @@ extern BOOL enableLog;
         
                 // args
                 // struct arg
-                NSValue* originValue = (NSValue*) HEAP[@([args[@"origin"] integerValue])];
+                NSValue* originValue = (NSValue*) HEAP[args[@"origin"]];
                 BMKMapPoint origin;
                 [originValue getValue:&origin];
         
@@ -2845,7 +2846,7 @@ extern BOOL enableLog;
         
                 // args
                 // struct arg
-                NSValue* sizeValue = (NSValue*) HEAP[@([args[@"size"] integerValue])];
+                NSValue* sizeValue = (NSValue*) HEAP[args[@"size"]];
                 BMKMapSize size;
                 [sizeValue getValue:&size];
         
@@ -2921,7 +2922,7 @@ extern BOOL enableLog;
         
                 // args
                 // struct arg
-                NSValue* ptValue = (NSValue*) HEAP[@([args[@"pt"] integerValue])];
+                NSValue* ptValue = (NSValue*) HEAP[args[@"pt"]];
                 CLLocationCoordinate2D pt;
                 [ptValue getValue:&pt];
         
@@ -2959,7 +2960,7 @@ extern BOOL enableLog;
         
                 // args
                 // struct arg
-                NSValue* ptValue = (NSValue*) HEAP[@([args[@"pt"] integerValue])];
+                NSValue* ptValue = (NSValue*) HEAP[args[@"pt"]];
                 CLLocationCoordinate2D pt;
                 [ptValue getValue:&pt];
         
@@ -3216,71 +3217,6 @@ extern BOOL enableLog;
             methodResult(@(isTargetType));
         },
         
-        @"RefClass::asBMKUserLocation": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKUserLocation *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
-        @"RefClass::asBMKPlanNode": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKPlanNode *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
-        @"RefClass::asBMKIndoorPlanNode": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKIndoorPlanNode *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
-        @"RefClass::asBMKAddressComponent": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKAddressComponent *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
-        @"RefClass::asBMKMapManager": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKMapManager *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
         @"ObjectFactory::createBMKUserLocation": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // print log
             if (enableLog) {
@@ -3288,9 +3224,9 @@ extern BOOL enableLog;
             }
         
             BMKUserLocation* ref = [[BMKUserLocation alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            HEAP[[NSNumber numberWithLong: ref.hash]] = ref;
         
-            methodResult(@(ref.hash));
+            methodResult([NSNumber numberWithLong: ref.hash]);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -3304,9 +3240,9 @@ extern BOOL enableLog;
             BMKCoordinateSpan data;
         
             NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKCoordinateSpan)];
-            HEAP[@(dataValue.hash)] = dataValue;
+            HEAP[[NSNumber numberWithLong: dataValue.hash]] = dataValue;
         
-            methodResult(@(dataValue.hash));
+            methodResult([NSNumber numberWithLong: dataValue.hash]);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -3320,9 +3256,9 @@ extern BOOL enableLog;
             BMKCoordinateBounds data;
         
             NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKCoordinateBounds)];
-            HEAP[@(dataValue.hash)] = dataValue;
+            HEAP[[NSNumber numberWithLong: dataValue.hash]] = dataValue;
         
-            methodResult(@(dataValue.hash));
+            methodResult([NSNumber numberWithLong: dataValue.hash]);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -3336,9 +3272,9 @@ extern BOOL enableLog;
             BMKCoordinateRegion data;
         
             NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKCoordinateRegion)];
-            HEAP[@(dataValue.hash)] = dataValue;
+            HEAP[[NSNumber numberWithLong: dataValue.hash]] = dataValue;
         
-            methodResult(@(dataValue.hash));
+            methodResult([NSNumber numberWithLong: dataValue.hash]);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -3352,9 +3288,9 @@ extern BOOL enableLog;
             BMKGeoPoint data;
         
             NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKGeoPoint)];
-            HEAP[@(dataValue.hash)] = dataValue;
+            HEAP[[NSNumber numberWithLong: dataValue.hash]] = dataValue;
         
-            methodResult(@(dataValue.hash));
+            methodResult([NSNumber numberWithLong: dataValue.hash]);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -3368,9 +3304,9 @@ extern BOOL enableLog;
             BMKMapPoint data;
         
             NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKMapPoint)];
-            HEAP[@(dataValue.hash)] = dataValue;
+            HEAP[[NSNumber numberWithLong: dataValue.hash]] = dataValue;
         
-            methodResult(@(dataValue.hash));
+            methodResult([NSNumber numberWithLong: dataValue.hash]);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -3384,9 +3320,9 @@ extern BOOL enableLog;
             BMKMapSize data;
         
             NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKMapSize)];
-            HEAP[@(dataValue.hash)] = dataValue;
+            HEAP[[NSNumber numberWithLong: dataValue.hash]] = dataValue;
         
-            methodResult(@(dataValue.hash));
+            methodResult([NSNumber numberWithLong: dataValue.hash]);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -3400,9 +3336,9 @@ extern BOOL enableLog;
             BMKMapRect data;
         
             NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKMapRect)];
-            HEAP[@(dataValue.hash)] = dataValue;
+            HEAP[[NSNumber numberWithLong: dataValue.hash]] = dataValue;
         
-            methodResult(@(dataValue.hash));
+            methodResult([NSNumber numberWithLong: dataValue.hash]);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -3414,9 +3350,9 @@ extern BOOL enableLog;
             }
         
             BMKPlanNode* ref = [[BMKPlanNode alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            HEAP[[NSNumber numberWithLong: ref.hash]] = ref;
         
-            methodResult(@(ref.hash));
+            methodResult([NSNumber numberWithLong: ref.hash]);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -3428,9 +3364,9 @@ extern BOOL enableLog;
             }
         
             BMKIndoorPlanNode* ref = [[BMKIndoorPlanNode alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            HEAP[[NSNumber numberWithLong: ref.hash]] = ref;
         
-            methodResult(@(ref.hash));
+            methodResult([NSNumber numberWithLong: ref.hash]);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -3442,9 +3378,9 @@ extern BOOL enableLog;
             }
         
             BMKAddressComponent* ref = [[BMKAddressComponent alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            HEAP[[NSNumber numberWithLong: ref.hash]] = ref;
         
-            methodResult(@(ref.hash));
+            methodResult([NSNumber numberWithLong: ref.hash]);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -3456,9 +3392,9 @@ extern BOOL enableLog;
             }
         
             BMKMapManager* ref = [[BMKMapManager alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            HEAP[[NSNumber numberWithLong: ref.hash]] = ref;
         
-            methodResult(@(ref.hash));
+            methodResult([NSNumber numberWithLong: ref.hash]);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -3468,9 +3404,9 @@ extern BOOL enableLog;
         
             for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
                 BMKUserLocation* ref = [[BMKUserLocation alloc] init];
-                HEAP[@(ref.hash)] = ref;
+                HEAP[[NSNumber numberWithLong: ref.hash]] = ref;
         
-                [resultList addObject:@(ref.hash)];
+                [resultList addObject:[NSNumber numberWithLong: ref.hash]];
             }
         
             methodResult(resultList);
@@ -3485,9 +3421,9 @@ extern BOOL enableLog;
                 BMKCoordinateSpan data;
         
                 NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKCoordinateSpan)];
-                HEAP[@(dataValue.hash)] = dataValue;
+                HEAP[[NSNumber numberWithLong: dataValue.hash]] = dataValue;
         
-                [resultList addObject:@(dataValue.hash)];
+                [resultList addObject:[NSNumber numberWithLong: dataValue.hash]];
             }
         
             methodResult(resultList);
@@ -3502,9 +3438,9 @@ extern BOOL enableLog;
                 BMKCoordinateBounds data;
         
                 NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKCoordinateBounds)];
-                HEAP[@(dataValue.hash)] = dataValue;
+                HEAP[[NSNumber numberWithLong: dataValue.hash]] = dataValue;
         
-                [resultList addObject:@(dataValue.hash)];
+                [resultList addObject:[NSNumber numberWithLong: dataValue.hash]];
             }
         
             methodResult(resultList);
@@ -3519,9 +3455,9 @@ extern BOOL enableLog;
                 BMKCoordinateRegion data;
         
                 NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKCoordinateRegion)];
-                HEAP[@(dataValue.hash)] = dataValue;
+                HEAP[[NSNumber numberWithLong: dataValue.hash]] = dataValue;
         
-                [resultList addObject:@(dataValue.hash)];
+                [resultList addObject:[NSNumber numberWithLong: dataValue.hash]];
             }
         
             methodResult(resultList);
@@ -3536,9 +3472,9 @@ extern BOOL enableLog;
                 BMKGeoPoint data;
         
                 NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKGeoPoint)];
-                HEAP[@(dataValue.hash)] = dataValue;
+                HEAP[[NSNumber numberWithLong: dataValue.hash]] = dataValue;
         
-                [resultList addObject:@(dataValue.hash)];
+                [resultList addObject:[NSNumber numberWithLong: dataValue.hash]];
             }
         
             methodResult(resultList);
@@ -3553,9 +3489,9 @@ extern BOOL enableLog;
                 BMKMapPoint data;
         
                 NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKMapPoint)];
-                HEAP[@(dataValue.hash)] = dataValue;
+                HEAP[[NSNumber numberWithLong: dataValue.hash]] = dataValue;
         
-                [resultList addObject:@(dataValue.hash)];
+                [resultList addObject:[NSNumber numberWithLong: dataValue.hash]];
             }
         
             methodResult(resultList);
@@ -3570,9 +3506,9 @@ extern BOOL enableLog;
                 BMKMapSize data;
         
                 NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKMapSize)];
-                HEAP[@(dataValue.hash)] = dataValue;
+                HEAP[[NSNumber numberWithLong: dataValue.hash]] = dataValue;
         
-                [resultList addObject:@(dataValue.hash)];
+                [resultList addObject:[NSNumber numberWithLong: dataValue.hash]];
             }
         
             methodResult(resultList);
@@ -3587,9 +3523,9 @@ extern BOOL enableLog;
                 BMKMapRect data;
         
                 NSValue* dataValue = [NSValue value:&data withObjCType:@encode(BMKMapRect)];
-                HEAP[@(dataValue.hash)] = dataValue;
+                HEAP[[NSNumber numberWithLong: dataValue.hash]] = dataValue;
         
-                [resultList addObject:@(dataValue.hash)];
+                [resultList addObject:[NSNumber numberWithLong: dataValue.hash]];
             }
         
             methodResult(resultList);
@@ -3602,9 +3538,9 @@ extern BOOL enableLog;
         
             for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
                 BMKPlanNode* ref = [[BMKPlanNode alloc] init];
-                HEAP[@(ref.hash)] = ref;
+                HEAP[[NSNumber numberWithLong: ref.hash]] = ref;
         
-                [resultList addObject:@(ref.hash)];
+                [resultList addObject:[NSNumber numberWithLong: ref.hash]];
             }
         
             methodResult(resultList);
@@ -3617,9 +3553,9 @@ extern BOOL enableLog;
         
             for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
                 BMKIndoorPlanNode* ref = [[BMKIndoorPlanNode alloc] init];
-                HEAP[@(ref.hash)] = ref;
+                HEAP[[NSNumber numberWithLong: ref.hash]] = ref;
         
-                [resultList addObject:@(ref.hash)];
+                [resultList addObject:[NSNumber numberWithLong: ref.hash]];
             }
         
             methodResult(resultList);
@@ -3632,9 +3568,9 @@ extern BOOL enableLog;
         
             for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
                 BMKAddressComponent* ref = [[BMKAddressComponent alloc] init];
-                HEAP[@(ref.hash)] = ref;
+                HEAP[[NSNumber numberWithLong: ref.hash]] = ref;
         
-                [resultList addObject:@(ref.hash)];
+                [resultList addObject:[NSNumber numberWithLong: ref.hash]];
             }
         
             methodResult(resultList);
@@ -3647,9 +3583,9 @@ extern BOOL enableLog;
         
             for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
                 BMKMapManager* ref = [[BMKMapManager alloc] init];
-                HEAP[@(ref.hash)] = ref;
+                HEAP[[NSNumber numberWithLong: ref.hash]] = ref;
         
-                [resultList addObject:@(ref.hash)];
+                [resultList addObject:[NSNumber numberWithLong: ref.hash]];
             }
         
             methodResult(resultList);

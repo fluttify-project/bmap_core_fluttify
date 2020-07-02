@@ -25,6 +25,7 @@ import io.flutter.plugin.common.PluginRegistry.Registrar;
 import io.flutter.plugin.platform.PlatformViewRegistry;
 
 import com.fluttify.bmap_core_fluttify.sub_handler.*;
+import com.fluttify.bmap_core_fluttify.sub_handler.custom.SubHandlerCustom;
 
 import static me.yohom.foundation_fluttify.FoundationFluttifyPluginKt.getEnableLog;
 import static me.yohom.foundation_fluttify.FoundationFluttifyPluginKt.getHEAP;
@@ -48,8 +49,8 @@ public class BmapCoreFluttifyPlugin implements FlutterPlugin, MethodChannel.Meth
         plugin.platformViewRegistry = platformViewRegistry;
 
         handlerMapList = new ArrayList<>();
-        
-        handlerMapList.add(SubHandlerCustom.getSubHandler(messenger));
+        handlerMapList.add(SubHandler0.getSubHandler(messenger));
+        handlerMapList.add(SubHandlerCustom.getSubHandler(messenger, registrar.activity()));
 
         channel.setMethodCallHandler(plugin);
 
@@ -73,8 +74,7 @@ public class BmapCoreFluttifyPlugin implements FlutterPlugin, MethodChannel.Meth
         platformViewRegistry = binding.getPlatformViewRegistry();
 
         handlerMapList = new ArrayList<>();
-        
-        handlerMapList.add(SubHandlerCustom.getSubHandler(messenger));
+        handlerMapList.add(SubHandler0.getSubHandler(messenger));
 
         channel.setMethodCallHandler(this);
     }
@@ -92,6 +92,8 @@ public class BmapCoreFluttifyPlugin implements FlutterPlugin, MethodChannel.Meth
             Log.d("fluttify-java", "BmapCoreFluttifyPlugin::onAttachedToActivity@" + binding);
         }
         Activity activity = binding.getActivity();
+
+        handlerMapList.add(SubHandlerCustom.getSubHandler(messenger, activity));
 
         // register platform view
         

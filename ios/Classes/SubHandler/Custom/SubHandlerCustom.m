@@ -13,6 +13,7 @@ extern BOOL enableLog;
 
 @implementation BmapCoreFluttifyPlugin (SubHandlerCustom)
 - (NSDictionary<NSString*, Handler>*) getSubHandlerCustom {
+    __weak __typeof(self)weakSelf = self;
     return @{
 
     };

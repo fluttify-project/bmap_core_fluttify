@@ -5,20 +5,53 @@
 
 enum BMKSearchErrorCode {
   BMK_SEARCH_NO_ERROR /* 0 */,
-  BMK_SEARCH_AMBIGUOUS_KEYWORD /* 0 */,
-  BMK_SEARCH_AMBIGUOUS_ROURE_ADDR /* 0 */,
-  BMK_SEARCH_NOT_SUPPORT_BUS /* 0 */,
-  BMK_SEARCH_NOT_SUPPORT_BUS_2CITY /* 0 */,
-  BMK_SEARCH_RESULT_NOT_FOUND /* 0 */,
-  BMK_SEARCH_ST_EN_TOO_NEAR /* 0 */,
-  BMK_SEARCH_KEY_ERROR /* 0 */,
-  BMK_SEARCH_NETWOKR_ERROR /* 0 */,
-  BMK_SEARCH_NETWOKR_TIMEOUT /* 0 */,
-  BMK_SEARCH_PERMISSION_UNFINISHED /* 0 */,
-  BMK_SEARCH_INDOOR_ID_ERROR /* 0 */,
-  BMK_SEARCH_FLOOR_ERROR /* 0 */,
-  BMK_SEARCH_INDOOR_ROUTE_NO_IN_BUILDING /* 0 */,
-  BMK_SEARCH_INDOOR_ROUTE_NO_IN_SAME_BUILDING /* 0 */,
-  BMK_SEARCH_PARAMETER_ERROR /* 0 */,
-  BMK_SEARCH_SERVER_ERROR /* 0 */
+  BMK_SEARCH_AMBIGUOUS_KEYWORD /* null */,
+  BMK_SEARCH_AMBIGUOUS_ROURE_ADDR /* null */,
+  BMK_SEARCH_NOT_SUPPORT_BUS /* null */,
+  BMK_SEARCH_NOT_SUPPORT_BUS_2CITY /* null */,
+  BMK_SEARCH_RESULT_NOT_FOUND /* null */,
+  BMK_SEARCH_ST_EN_TOO_NEAR /* null */,
+  BMK_SEARCH_KEY_ERROR /* null */,
+  BMK_SEARCH_NETWOKR_ERROR /* null */,
+  BMK_SEARCH_NETWOKR_TIMEOUT /* null */,
+  BMK_SEARCH_PERMISSION_UNFINISHED /* null */,
+  BMK_SEARCH_INDOOR_ID_ERROR /* null */,
+  BMK_SEARCH_FLOOR_ERROR /* null */,
+  BMK_SEARCH_INDOOR_ROUTE_NO_IN_BUILDING /* null */,
+  BMK_SEARCH_INDOOR_ROUTE_NO_IN_SAME_BUILDING /* null */,
+  BMK_SEARCH_PARAMETER_ERROR /* null */,
+  BMK_SEARCH_SERVER_ERROR /* null */
+}
+
+extension BMKSearchErrorCodeToX on BMKSearchErrorCode {
+  int toValue() {
+    switch (this) {
+      case BMKSearchErrorCode.BMK_SEARCH_NO_ERROR: return 0;
+      case BMKSearchErrorCode.BMK_SEARCH_AMBIGUOUS_KEYWORD: return BMKSearchErrorCode.BMK_SEARCH_AMBIGUOUS_KEYWORD.index + 0;
+      case BMKSearchErrorCode.BMK_SEARCH_AMBIGUOUS_ROURE_ADDR: return BMKSearchErrorCode.BMK_SEARCH_AMBIGUOUS_ROURE_ADDR.index + 0;
+      case BMKSearchErrorCode.BMK_SEARCH_NOT_SUPPORT_BUS: return BMKSearchErrorCode.BMK_SEARCH_NOT_SUPPORT_BUS.index + 0;
+      case BMKSearchErrorCode.BMK_SEARCH_NOT_SUPPORT_BUS_2CITY: return BMKSearchErrorCode.BMK_SEARCH_NOT_SUPPORT_BUS_2CITY.index + 0;
+      case BMKSearchErrorCode.BMK_SEARCH_RESULT_NOT_FOUND: return BMKSearchErrorCode.BMK_SEARCH_RESULT_NOT_FOUND.index + 0;
+      case BMKSearchErrorCode.BMK_SEARCH_ST_EN_TOO_NEAR: return BMKSearchErrorCode.BMK_SEARCH_ST_EN_TOO_NEAR.index + 0;
+      case BMKSearchErrorCode.BMK_SEARCH_KEY_ERROR: return BMKSearchErrorCode.BMK_SEARCH_KEY_ERROR.index + 0;
+      case BMKSearchErrorCode.BMK_SEARCH_NETWOKR_ERROR: return BMKSearchErrorCode.BMK_SEARCH_NETWOKR_ERROR.index + 0;
+      case BMKSearchErrorCode.BMK_SEARCH_NETWOKR_TIMEOUT: return BMKSearchErrorCode.BMK_SEARCH_NETWOKR_TIMEOUT.index + 0;
+      case BMKSearchErrorCode.BMK_SEARCH_PERMISSION_UNFINISHED: return BMKSearchErrorCode.BMK_SEARCH_PERMISSION_UNFINISHED.index + 0;
+      case BMKSearchErrorCode.BMK_SEARCH_INDOOR_ID_ERROR: return BMKSearchErrorCode.BMK_SEARCH_INDOOR_ID_ERROR.index + 0;
+      case BMKSearchErrorCode.BMK_SEARCH_FLOOR_ERROR: return BMKSearchErrorCode.BMK_SEARCH_FLOOR_ERROR.index + 0;
+      case BMKSearchErrorCode.BMK_SEARCH_INDOOR_ROUTE_NO_IN_BUILDING: return BMKSearchErrorCode.BMK_SEARCH_INDOOR_ROUTE_NO_IN_BUILDING.index + 0;
+      case BMKSearchErrorCode.BMK_SEARCH_INDOOR_ROUTE_NO_IN_SAME_BUILDING: return BMKSearchErrorCode.BMK_SEARCH_INDOOR_ROUTE_NO_IN_SAME_BUILDING.index + 0;
+      case BMKSearchErrorCode.BMK_SEARCH_PARAMETER_ERROR: return BMKSearchErrorCode.BMK_SEARCH_PARAMETER_ERROR.index + 0;
+      case BMKSearchErrorCode.BMK_SEARCH_SERVER_ERROR: return BMKSearchErrorCode.BMK_SEARCH_SERVER_ERROR.index + 0;
+    }
+  }
+}
+
+extension BMKSearchErrorCodeFromX on int {
+  BMKSearchErrorCode toBMKSearchErrorCode() {
+    switch (this) {
+      case 0: return BMKSearchErrorCode.BMK_SEARCH_NO_ERROR;
+      default: return BMKSearchErrorCode.values[this + 0];
+    }
+  }
 }
