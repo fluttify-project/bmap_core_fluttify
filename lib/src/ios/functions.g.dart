@@ -13,3 +13,266 @@ import 'package:flutter/services.dart';
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
+Future<BMKCoordinateSpan> BMKCoordinateSpanMake(double latitudeDelta, double longitudeDelta) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKCoordinateSpanMake::BMKCoordinateSpanMake([\'latitudeDelta\':$latitudeDelta, \'longitudeDelta\':$longitudeDelta])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKCoordinateSpanMake::BMKCoordinateSpanMake', {"latitudeDelta": latitudeDelta, "longitudeDelta": longitudeDelta});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    kNativeObjectPool.add(BMKCoordinateSpan()..refId = __result__..tag__ = 'bmap_core_fluttify');
+    return BMKCoordinateSpan()..refId = __result__..tag__ = 'bmap_core_fluttify';
+  }
+}
+
+Future<BMKCoordinateRegion> BMKCoordinateRegionMake(CLLocationCoordinate2D centerCoordinate, BMKCoordinateSpan span) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKCoordinateRegionMake::BMKCoordinateRegionMake([])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKCoordinateRegionMake::BMKCoordinateRegionMake', {"centerCoordinate": centerCoordinate is Ref ? (centerCoordinate as Ref)?.refId : centerCoordinate, "span": span is Ref ? (span as Ref)?.refId : span});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    kNativeObjectPool.add(BMKCoordinateRegion()..refId = __result__..tag__ = 'bmap_core_fluttify');
+    return BMKCoordinateRegion()..refId = __result__..tag__ = 'bmap_core_fluttify';
+  }
+}
+
+Future<BMKMapPoint> BMKMapPointMake(double x, double y) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapPointMake::BMKMapPointMake([\'x\':$x, \'y\':$y])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapPointMake::BMKMapPointMake', {"x": x, "y": y});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    kNativeObjectPool.add(BMKMapPoint()..refId = __result__..tag__ = 'bmap_core_fluttify');
+    return BMKMapPoint()..refId = __result__..tag__ = 'bmap_core_fluttify';
+  }
+}
+
+Future<BMKMapSize> BMKMapSizeMake(double width, double height) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapSizeMake::BMKMapSizeMake([\'width\':$width, \'height\':$height])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapSizeMake::BMKMapSizeMake', {"width": width, "height": height});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    kNativeObjectPool.add(BMKMapSize()..refId = __result__..tag__ = 'bmap_core_fluttify');
+    return BMKMapSize()..refId = __result__..tag__ = 'bmap_core_fluttify';
+  }
+}
+
+Future<BMKMapRect> BMKMapRectMake(double x, double y, double width, double height) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectMake::BMKMapRectMake([\'x\':$x, \'y\':$y, \'width\':$width, \'height\':$height])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapRectMake::BMKMapRectMake', {"x": x, "y": y, "width": width, "height": height});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    kNativeObjectPool.add(BMKMapRect()..refId = __result__..tag__ = 'bmap_core_fluttify');
+    return BMKMapRect()..refId = __result__..tag__ = 'bmap_core_fluttify';
+  }
+}
+
+Future<bool> BMKMapRectIsNull(BMKMapRect rect) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectIsNull::BMKMapRectIsNull([])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapRectIsNull::BMKMapRectIsNull', {"rect": rect is Ref ? (rect as Ref)?.refId : rect});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    
+    return __result__;
+  }
+}
+
+Future<double> BMKMapRectGetMinX(BMKMapRect rect) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectGetMinX::BMKMapRectGetMinX([])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapRectGetMinX::BMKMapRectGetMinX', {"rect": rect is Ref ? (rect as Ref)?.refId : rect});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    
+    return __result__;
+  }
+}
+
+Future<double> BMKMapRectGetMinY(BMKMapRect rect) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectGetMinY::BMKMapRectGetMinY([])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapRectGetMinY::BMKMapRectGetMinY', {"rect": rect is Ref ? (rect as Ref)?.refId : rect});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    
+    return __result__;
+  }
+}
+
+Future<double> BMKMapRectGetMidX(BMKMapRect rect) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectGetMidX::BMKMapRectGetMidX([])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapRectGetMidX::BMKMapRectGetMidX', {"rect": rect is Ref ? (rect as Ref)?.refId : rect});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    
+    return __result__;
+  }
+}
+
+Future<double> BMKMapRectGetMidY(BMKMapRect rect) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectGetMidY::BMKMapRectGetMidY([])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapRectGetMidY::BMKMapRectGetMidY', {"rect": rect is Ref ? (rect as Ref)?.refId : rect});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    
+    return __result__;
+  }
+}
+
+Future<double> BMKMapRectGetMaxX(BMKMapRect rect) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectGetMaxX::BMKMapRectGetMaxX([])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapRectGetMaxX::BMKMapRectGetMaxX', {"rect": rect is Ref ? (rect as Ref)?.refId : rect});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    
+    return __result__;
+  }
+}
+
+Future<double> BMKMapRectGetMaxY(BMKMapRect rect) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectGetMaxY::BMKMapRectGetMaxY([])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapRectGetMaxY::BMKMapRectGetMaxY', {"rect": rect is Ref ? (rect as Ref)?.refId : rect});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    
+    return __result__;
+  }
+}
