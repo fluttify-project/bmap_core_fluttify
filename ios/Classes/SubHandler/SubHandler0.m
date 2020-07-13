@@ -3593,6 +3593,312 @@ extern BOOL enableLog;
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
         
+        @"BMKCoordinateSpanMake::BMKCoordinateSpanMake": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // jsonable arg
+            CLLocationDegrees latitudeDelta = [args[@"latitudeDelta"] doubleValue];
+            // jsonable arg
+            CLLocationDegrees longitudeDelta = [args[@"longitudeDelta"] doubleValue];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKCoordinateSpanMake::BMKCoordinateSpanMake(%@, %@)", args[@"latitudeDelta"], args[@"longitudeDelta"]);
+            }
+        
+            // invoke native method
+            BMKCoordinateSpan result = BMKCoordinateSpanMake(latitudeDelta, longitudeDelta);
+        
+            // result
+            // 返回值: 结构体
+            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKCoordinateSpan)];
+            HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+            NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
+        
+            methodResult(jsonableResult);
+        },
+        @"BMKCoordinateRegionMake::BMKCoordinateRegionMake": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* centerCoordinateValue = (NSValue*) HEAP[args[@"centerCoordinate"]];
+            CLLocationCoordinate2D centerCoordinate;
+            [centerCoordinateValue getValue:&centerCoordinate];
+            // struct arg
+            NSValue* spanValue = (NSValue*) HEAP[args[@"span"]];
+            BMKCoordinateSpan span;
+            [spanValue getValue:&span];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKCoordinateRegionMake::BMKCoordinateRegionMake(%@, %@)", args[@"centerCoordinate"], args[@"span"]);
+            }
+        
+            // invoke native method
+            BMKCoordinateRegion result = BMKCoordinateRegionMake(centerCoordinate, span);
+        
+            // result
+            // 返回值: 结构体
+            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKCoordinateRegion)];
+            HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+            NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
+        
+            methodResult(jsonableResult);
+        },
+        @"BMKMapPointMake::BMKMapPointMake": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // jsonable arg
+            double x = [args[@"x"] doubleValue];
+            // jsonable arg
+            double y = [args[@"y"] doubleValue];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapPointMake::BMKMapPointMake(%@, %@)", args[@"x"], args[@"y"]);
+            }
+        
+            // invoke native method
+            BMKMapPoint result = BMKMapPointMake(x, y);
+        
+            // result
+            // 返回值: 结构体
+            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapPoint)];
+            HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+            NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
+        
+            methodResult(jsonableResult);
+        },
+        @"BMKMapSizeMake::BMKMapSizeMake": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // jsonable arg
+            double width = [args[@"width"] doubleValue];
+            // jsonable arg
+            double height = [args[@"height"] doubleValue];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapSizeMake::BMKMapSizeMake(%@, %@)", args[@"width"], args[@"height"]);
+            }
+        
+            // invoke native method
+            BMKMapSize result = BMKMapSizeMake(width, height);
+        
+            // result
+            // 返回值: 结构体
+            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapSize)];
+            HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+            NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
+        
+            methodResult(jsonableResult);
+        },
+        @"BMKMapRectMake::BMKMapRectMake": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // jsonable arg
+            double x = [args[@"x"] doubleValue];
+            // jsonable arg
+            double y = [args[@"y"] doubleValue];
+            // jsonable arg
+            double width = [args[@"width"] doubleValue];
+            // jsonable arg
+            double height = [args[@"height"] doubleValue];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectMake::BMKMapRectMake(%@, %@, %@, %@)", args[@"x"], args[@"y"], args[@"width"], args[@"height"]);
+            }
+        
+            // invoke native method
+            BMKMapRect result = BMKMapRectMake(x, y, width, height);
+        
+            // result
+            // 返回值: 结构体
+            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapRect)];
+            HEAP[[NSNumber numberWithLong: resultValue.hash]] = resultValue;
+            NSNumber* jsonableResult = [NSNumber numberWithLong: resultValue.hash];
+        
+            methodResult(jsonableResult);
+        },
+        @"BMKMapRectIsNull::BMKMapRectIsNull": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rectValue = (NSValue*) HEAP[args[@"rect"]];
+            BMKMapRect rect;
+            [rectValue getValue:&rect];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectIsNull::BMKMapRectIsNull(%@)", args[@"rect"]);
+            }
+        
+            // invoke native method
+            BOOL result = BMKMapRectIsNull(rect);
+        
+            // result
+            // 返回值: Value
+            id jsonableResult = @(result);
+        
+            methodResult(jsonableResult);
+        },
+        @"BMKMapRectGetMinX::BMKMapRectGetMinX": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rectValue = (NSValue*) HEAP[args[@"rect"]];
+            BMKMapRect rect;
+            [rectValue getValue:&rect];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectGetMinX::BMKMapRectGetMinX(%@)", args[@"rect"]);
+            }
+        
+            // invoke native method
+            double result = BMKMapRectGetMinX(rect);
+        
+            // result
+            // 返回值: Value
+            id jsonableResult = @(result);
+        
+            methodResult(jsonableResult);
+        },
+        @"BMKMapRectGetMinY::BMKMapRectGetMinY": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rectValue = (NSValue*) HEAP[args[@"rect"]];
+            BMKMapRect rect;
+            [rectValue getValue:&rect];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectGetMinY::BMKMapRectGetMinY(%@)", args[@"rect"]);
+            }
+        
+            // invoke native method
+            double result = BMKMapRectGetMinY(rect);
+        
+            // result
+            // 返回值: Value
+            id jsonableResult = @(result);
+        
+            methodResult(jsonableResult);
+        },
+        @"BMKMapRectGetMidX::BMKMapRectGetMidX": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rectValue = (NSValue*) HEAP[args[@"rect"]];
+            BMKMapRect rect;
+            [rectValue getValue:&rect];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectGetMidX::BMKMapRectGetMidX(%@)", args[@"rect"]);
+            }
+        
+            // invoke native method
+            double result = BMKMapRectGetMidX(rect);
+        
+            // result
+            // 返回值: Value
+            id jsonableResult = @(result);
+        
+            methodResult(jsonableResult);
+        },
+        @"BMKMapRectGetMidY::BMKMapRectGetMidY": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rectValue = (NSValue*) HEAP[args[@"rect"]];
+            BMKMapRect rect;
+            [rectValue getValue:&rect];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectGetMidY::BMKMapRectGetMidY(%@)", args[@"rect"]);
+            }
+        
+            // invoke native method
+            double result = BMKMapRectGetMidY(rect);
+        
+            // result
+            // 返回值: Value
+            id jsonableResult = @(result);
+        
+            methodResult(jsonableResult);
+        },
+        @"BMKMapRectGetMaxX::BMKMapRectGetMaxX": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rectValue = (NSValue*) HEAP[args[@"rect"]];
+            BMKMapRect rect;
+            [rectValue getValue:&rect];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectGetMaxX::BMKMapRectGetMaxX(%@)", args[@"rect"]);
+            }
+        
+            // invoke native method
+            double result = BMKMapRectGetMaxX(rect);
+        
+            // result
+            // 返回值: Value
+            id jsonableResult = @(result);
+        
+            methodResult(jsonableResult);
+        },
+        @"BMKMapRectGetMaxY::BMKMapRectGetMaxY": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rectValue = (NSValue*) HEAP[args[@"rect"]];
+            BMKMapRect rect;
+            [rectValue getValue:&rect];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectGetMaxY::BMKMapRectGetMaxY(%@)", args[@"rect"]);
+            }
+        
+            // invoke native method
+            double result = BMKMapRectGetMaxY(rect);
+        
+            // result
+            // 返回值: Value
+            id jsonableResult = @(result);
+        
+            methodResult(jsonableResult);
+        },
     };
 }
 

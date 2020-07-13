@@ -74,7 +74,7 @@ public class BmapCoreFluttifyPlugin implements FlutterPlugin, MethodChannel.Meth
         platformViewRegistry = binding.getPlatformViewRegistry();
 
         handlerMapList = new ArrayList<>();
-
+        
 
         channel.setMethodCallHandler(this);
     }
