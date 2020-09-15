@@ -24,22 +24,10 @@ mixin BMKGeneralDelegate on NSObject {
   
 
   @mustCallSuper
-  Future<void> onGetNetworkState(int iError) {
-  
-  
-    if (fluttifyLogEnabled) {
-      debugPrint('onGetNetworkState::kNativeObjectPool: $kNativeObjectPool');
-    }
-  }
+  Future<void> onGetNetworkState(int iError) {}
   
   @mustCallSuper
-  Future<void> onGetPermissionState(int iError) {
-  
-  
-    if (fluttifyLogEnabled) {
-      debugPrint('onGetPermissionState::kNativeObjectPool: $kNativeObjectPool');
-    }
-  }
+  Future<void> onGetPermissionState(int iError) {}
   
 }
 

@@ -11,6 +11,7 @@ extension BMKMapModuleToX on BMKMapModule {
   int toValue() {
     switch (this) {
       case BMKMapModule.BMKMapModuleTile: return 0;
+      default: return 0;
     }
   }
 }

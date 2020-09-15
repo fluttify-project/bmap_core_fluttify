@@ -35,6 +35,7 @@ extension BMKOpenErrorCodeToX on BMKOpenErrorCode {
       case BMKOpenErrorCode.BMK_OPEN_PERMISSION_UNFINISHED: return BMKOpenErrorCode.BMK_OPEN_PERMISSION_UNFINISHED.index + 0;
       case BMKOpenErrorCode.BMK_OPEN_KEY_ERROR: return BMKOpenErrorCode.BMK_OPEN_KEY_ERROR.index + 0;
       case BMKOpenErrorCode.BMK_OPEN_NETWOKR_ERROR: return BMKOpenErrorCode.BMK_OPEN_NETWOKR_ERROR.index + 0;
+      default: return 0;
     }
   }
 }

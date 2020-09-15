@@ -20,22 +20,19 @@ class BMKMapPoint extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKMapPoint> create__() async {
-    final int refId = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('ObjectFactory::createBMKMapPoint');
+  static Future<BMKMapPoint> create__({ bool init = true /* ios only */ }) async {
+    final refId = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('ObjectFactory::createBMKMapPoint', {'init': init});
     final object = BMKMapPoint()..refId = refId..tag__ = 'bmap_core_fluttify';
-  
-    kNativeObjectPool.add(object);
     return object;
   }
   
-  static Future<List<BMKMapPoint>> create_batch__(int length) async {
+  static Future<List<BMKMapPoint>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('ObjectFactory::create_batchBMKMapPoint', {'length': length});
+    final List resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKMapPoint', {'length': length, 'init': init});
   
     final List<BMKMapPoint> typedResult = resultBatch.map((result) => BMKMapPoint()..refId = result..tag__ = 'bmap_core_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
     return typedResult;
   }
   
@@ -43,28 +40,26 @@ class BMKMapPoint extends NSObject  {
 
   //region getters
   Future<double> get_x() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKMapPoint::get_x", {'refId': refId});
-  
-    return __result__;
+    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod("BMKMapPoint::get_x", {'__this__': this});
+    return __result__ == null ? null : (__result__);
   }
   
   Future<double> get_y() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKMapPoint::get_y", {'refId': refId});
-  
-    return __result__;
+    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod("BMKMapPoint::get_y", {'__this__': this});
+    return __result__ == null ? null : (__result__);
   }
   
   //endregion
 
   //region setters
   Future<void> set_x(double x) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapPoint::set_x', {'refId': refId, "x": x});
+    await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapPoint::set_x', <String, dynamic>{'__this__': this, "x": x});
   
   
   }
   
   Future<void> set_y(double y) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapPoint::set_y', {'refId': refId, "y": y});
+    await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapPoint::set_y', <String, dynamic>{'__this__': this, "y": y});
   
   
   }
@@ -79,16 +74,16 @@ class BMKMapPoint extends NSObject  {
 extension BMKMapPoint_Batch on List<BMKMapPoint> {
   //region getters
   Future<List<double>> get_x_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKMapPoint::get_x_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<double>().map((__result__) => __result__).toList();
+    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod("BMKMapPoint::get_x_batch", [for (final __item__ in this) {'__this__': __item__}]);
   
+    final typedResult = (resultBatch as List).cast<double>().map((__result__) => __result__).toList();
     return typedResult;
   }
   
   Future<List<double>> get_y_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKMapPoint::get_y_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<double>().map((__result__) => __result__).toList();
+    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod("BMKMapPoint::get_y_batch", [for (final __item__ in this) {'__this__': __item__}]);
   
+    final typedResult = (resultBatch as List).cast<double>().map((__result__) => __result__).toList();
     return typedResult;
   }
   
@@ -96,13 +91,13 @@ extension BMKMapPoint_Batch on List<BMKMapPoint> {
 
   //region setters
   Future<void> set_x_batch(List<double> x) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapPoint::set_x_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "x": x[__i__]}]);
+    await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKMapPoint::set_x_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "x": x[__i__]}]);
   
   
   }
   
   Future<void> set_y_batch(List<double> y) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapPoint::set_y_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "y": y[__i__]}]);
+    await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKMapPoint::set_y_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "y": y[__i__]}]);
   
   
   }

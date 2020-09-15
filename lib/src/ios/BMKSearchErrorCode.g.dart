@@ -43,6 +43,7 @@ extension BMKSearchErrorCodeToX on BMKSearchErrorCode {
       case BMKSearchErrorCode.BMK_SEARCH_INDOOR_ROUTE_NO_IN_SAME_BUILDING: return BMKSearchErrorCode.BMK_SEARCH_INDOOR_ROUTE_NO_IN_SAME_BUILDING.index + 0;
       case BMKSearchErrorCode.BMK_SEARCH_PARAMETER_ERROR: return BMKSearchErrorCode.BMK_SEARCH_PARAMETER_ERROR.index + 0;
       case BMKSearchErrorCode.BMK_SEARCH_SERVER_ERROR: return BMKSearchErrorCode.BMK_SEARCH_SERVER_ERROR.index + 0;
+      default: return 0;
     }
   }
 }

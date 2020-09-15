@@ -25,6 +25,7 @@ extension BMKErrorCodeToX on BMKErrorCode {
       case BMKErrorCode.BMKErrorLocationFailed: return 200;
       case BMKErrorCode.BMKErrorPermissionCheckFailure: return 300;
       case BMKErrorCode.BMKErrorParse: return 310;
+      default: return 0;
     }
   }
 }

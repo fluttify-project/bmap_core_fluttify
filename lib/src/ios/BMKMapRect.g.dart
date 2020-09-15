@@ -20,22 +20,19 @@ class BMKMapRect extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKMapRect> create__() async {
-    final int refId = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('ObjectFactory::createBMKMapRect');
+  static Future<BMKMapRect> create__({ bool init = true /* ios only */ }) async {
+    final refId = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('ObjectFactory::createBMKMapRect', {'init': init});
     final object = BMKMapRect()..refId = refId..tag__ = 'bmap_core_fluttify';
-  
-    kNativeObjectPool.add(object);
     return object;
   }
   
-  static Future<List<BMKMapRect>> create_batch__(int length) async {
+  static Future<List<BMKMapRect>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('ObjectFactory::create_batchBMKMapRect', {'length': length});
+    final List resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKMapRect', {'length': length, 'init': init});
   
     final List<BMKMapRect> typedResult = resultBatch.map((result) => BMKMapRect()..refId = result..tag__ = 'bmap_core_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
     return typedResult;
   }
   
@@ -43,28 +40,26 @@ class BMKMapRect extends NSObject  {
 
   //region getters
   Future<BMKMapPoint> get_origin() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKMapRect::get_origin", {'refId': refId});
-    kNativeObjectPool.add(BMKMapPoint()..refId = __result__..tag__ = 'bmap_core_fluttify');
-    return BMKMapPoint()..refId = __result__..tag__ = 'bmap_core_fluttify';
+    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod("BMKMapRect::get_origin", {'__this__': this});
+    return __result__ == null ? null : (BMKMapPoint()..refId = __result__..tag__ = 'bmap_core_fluttify');
   }
   
   Future<BMKMapSize> get_size() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKMapRect::get_size", {'refId': refId});
-    kNativeObjectPool.add(BMKMapSize()..refId = __result__..tag__ = 'bmap_core_fluttify');
-    return BMKMapSize()..refId = __result__..tag__ = 'bmap_core_fluttify';
+    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod("BMKMapRect::get_size", {'__this__': this});
+    return __result__ == null ? null : (BMKMapSize()..refId = __result__..tag__ = 'bmap_core_fluttify');
   }
   
   //endregion
 
   //region setters
   Future<void> set_origin(BMKMapPoint origin) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapRect::set_origin', {'refId': refId, "origin": origin.refId});
+    await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapRect::set_origin', <String, dynamic>{'__this__': this, "origin": origin});
   
   
   }
   
   Future<void> set_size(BMKMapSize size) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapRect::set_size', {'refId': refId, "size": size.refId});
+    await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapRect::set_size', <String, dynamic>{'__this__': this, "size": size});
   
   
   }
@@ -79,16 +74,16 @@ class BMKMapRect extends NSObject  {
 extension BMKMapRect_Batch on List<BMKMapRect> {
   //region getters
   Future<List<BMKMapPoint>> get_origin_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKMapRect::get_origin_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<int>().map((__result__) => BMKMapPoint()..refId = __result__..tag__ = 'bmap_core_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod("BMKMapRect::get_origin_batch", [for (final __item__ in this) {'__this__': __item__}]);
+  
+    final typedResult = (resultBatch as List).cast<String>().map((__result__) => BMKMapPoint()..refId = __result__..tag__ = 'bmap_core_fluttify').toList();
     return typedResult;
   }
   
   Future<List<BMKMapSize>> get_size_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKMapRect::get_size_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<int>().map((__result__) => BMKMapSize()..refId = __result__..tag__ = 'bmap_core_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod("BMKMapRect::get_size_batch", [for (final __item__ in this) {'__this__': __item__}]);
+  
+    final typedResult = (resultBatch as List).cast<String>().map((__result__) => BMKMapSize()..refId = __result__..tag__ = 'bmap_core_fluttify').toList();
     return typedResult;
   }
   
@@ -96,13 +91,13 @@ extension BMKMapRect_Batch on List<BMKMapRect> {
 
   //region setters
   Future<void> set_origin_batch(List<BMKMapPoint> origin) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapRect::set_origin_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "origin": origin[__i__].refId}]);
+    await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKMapRect::set_origin_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "origin": origin[__i__]}]);
   
   
   }
   
   Future<void> set_size_batch(List<BMKMapSize> size) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapRect::set_size_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "size": size[__i__].refId}]);
+    await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKMapRect::set_size_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "size": size[__i__]}]);
   
   
   }

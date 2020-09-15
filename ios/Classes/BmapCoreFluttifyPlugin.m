@@ -6,6 +6,7 @@
 #import <objc/runtime.h>
 #import "SubHandler/SubHandler0.h"
 #import "SubHandler/Custom/SubHandlerCustom.h"
+#import "FluttifyMessageCodec.h"
 
 // Dart端一次方法调用所存在的栈, 只有当MethodChannel传递参数受限时, 再启用这个容器
 extern NSMutableDictionary<NSString*, NSObject*>* STACK;
@@ -35,7 +36,8 @@ extern BOOL enableLog;
 + (void)registerWithRegistrar:(NSObject <FlutterPluginRegistrar> *)registrar {
   FlutterMethodChannel *channel = [FlutterMethodChannel
       methodChannelWithName:@"com.fluttify/bmap_core_fluttify"
-            binaryMessenger:[registrar messenger]];
+            binaryMessenger:[registrar messenger]
+                      codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
 
   [registrar addMethodCallDelegate:[[BmapCoreFluttifyPlugin alloc] initWithFlutterPluginRegistrar:registrar]
                            channel:channel];
@@ -57,8 +59,9 @@ extern BOOL enableLog;
 - (void)onGetNetworkState : (int)iError
 {
   FlutterMethodChannel *channel = [FlutterMethodChannel
-      methodChannelWithName:@"BMKGeneralDelegate::Callback"
-            binaryMessenger:[_registrar messenger]];
+        methodChannelWithName:@"BMKGeneralDelegate::Callback"
+              binaryMessenger:[_registrar messenger]
+                        codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
   // print log
   if (enableLog) {
     NSLog(@"BMKGeneralDelegate::onGetNetworkState");
@@ -69,7 +72,7 @@ extern BOOL enableLog;
   NSNumber* argiError = @(iError);
 
   dispatch_async(dispatch_get_main_queue(), ^{
-      [channel invokeMethod:@"Callback::BMKGeneralDelegate::onGetNetworkState" arguments:@{@"iError": argiError}];
+    [channel invokeMethod:@"Callback::BMKGeneralDelegate::onGetNetworkState" arguments:@{@"iError": argiError == nil ? [NSNull null] : argiError}];
   });
   
 }
@@ -77,8 +80,9 @@ extern BOOL enableLog;
 - (void)onGetPermissionState : (int)iError
 {
   FlutterMethodChannel *channel = [FlutterMethodChannel
-      methodChannelWithName:@"BMKGeneralDelegate::Callback"
-            binaryMessenger:[_registrar messenger]];
+        methodChannelWithName:@"BMKGeneralDelegate::Callback"
+              binaryMessenger:[_registrar messenger]
+                        codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
   // print log
   if (enableLog) {
     NSLog(@"BMKGeneralDelegate::onGetPermissionState");
@@ -89,7 +93,7 @@ extern BOOL enableLog;
   NSNumber* argiError = @(iError);
 
   dispatch_async(dispatch_get_main_queue(), ^{
-      [channel invokeMethod:@"Callback::BMKGeneralDelegate::onGetPermissionState" arguments:@{@"iError": argiError}];
+    [channel invokeMethod:@"Callback::BMKGeneralDelegate::onGetPermissionState" arguments:@{@"iError": argiError == nil ? [NSNull null] : argiError}];
   });
   
 }

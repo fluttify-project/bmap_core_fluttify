@@ -20,22 +20,19 @@ class BMKMapManager extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKMapManager> create__() async {
-    final int refId = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('ObjectFactory::createBMKMapManager');
+  static Future<BMKMapManager> create__({ bool init = true /* ios only */ }) async {
+    final refId = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('ObjectFactory::createBMKMapManager', {'init': init});
     final object = BMKMapManager()..refId = refId..tag__ = 'bmap_core_fluttify';
-  
-    kNativeObjectPool.add(object);
     return object;
   }
   
-  static Future<List<BMKMapManager>> create_batch__(int length) async {
+  static Future<List<BMKMapManager>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('ObjectFactory::create_batchBMKMapManager', {'length': length});
+    final List resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKMapManager', {'length': length, 'init': init});
   
     final List<BMKMapManager> typedResult = resultBatch.map((result) => BMKMapManager()..refId = result..tag__ = 'bmap_core_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
     return typedResult;
   }
   
@@ -58,7 +55,7 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::sharedInstance', );
+    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::sharedInstance', );
   
   
     // handle native call
@@ -69,7 +66,6 @@ class BMKMapManager extends NSObject  {
       return null;
     } else {
       final __return__ = BMKMapManager()..refId = __result__..tag__ = 'bmap_core_fluttify';
-      if (__return__ is Ref) kNativeObjectPool.add(__return__);
       return __return__;
     }
   }
@@ -82,7 +78,7 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::setCoordinateTypeUsedInBaiduMapSDK', {"coorType": coorType.toValue()});
+    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::setCoordinateTypeUsedInBaiduMapSDK', {"coorType": coorType.toValue()});
   
   
     // handle native call
@@ -93,7 +89,6 @@ class BMKMapManager extends NSObject  {
       return null;
     } else {
       final __return__ = __result__;
-    
       return __return__;
     }
   }
@@ -106,7 +101,7 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::getCoordinateTypeUsedInBaiduMapSDK', );
+    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::getCoordinateTypeUsedInBaiduMapSDK', );
   
   
     // handle native call
@@ -117,7 +112,6 @@ class BMKMapManager extends NSObject  {
       return null;
     } else {
       final __return__ = (__result__ as int).toBMK_COORD_TYPE();
-    
       return __return__;
     }
   }
@@ -130,7 +124,7 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::logEnable_module', {"enable": enable, "mapModule": mapModule.toValue()});
+    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::logEnable_module', {"enable": enable, "mapModule": mapModule.toValue()});
   
   
     // handle native call
@@ -141,7 +135,6 @@ class BMKMapManager extends NSObject  {
       return null;
     } else {
       final __return__ = __result__;
-    
       return __return__;
     }
   }
@@ -154,34 +147,39 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::start_generalDelegate', {"key": key, "refId": refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::start_generalDelegate', {"key": key, "__this__": this});
   
   
     // handle native call
-    MethodChannel('BMKGeneralDelegate::Callback')
+    MethodChannel('BMKGeneralDelegate::Callback', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify')))
         .setMethodCallHandler((methodCall) async {
-          final args = methodCall.arguments as Map;
-          switch (methodCall.method) {
-            case 'Callback::BMKGeneralDelegate::onGetNetworkState':
-              // print log
-              if (fluttifyLogEnabled) {
-                debugPrint('fluttify-dart-callback: onGetNetworkState([\'iError\':${args['iError']}])');
-              }
-        
-              // handle the native call
-              delegate?.onGetNetworkState(args['iError']);
-              break;
-            case 'Callback::BMKGeneralDelegate::onGetPermissionState':
-              // print log
-              if (fluttifyLogEnabled) {
-                debugPrint('fluttify-dart-callback: onGetPermissionState([\'iError\':${args['iError']}])');
-              }
-        
-              // handle the native call
-              delegate?.onGetPermissionState(args['iError']);
-              break;
-            default:
-              break;
+          try {
+            final args = methodCall.arguments as Map;
+            switch (methodCall.method) {
+              case 'Callback::BMKGeneralDelegate::onGetNetworkState':
+                // print log
+                if (fluttifyLogEnabled) {
+                  debugPrint('fluttify-dart-callback: onGetNetworkState([\'iError\':${args['iError']}])');
+                }
+          
+                // handle the native call
+                delegate?.onGetNetworkState(args['iError']);
+                break;
+              case 'Callback::BMKGeneralDelegate::onGetPermissionState':
+                // print log
+                if (fluttifyLogEnabled) {
+                  debugPrint('fluttify-dart-callback: onGetPermissionState([\'iError\':${args['iError']}])');
+                }
+          
+                // handle the native call
+                delegate?.onGetPermissionState(args['iError']);
+                break;
+              default:
+                break;
+            }
+          } catch (e) {
+            debugPrint(e);
+            throw e;
           }
         });
   
@@ -190,7 +188,6 @@ class BMKMapManager extends NSObject  {
       return null;
     } else {
       final __return__ = __result__;
-    
       return __return__;
     }
   }
@@ -203,7 +200,7 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::getTotalSendFlaxLength', {"refId": refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::getTotalSendFlaxLength', {"__this__": this});
   
   
     // handle native call
@@ -214,7 +211,6 @@ class BMKMapManager extends NSObject  {
       return null;
     } else {
       final __return__ = __result__;
-    
       return __return__;
     }
   }
@@ -227,7 +223,7 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::getTotalRecvFlaxLength', {"refId": refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::getTotalRecvFlaxLength', {"__this__": this});
   
   
     // handle native call
@@ -238,7 +234,6 @@ class BMKMapManager extends NSObject  {
       return null;
     } else {
       final __return__ = __result__;
-    
       return __return__;
     }
   }
@@ -251,7 +246,7 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::stop', {"refId": refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::stop', {"__this__": this});
   
   
     // handle native call
@@ -262,7 +257,6 @@ class BMKMapManager extends NSObject  {
       return null;
     } else {
       final __return__ = __result__;
-    
       return __return__;
     }
   }
@@ -287,15 +281,14 @@ extension BMKMapManager_Batch on List<BMKMapManager> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::sharedInstance_batch', );
+    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::sharedInstance_batch', );
   
   
     // convert native result to dart side object
     if (resultBatch == null) {
       return null;
     } else {
-      final typedResult = (resultBatch as List).cast<int>().map((__result__) => BMKMapManager()..refId = __result__..tag__ = 'bmap_core_fluttify').toList();
-      kNativeObjectPool.addAll(typedResult);
+      final typedResult = (resultBatch as List).cast<String>().map((__result__) => BMKMapManager()..refId = __result__..tag__ = 'bmap_core_fluttify').toList();
       return typedResult;
     }
   }
@@ -307,7 +300,7 @@ extension BMKMapManager_Batch on List<BMKMapManager> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::setCoordinateTypeUsedInBaiduMapSDK_batch', [for (int __i__ = 0; __i__ < coorType.length; __i__++) {"coorType": coorType[__i__].toValue()}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::setCoordinateTypeUsedInBaiduMapSDK_batch', [for (int __i__ = 0; __i__ < coorType.length; __i__++) {"coorType": coorType[__i__].toValue()}]);
   
   
     // convert native result to dart side object
@@ -315,7 +308,6 @@ extension BMKMapManager_Batch on List<BMKMapManager> {
       return null;
     } else {
       final typedResult = (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
-    
       return typedResult;
     }
   }
@@ -327,15 +319,14 @@ extension BMKMapManager_Batch on List<BMKMapManager> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::getCoordinateTypeUsedInBaiduMapSDK_batch', );
+    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::getCoordinateTypeUsedInBaiduMapSDK_batch', );
   
   
     // convert native result to dart side object
     if (resultBatch == null) {
       return null;
     } else {
-      final typedResult = (resultBatch as List).cast<int>().map((__result__) => (__result__ as int).toBMK_COORD_TYPE()).toList();
-    
+      final typedResult = (resultBatch as List).cast<String>().map((__result__) => (__result__ as int).toBMK_COORD_TYPE()).toList();
       return typedResult;
     }
   }
@@ -347,7 +338,7 @@ extension BMKMapManager_Batch on List<BMKMapManager> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::logEnable_module_batch', [for (int __i__ = 0; __i__ < enable.length; __i__++) {"enable": enable[__i__], "mapModule": mapModule[__i__].toValue()}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::logEnable_module_batch', [for (int __i__ = 0; __i__ < enable.length; __i__++) {"enable": enable[__i__], "mapModule": mapModule[__i__].toValue()}]);
   
   
     // convert native result to dart side object
@@ -355,7 +346,6 @@ extension BMKMapManager_Batch on List<BMKMapManager> {
       return null;
     } else {
       final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
-    
       return typedResult;
     }
   }
@@ -367,7 +357,7 @@ extension BMKMapManager_Batch on List<BMKMapManager> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::getTotalSendFlaxLength_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"refId": this[__i__].refId}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::getTotalSendFlaxLength_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
     // convert native result to dart side object
@@ -375,7 +365,6 @@ extension BMKMapManager_Batch on List<BMKMapManager> {
       return null;
     } else {
       final typedResult = (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
-    
       return typedResult;
     }
   }
@@ -387,7 +376,7 @@ extension BMKMapManager_Batch on List<BMKMapManager> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::getTotalRecvFlaxLength_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"refId": this[__i__].refId}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::getTotalRecvFlaxLength_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
     // convert native result to dart side object
@@ -395,7 +384,6 @@ extension BMKMapManager_Batch on List<BMKMapManager> {
       return null;
     } else {
       final typedResult = (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
-    
       return typedResult;
     }
   }
@@ -407,7 +395,7 @@ extension BMKMapManager_Batch on List<BMKMapManager> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKMapManager::stop_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"refId": this[__i__].refId}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::stop_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
     // convert native result to dart side object
@@ -415,7 +403,6 @@ extension BMKMapManager_Batch on List<BMKMapManager> {
       return null;
     } else {
       final typedResult = (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
-    
       return typedResult;
     }
   }
