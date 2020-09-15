@@ -15,6 +15,7 @@ extension BMKMapTypeToX on BMKMapType {
       case BMKMapType.BMKMapTypeNone: return 0;
       case BMKMapType.BMKMapTypeStandard: return 1;
       case BMKMapType.BMKMapTypeSatellite: return 2;
+      default: return 0;
     }
   }
 }

@@ -27,6 +27,7 @@ extension BMKPermissionCheckResultCodeToX on BMKPermissionCheckResultCode {
       case BMKPermissionCheckResultCode.E_PERMISSIONCHECK_KEY_FORBIDEN: return 201;
       case BMKPermissionCheckResultCode.E_PERMISSIONCHECK_KEY_DENY_BY_SERVER: return 202;
       case BMKPermissionCheckResultCode.E_PERMISSIONCHECK_USER_DENY_BY_SERVER: return 252;
+      default: return 0;
     }
   }
 }

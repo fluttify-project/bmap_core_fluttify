@@ -15,6 +15,7 @@ extension BMK_COORD_TYPEToX on BMK_COORD_TYPE {
       case BMK_COORD_TYPE.BMK_COORDTYPE_GPS: return 0;
       case BMK_COORD_TYPE.BMK_COORDTYPE_COMMON: return BMK_COORD_TYPE.BMK_COORDTYPE_COMMON.index + 0;
       case BMK_COORD_TYPE.BMK_COORDTYPE_BD09LL: return BMK_COORD_TYPE.BMK_COORDTYPE_BD09LL.index + 0;
+      default: return 0;
     }
   }
 }
