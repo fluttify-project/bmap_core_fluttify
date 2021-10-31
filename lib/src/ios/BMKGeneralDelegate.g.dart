@@ -19,14 +19,17 @@ mixin BMKGeneralDelegate on NSObject {
 
   
 
-  
+  @override
+  final String tag__ = 'bmap_core_fluttify';
 
   
 
-  @mustCallSuper
+  
+
+  /* @mustCallSuper */
   Future<void> onGetNetworkState(int iError) {}
   
-  @mustCallSuper
+  /* @mustCallSuper */
   Future<void> onGetPermissionState(int iError) {}
   
 }

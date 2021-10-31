@@ -4,7 +4,7 @@
 Pod::Spec.new do |s|
   s.name             = 'bmap_core_fluttify'
   s.version          = '0.0.1'
-  s.summary          = 'An `BaiduMap` Core Component, Powered By `Fluttify` Engine, Which Generates Dart Binding For Native SDK.'
+  s.summary          = 'An `BaiduMap` Core Component, Powered By `Fluttify`, A Compiler Generating Dart Bindings For Native SDK.'
   s.description      = <<-DESC
 A new flutter plugin project.
                        DESC
@@ -29,7 +29,7 @@ A new flutter plugin project.
   s.vendored_libraries = 'Vendors/*.a'
   # ios system framework
   s.frameworks = [
-        "CoreGraphics", "CoreLocation", "OpenGLES", "QuartzCore", "Security", "SystemConfiguration"
+        "CoreGraphics", "CoreLocation", "OpenGLES", "QuartzCore", "Security", "SystemConfiguration", "Accelerate"
   ]
   # ios system library
   s.libraries = [

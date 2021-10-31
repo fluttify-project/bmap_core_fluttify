@@ -3,11 +3,10 @@
 //////////////////////////////////////////////////////////
 
 #import <Flutter/Flutter.h>
-#import <BaiduMapAPI_Base/BMKBaseComponent.h>
 
 typedef void (^Handler)(NSObject <FlutterPluginRegistrar> *, id, FlutterResult);
 
-@interface BmapCoreFluttifyPlugin : NSObject<BMKGeneralDelegate, FlutterPlugin>
+@interface BmapCoreFluttifyPlugin : NSObject<FlutterPlugin>
 
 - (instancetype) initWithFlutterPluginRegistrar: (NSObject <FlutterPluginRegistrar> *) registrar;
 

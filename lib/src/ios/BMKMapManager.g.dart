@@ -16,24 +16,30 @@ class BMKMapManager extends NSObject  {
   //region constants
   static const String name__ = 'BMKMapManager';
 
+  @override
+  final String tag__ = 'bmap_core_fluttify';
+
   
   //endregion
 
   //region creators
   static Future<BMKMapManager> create__({ bool init = true /* ios only */ }) async {
-    final refId = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('ObjectFactory::createBMKMapManager', {'init': init});
-    final object = BMKMapManager()..refId = refId..tag__ = 'bmap_core_fluttify';
-    return object;
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod(
+      'ObjectFactory::createBMKMapManager',
+      {'init': init}
+    );
+    return BmapCoreFluttifyIOSAs<BMKMapManager>(__result__);
   }
   
   static Future<List<BMKMapManager>> create_batch__(int length, { bool init = true /* ios only */ }) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKMapManager', {'length': length, 'init': init});
-  
-    final List<BMKMapManager> typedResult = resultBatch.map((result) => BMKMapManager()..refId = result..tag__ = 'bmap_core_fluttify').toList();
-    return typedResult;
+    assert(true);
+    final __result_batch__ = await  kBmapCoreFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchBMKMapManager',
+      {'length': length, 'init': init}
+    );
+    return __result_batch__
+        .map((it) => BmapCoreFluttifyIOSAs<BMKMapManager>(it))
+        .toList();
   }
   
   //endregion
@@ -55,19 +61,13 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::sharedInstance', );
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::sharedInstance', );
   
   
     // handle native call
   
   
-    // convert native result to dart side object
-    if (__result__ == null) {
-      return null;
-    } else {
-      final __return__ = BMKMapManager()..refId = __result__..tag__ = 'bmap_core_fluttify';
-      return __return__;
-    }
+    return BmapCoreFluttifyIOSAs<BMKMapManager>(__result__);
   }
   
   
@@ -78,19 +78,13 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::setCoordinateTypeUsedInBaiduMapSDK', {"coorType": coorType.toValue()});
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::setCoordinateTypeUsedInBaiduMapSDK', {"coorType": coorType.toValue()});
   
   
     // handle native call
   
   
-    // convert native result to dart side object
-    if (__result__ == null) {
-      return null;
-    } else {
-      final __return__ = __result__;
-      return __return__;
-    }
+    return __result__;
   }
   
   
@@ -101,19 +95,13 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::getCoordinateTypeUsedInBaiduMapSDK', );
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::getCoordinateTypeUsedInBaiduMapSDK', );
   
   
     // handle native call
   
   
-    // convert native result to dart side object
-    if (__result__ == null) {
-      return null;
-    } else {
-      final __return__ = (__result__ as int).toBMK_COORD_TYPE();
-      return __return__;
-    }
+    return (__result__ as int).toBMK_COORD_TYPE();
   }
   
   
@@ -124,19 +112,13 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::logEnable_module', {"enable": enable, "mapModule": mapModule.toValue()});
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::logEnable_module', {"enable": enable, "mapModule": mapModule.toValue()});
   
   
     // handle native call
   
   
-    // convert native result to dart side object
-    if (__result__ == null) {
-      return null;
-    } else {
-      final __return__ = __result__;
-      return __return__;
-    }
+    return __result__;
   }
   
   
@@ -147,11 +129,11 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::start_generalDelegate', {"key": key, "__this__": this});
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::start_generalDelegate', {"key": key, "delegate": delegate, "__this__": this});
   
   
     // handle native call
-    MethodChannel('BMKGeneralDelegate::Callback', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify')))
+    MethodChannel('BMKGeneralDelegate::Callback', kBmapCoreFluttifyMethodCodec)
         .setMethodCallHandler((methodCall) async {
           try {
             final args = methodCall.arguments as Map;
@@ -163,7 +145,7 @@ class BMKMapManager extends NSObject  {
                 }
           
                 // handle the native call
-                delegate?.onGetNetworkState(args['iError']);
+                await delegate?.onGetNetworkState(args['iError']);
                 break;
               case 'Callback::BMKGeneralDelegate::onGetPermissionState':
                 // print log
@@ -172,24 +154,19 @@ class BMKMapManager extends NSObject  {
                 }
           
                 // handle the native call
-                delegate?.onGetPermissionState(args['iError']);
+                await delegate?.onGetPermissionState(args['iError']);
                 break;
               default:
+                throw MissingPluginException('方法${methodCall.method}未实现');
                 break;
             }
           } catch (e) {
             debugPrint(e);
-            throw e;
+            rethrow;
           }
         });
   
-    // convert native result to dart side object
-    if (__result__ == null) {
-      return null;
-    } else {
-      final __return__ = __result__;
-      return __return__;
-    }
+    return __result__;
   }
   
   
@@ -200,19 +177,13 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::getTotalSendFlaxLength', {"__this__": this});
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::getTotalSendFlaxLength', {"__this__": this});
   
   
     // handle native call
   
   
-    // convert native result to dart side object
-    if (__result__ == null) {
-      return null;
-    } else {
-      final __return__ = __result__;
-      return __return__;
-    }
+    return __result__;
   }
   
   
@@ -223,19 +194,13 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::getTotalRecvFlaxLength', {"__this__": this});
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::getTotalRecvFlaxLength', {"__this__": this});
   
   
     // handle native call
   
   
-    // convert native result to dart side object
-    if (__result__ == null) {
-      return null;
-    } else {
-      final __return__ = __result__;
-      return __return__;
-    }
+    return __result__;
   }
   
   
@@ -246,22 +211,21 @@ class BMKMapManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::stop', {"__this__": this});
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::stop', {"__this__": this});
   
   
     // handle native call
   
   
-    // convert native result to dart side object
-    if (__result__ == null) {
-      return null;
-    } else {
-      final __return__ = __result__;
-      return __return__;
-    }
+    return __result__;
   }
   
   //endregion
+
+  @override
+  String toString() {
+    return 'BMKMapManager{refId: $refId, runtimeType: $runtimeType, tag__: $tag__}';
+  }
 }
 
 extension BMKMapManager_Batch on List<BMKMapManager> {
@@ -276,135 +240,79 @@ extension BMKMapManager_Batch on List<BMKMapManager> {
   //region methods
   
   static Future<List<BMKMapManager>> sharedInstance_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::sharedInstance_batch', );
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::sharedInstance_batch', );
   
   
-    // convert native result to dart side object
-    if (resultBatch == null) {
-      return null;
-    } else {
-      final typedResult = (resultBatch as List).cast<String>().map((__result__) => BMKMapManager()..refId = __result__..tag__ = 'bmap_core_fluttify').toList();
-      return typedResult;
-    }
+    return (resultBatch as List).map((__result__) => BmapCoreFluttifyIOSAs<BMKMapManager>(__result__)).cast<BMKMapManager>().toList();
   }
   
   
   static Future<List<bool>> setCoordinateTypeUsedInBaiduMapSDK_batch(List<BMK_COORD_TYPE> coorType) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::setCoordinateTypeUsedInBaiduMapSDK_batch', [for (int __i__ = 0; __i__ < coorType.length; __i__++) {"coorType": coorType[__i__].toValue()}]);
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::setCoordinateTypeUsedInBaiduMapSDK_batch', [for (int __i__ = 0; __i__ < coorType.length; __i__++) {"coorType": coorType[__i__].toValue()}]);
   
   
-    // convert native result to dart side object
-    if (resultBatch == null) {
-      return null;
-    } else {
-      final typedResult = (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
-      return typedResult;
-    }
+    return (resultBatch as List).map((__result__) => __result__).cast<bool>().toList();
   }
   
   
   static Future<List<BMK_COORD_TYPE>> getCoordinateTypeUsedInBaiduMapSDK_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::getCoordinateTypeUsedInBaiduMapSDK_batch', );
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::getCoordinateTypeUsedInBaiduMapSDK_batch', );
   
   
-    // convert native result to dart side object
-    if (resultBatch == null) {
-      return null;
-    } else {
-      final typedResult = (resultBatch as List).cast<String>().map((__result__) => (__result__ as int).toBMK_COORD_TYPE()).toList();
-      return typedResult;
-    }
+    return (resultBatch as List).map((__result__) => (__result__ as int).toBMK_COORD_TYPE()).cast<BMK_COORD_TYPE>().toList();
   }
   
   
   static Future<List<void>> logEnable_module_batch(List<bool> enable, List<BMKMapModule> mapModule) async {
-    if (enable.length != mapModule.length) {
-      return Future.error('all args must have same length!');
-    }
+    assert(enable.length == mapModule.length);
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::logEnable_module_batch', [for (int __i__ = 0; __i__ < enable.length; __i__++) {"enable": enable[__i__], "mapModule": mapModule[__i__].toValue()}]);
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::logEnable_module_batch', [for (int __i__ = 0; __i__ < enable.length; __i__++) {"enable": enable[__i__], "mapModule": mapModule[__i__].toValue()}]);
   
   
-    // convert native result to dart side object
-    if (resultBatch == null) {
-      return null;
-    } else {
-      final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
-      return typedResult;
-    }
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
   }
   
   
   Future<List<int>> getTotalSendFlaxLength_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::getTotalSendFlaxLength_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::getTotalSendFlaxLength_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    // convert native result to dart side object
-    if (resultBatch == null) {
-      return null;
-    } else {
-      final typedResult = (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
-      return typedResult;
-    }
+    return (resultBatch as List).map((__result__) => __result__).cast<int>().toList();
   }
   
   
   Future<List<int>> getTotalRecvFlaxLength_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::getTotalRecvFlaxLength_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::getTotalRecvFlaxLength_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    // convert native result to dart side object
-    if (resultBatch == null) {
-      return null;
-    } else {
-      final typedResult = (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
-      return typedResult;
-    }
+    return (resultBatch as List).map((__result__) => __result__).cast<int>().toList();
   }
   
   
   Future<List<bool>> stop_batch() async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
+    assert(true);
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapManager::stop_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::stop_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    // convert native result to dart side object
-    if (resultBatch == null) {
-      return null;
-    } else {
-      final typedResult = (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
-      return typedResult;
-    }
+    return (resultBatch as List).map((__result__) => __result__).cast<bool>().toList();
   }
   
   //endregion

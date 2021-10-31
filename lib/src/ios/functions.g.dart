@@ -20,18 +20,13 @@ Future<BMKCoordinateSpan> BMKCoordinateSpanMake(double latitudeDelta, double lon
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKCoordinateSpanMake::BMKCoordinateSpanMake', {"latitudeDelta": latitudeDelta, "longitudeDelta": longitudeDelta});
+  final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKCoordinateSpanMake::BMKCoordinateSpanMake', {"latitudeDelta": latitudeDelta, "longitudeDelta": longitudeDelta});
   
 
   // handle native call
   
 
-  // convert native result to dart side object
-  if (__result__ == null) {
-    return null;
-  } else {
-    return BMKCoordinateSpan()..refId = __result__..tag__ = 'bmap_core_fluttify';
-  }
+  return BmapCoreFluttifyIOSAs<BMKCoordinateSpan>(__result__);
 }
 
 Future<BMKCoordinateRegion> BMKCoordinateRegionMake(CLLocationCoordinate2D centerCoordinate, BMKCoordinateSpan span) async {
@@ -41,18 +36,13 @@ Future<BMKCoordinateRegion> BMKCoordinateRegionMake(CLLocationCoordinate2D cente
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKCoordinateRegionMake::BMKCoordinateRegionMake', {"centerCoordinate": centerCoordinate, "span": span});
+  final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKCoordinateRegionMake::BMKCoordinateRegionMake', {"centerCoordinate": centerCoordinate, "span": span});
   
 
   // handle native call
   
 
-  // convert native result to dart side object
-  if (__result__ == null) {
-    return null;
-  } else {
-    return BMKCoordinateRegion()..refId = __result__..tag__ = 'bmap_core_fluttify';
-  }
+  return BmapCoreFluttifyIOSAs<BMKCoordinateRegion>(__result__);
 }
 
 Future<BMKMapPoint> BMKMapPointMake(double x, double y) async {
@@ -62,18 +52,13 @@ Future<BMKMapPoint> BMKMapPointMake(double x, double y) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapPointMake::BMKMapPointMake', {"x": x, "y": y});
+  final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapPointMake::BMKMapPointMake', {"x": x, "y": y});
   
 
   // handle native call
   
 
-  // convert native result to dart side object
-  if (__result__ == null) {
-    return null;
-  } else {
-    return BMKMapPoint()..refId = __result__..tag__ = 'bmap_core_fluttify';
-  }
+  return BmapCoreFluttifyIOSAs<BMKMapPoint>(__result__);
 }
 
 Future<BMKMapSize> BMKMapSizeMake(double width, double height) async {
@@ -83,18 +68,13 @@ Future<BMKMapSize> BMKMapSizeMake(double width, double height) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapSizeMake::BMKMapSizeMake', {"width": width, "height": height});
+  final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapSizeMake::BMKMapSizeMake', {"width": width, "height": height});
   
 
   // handle native call
   
 
-  // convert native result to dart side object
-  if (__result__ == null) {
-    return null;
-  } else {
-    return BMKMapSize()..refId = __result__..tag__ = 'bmap_core_fluttify';
-  }
+  return BmapCoreFluttifyIOSAs<BMKMapSize>(__result__);
 }
 
 Future<BMKMapRect> BMKMapRectMake(double x, double y, double width, double height) async {
@@ -104,18 +84,13 @@ Future<BMKMapRect> BMKMapRectMake(double x, double y, double width, double heigh
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapRectMake::BMKMapRectMake', {"x": x, "y": y, "width": width, "height": height});
+  final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapRectMake::BMKMapRectMake', {"x": x, "y": y, "width": width, "height": height});
   
 
   // handle native call
   
 
-  // convert native result to dart side object
-  if (__result__ == null) {
-    return null;
-  } else {
-    return BMKMapRect()..refId = __result__..tag__ = 'bmap_core_fluttify';
-  }
+  return BmapCoreFluttifyIOSAs<BMKMapRect>(__result__);
 }
 
 Future<bool> BMKMapRectIsNull(BMKMapRect rect) async {
@@ -125,18 +100,13 @@ Future<bool> BMKMapRectIsNull(BMKMapRect rect) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapRectIsNull::BMKMapRectIsNull', {"rect": rect});
+  final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapRectIsNull::BMKMapRectIsNull', {"rect": rect});
   
 
   // handle native call
   
 
-  // convert native result to dart side object
-  if (__result__ == null) {
-    return null;
-  } else {
-    return __result__;
-  }
+  return __result__;
 }
 
 Future<double> BMKMapRectGetMinX(BMKMapRect rect) async {
@@ -146,18 +116,13 @@ Future<double> BMKMapRectGetMinX(BMKMapRect rect) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapRectGetMinX::BMKMapRectGetMinX', {"rect": rect});
+  final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapRectGetMinX::BMKMapRectGetMinX', {"rect": rect});
   
 
   // handle native call
   
 
-  // convert native result to dart side object
-  if (__result__ == null) {
-    return null;
-  } else {
-    return __result__;
-  }
+  return __result__;
 }
 
 Future<double> BMKMapRectGetMinY(BMKMapRect rect) async {
@@ -167,18 +132,13 @@ Future<double> BMKMapRectGetMinY(BMKMapRect rect) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapRectGetMinY::BMKMapRectGetMinY', {"rect": rect});
+  final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapRectGetMinY::BMKMapRectGetMinY', {"rect": rect});
   
 
   // handle native call
   
 
-  // convert native result to dart side object
-  if (__result__ == null) {
-    return null;
-  } else {
-    return __result__;
-  }
+  return __result__;
 }
 
 Future<double> BMKMapRectGetMidX(BMKMapRect rect) async {
@@ -188,18 +148,13 @@ Future<double> BMKMapRectGetMidX(BMKMapRect rect) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapRectGetMidX::BMKMapRectGetMidX', {"rect": rect});
+  final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapRectGetMidX::BMKMapRectGetMidX', {"rect": rect});
   
 
   // handle native call
   
 
-  // convert native result to dart side object
-  if (__result__ == null) {
-    return null;
-  } else {
-    return __result__;
-  }
+  return __result__;
 }
 
 Future<double> BMKMapRectGetMidY(BMKMapRect rect) async {
@@ -209,18 +164,13 @@ Future<double> BMKMapRectGetMidY(BMKMapRect rect) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapRectGetMidY::BMKMapRectGetMidY', {"rect": rect});
+  final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapRectGetMidY::BMKMapRectGetMidY', {"rect": rect});
   
 
   // handle native call
   
 
-  // convert native result to dart side object
-  if (__result__ == null) {
-    return null;
-  } else {
-    return __result__;
-  }
+  return __result__;
 }
 
 Future<double> BMKMapRectGetMaxX(BMKMapRect rect) async {
@@ -230,18 +180,13 @@ Future<double> BMKMapRectGetMaxX(BMKMapRect rect) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapRectGetMaxX::BMKMapRectGetMaxX', {"rect": rect});
+  final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapRectGetMaxX::BMKMapRectGetMaxX', {"rect": rect});
   
 
   // handle native call
   
 
-  // convert native result to dart side object
-  if (__result__ == null) {
-    return null;
-  } else {
-    return __result__;
-  }
+  return __result__;
 }
 
 Future<double> BMKMapRectGetMaxY(BMKMapRect rect) async {
@@ -251,16 +196,11 @@ Future<double> BMKMapRectGetMaxY(BMKMapRect rect) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKMapRectGetMaxY::BMKMapRectGetMaxY', {"rect": rect});
+  final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapRectGetMaxY::BMKMapRectGetMaxY', {"rect": rect});
   
 
   // handle native call
   
 
-  // convert native result to dart side object
-  if (__result__ == null) {
-    return null;
-  } else {
-    return __result__;
-  }
+  return __result__;
 }

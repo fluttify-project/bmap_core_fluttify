@@ -16,50 +16,56 @@ class BMKGeoPoint extends NSObject  {
   //region constants
   static const String name__ = 'BMKGeoPoint';
 
+  @override
+  final String tag__ = 'bmap_core_fluttify';
+
   
   //endregion
 
   //region creators
   static Future<BMKGeoPoint> create__({ bool init = true /* ios only */ }) async {
-    final refId = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('ObjectFactory::createBMKGeoPoint', {'init': init});
-    final object = BMKGeoPoint()..refId = refId..tag__ = 'bmap_core_fluttify';
-    return object;
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod(
+      'ObjectFactory::createBMKGeoPoint',
+      {'init': init}
+    );
+    return BmapCoreFluttifyIOSAs<BMKGeoPoint>(__result__);
   }
   
   static Future<List<BMKGeoPoint>> create_batch__(int length, { bool init = true /* ios only */ }) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKGeoPoint', {'length': length, 'init': init});
-  
-    final List<BMKGeoPoint> typedResult = resultBatch.map((result) => BMKGeoPoint()..refId = result..tag__ = 'bmap_core_fluttify').toList();
-    return typedResult;
+    assert(true);
+    final __result_batch__ = await  kBmapCoreFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchBMKGeoPoint',
+      {'length': length, 'init': init}
+    );
+    return __result_batch__
+        .map((it) => BmapCoreFluttifyIOSAs<BMKGeoPoint>(it))
+        .toList();
   }
   
   //endregion
 
   //region getters
   Future<int> get_latitudeE6() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod("BMKGeoPoint::get_latitudeE6", {'__this__': this});
-    return __result__ == null ? null : (__result__);
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKGeoPoint::get_latitudeE6", {'__this__': this});
+    return __result__;
   }
   
   Future<int> get_longitudeE6() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod("BMKGeoPoint::get_longitudeE6", {'__this__': this});
-    return __result__ == null ? null : (__result__);
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKGeoPoint::get_longitudeE6", {'__this__': this});
+    return __result__;
   }
   
   //endregion
 
   //region setters
   Future<void> set_latitudeE6(int latitudeE6) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKGeoPoint::set_latitudeE6', <String, dynamic>{'__this__': this, "latitudeE6": latitudeE6});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKGeoPoint::set_latitudeE6', <String, dynamic>{'__this__': this, "latitudeE6": latitudeE6});
   
   
   }
   
   Future<void> set_longitudeE6(int longitudeE6) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod('BMKGeoPoint::set_longitudeE6', <String, dynamic>{'__this__': this, "longitudeE6": longitudeE6});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKGeoPoint::set_longitudeE6', <String, dynamic>{'__this__': this, "longitudeE6": longitudeE6});
   
   
   }
@@ -69,35 +75,36 @@ class BMKGeoPoint extends NSObject  {
   //region methods
   
   //endregion
+
+  @override
+  String toString() {
+    return 'BMKGeoPoint{refId: $refId, runtimeType: $runtimeType, tag__: $tag__}';
+  }
 }
 
 extension BMKGeoPoint_Batch on List<BMKGeoPoint> {
   //region getters
   Future<List<int>> get_latitudeE6_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod("BMKGeoPoint::get_latitudeE6_batch", [for (final __item__ in this) {'__this__': __item__}]);
-  
-    final typedResult = (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKGeoPoint::get_latitudeE6_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<int>()?.toList();
   }
   
   Future<List<int>> get_longitudeE6_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_core_fluttify'))).invokeMethod("BMKGeoPoint::get_longitudeE6_batch", [for (final __item__ in this) {'__this__': __item__}]);
-  
-    final typedResult = (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKGeoPoint::get_longitudeE6_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<int>()?.toList();
   }
   
   //endregion
 
   //region setters
   Future<void> set_latitudeE6_batch(List<int> latitudeE6) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKGeoPoint::set_latitudeE6_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "latitudeE6": latitudeE6[__i__]}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKGeoPoint::set_latitudeE6_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "latitudeE6": latitudeE6[__i__]}]);
   
   
   }
   
   Future<void> set_longitudeE6_batch(List<int> longitudeE6) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKGeoPoint::set_longitudeE6_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "longitudeE6": longitudeE6[__i__]}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKGeoPoint::set_longitudeE6_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "longitudeE6": longitudeE6[__i__]}]);
   
   
   }

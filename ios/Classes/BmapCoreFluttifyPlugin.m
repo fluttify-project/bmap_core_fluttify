@@ -7,13 +7,21 @@
 #import "SubHandler/SubHandler0.h"
 #import "SubHandler/Custom/SubHandlerCustom.h"
 #import "FluttifyMessageCodec.h"
+#import <BaiduMapAPI_Base/BMKUserLocation.h>
+#import <BaiduMapAPI_Base/BMKVersion.h>
+#import <BaiduMapAPI_Base/BMKTypes.h>
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>
+#import <BaiduMapAPI_Base/BMKMapManager.h>
+#import <BaiduMapAPI_Base/BMKGeneralDelegate.h>
 
 // Dart端一次方法调用所存在的栈, 只有当MethodChannel传递参数受限时, 再启用这个容器
 extern NSMutableDictionary<NSString*, NSObject*>* STACK;
 // Dart端随机存取对象的容器
-extern NSMutableDictionary<NSNumber*, NSObject*>* HEAP;
+extern NSMutableDictionary<NSString*, NSObject*>* HEAP;
 // 日志打印开关
 extern BOOL enableLog;
+
+@interface BmapCoreFluttifyPlugin (_Delegate) <BMKGeneralDelegate> @end
 
 @implementation BmapCoreFluttifyPlugin {
   NSMutableDictionary<NSString*, Handler>* _handlerMap;
@@ -35,7 +43,7 @@ extern BOOL enableLog;
 
 + (void)registerWithRegistrar:(NSObject <FlutterPluginRegistrar> *)registrar {
   FlutterMethodChannel *channel = [FlutterMethodChannel
-      methodChannelWithName:@"com.fluttify/bmap_core_fluttify"
+      methodChannelWithName:@"me.yohom/bmap_core_fluttify"
             binaryMessenger:[registrar messenger]
                       codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
 
