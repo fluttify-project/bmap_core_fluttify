@@ -4,17 +4,47 @@
 //////////////////////////////////////////////////////////
 
 enum BMKOpenErrorCode {
-  BMK_OPEN_NO_ERROR,
-  BMK_OPEN_WEB_MAP,
-  BMK_OPEN_OPTION_NULL,
-  BMK_OPEN_NOT_SUPPORT,
-  BMK_OPEN_POI_DETAIL_UID_NULL,
-  BMK_OPEN_POI_NEARBY_KEYWORD_NULL,
-  BMK_OPEN_ROUTE_START_ERROR,
-  BMK_OPEN_ROUTE_END_ERROR,
-  BMK_OPEN_PANORAMA_UID_ERROR,
-  BMK_OPEN_PANORAMA_ABSENT,
-  BMK_OPEN_PERMISSION_UNFINISHED,
-  BMK_OPEN_KEY_ERROR,
-  BMK_OPEN_NETWOKR_ERROR
+  BMK_OPEN_NO_ERROR /* 0 */,
+  BMK_OPEN_WEB_MAP /* null */,
+  BMK_OPEN_OPTION_NULL /* null */,
+  BMK_OPEN_NOT_SUPPORT /* null */,
+  BMK_OPEN_POI_DETAIL_UID_NULL /* null */,
+  BMK_OPEN_POI_NEARBY_KEYWORD_NULL /* null */,
+  BMK_OPEN_ROUTE_START_ERROR /* null */,
+  BMK_OPEN_ROUTE_END_ERROR /* null */,
+  BMK_OPEN_PANORAMA_UID_ERROR /* null */,
+  BMK_OPEN_PANORAMA_ABSENT /* null */,
+  BMK_OPEN_PERMISSION_UNFINISHED /* null */,
+  BMK_OPEN_KEY_ERROR /* null */,
+  BMK_OPEN_NETWOKR_ERROR /* null */
+}
+
+extension BMKOpenErrorCodeToX on BMKOpenErrorCode {
+  int toValue() {
+    switch (this) {
+      case BMKOpenErrorCode.BMK_OPEN_NO_ERROR: return 0;
+      case BMKOpenErrorCode.BMK_OPEN_WEB_MAP: return BMKOpenErrorCode.BMK_OPEN_WEB_MAP.index + 0;
+      case BMKOpenErrorCode.BMK_OPEN_OPTION_NULL: return BMKOpenErrorCode.BMK_OPEN_OPTION_NULL.index + 0;
+      case BMKOpenErrorCode.BMK_OPEN_NOT_SUPPORT: return BMKOpenErrorCode.BMK_OPEN_NOT_SUPPORT.index + 0;
+      case BMKOpenErrorCode.BMK_OPEN_POI_DETAIL_UID_NULL: return BMKOpenErrorCode.BMK_OPEN_POI_DETAIL_UID_NULL.index + 0;
+      case BMKOpenErrorCode.BMK_OPEN_POI_NEARBY_KEYWORD_NULL: return BMKOpenErrorCode.BMK_OPEN_POI_NEARBY_KEYWORD_NULL.index + 0;
+      case BMKOpenErrorCode.BMK_OPEN_ROUTE_START_ERROR: return BMKOpenErrorCode.BMK_OPEN_ROUTE_START_ERROR.index + 0;
+      case BMKOpenErrorCode.BMK_OPEN_ROUTE_END_ERROR: return BMKOpenErrorCode.BMK_OPEN_ROUTE_END_ERROR.index + 0;
+      case BMKOpenErrorCode.BMK_OPEN_PANORAMA_UID_ERROR: return BMKOpenErrorCode.BMK_OPEN_PANORAMA_UID_ERROR.index + 0;
+      case BMKOpenErrorCode.BMK_OPEN_PANORAMA_ABSENT: return BMKOpenErrorCode.BMK_OPEN_PANORAMA_ABSENT.index + 0;
+      case BMKOpenErrorCode.BMK_OPEN_PERMISSION_UNFINISHED: return BMKOpenErrorCode.BMK_OPEN_PERMISSION_UNFINISHED.index + 0;
+      case BMKOpenErrorCode.BMK_OPEN_KEY_ERROR: return BMKOpenErrorCode.BMK_OPEN_KEY_ERROR.index + 0;
+      case BMKOpenErrorCode.BMK_OPEN_NETWOKR_ERROR: return BMKOpenErrorCode.BMK_OPEN_NETWOKR_ERROR.index + 0;
+      default: return 0;
+    }
+  }
+}
+
+extension BMKOpenErrorCodeFromX on int {
+  BMKOpenErrorCode toBMKOpenErrorCode() {
+    switch (this) {
+      case 0: return BMKOpenErrorCode.BMK_OPEN_NO_ERROR;
+      default: return BMKOpenErrorCode.values[this + 0];
+    }
+  }
 }

@@ -21,3 +21,4 @@ export 'BMKAddressComponent.g.dart';
 export 'BMKMapPoint.g.dart';
 export 'BMKCoordinateBounds.g.dart';
 export 'BMKErrorCode.g.dart';
+export '../facade/shared.g.dart';

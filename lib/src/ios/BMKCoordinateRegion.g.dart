@@ -6,7 +6,6 @@
 import 'dart:typed_data';
 
 import 'package:bmap_core_fluttify/src/ios/ios.export.g.dart';
-import 'package:bmap_core_fluttify/src/android/android.export.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -17,55 +16,56 @@ class BMKCoordinateRegion extends NSObject  {
   //region constants
   static const String name__ = 'BMKCoordinateRegion';
 
+  @override
+  final String tag__ = 'bmap_core_fluttify';
+
   
   //endregion
 
   //region creators
-  static Future<BMKCoordinateRegion> create__() async {
-    final int refId = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('ObjectFactory::createBMKCoordinateRegion');
-    final object = BMKCoordinateRegion()..refId = refId..tag__ = 'bmap_core_fluttify';
-  
-    kNativeObjectPool.add(object);
-    return object;
+  static Future<BMKCoordinateRegion> create__({ bool init = true /* ios only */ }) async {
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod(
+      'ObjectFactory::createBMKCoordinateRegion',
+      {'init': init}
+    );
+    return BmapCoreFluttifyIOSAs<BMKCoordinateRegion>(__result__);
   }
   
-  static Future<List<BMKCoordinateRegion>> create_batch__(int length) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('ObjectFactory::create_batchBMKCoordinateRegion', {'length': length});
-  
-    final List<BMKCoordinateRegion> typedResult = resultBatch.map((result) => BMKCoordinateRegion()..refId = result..tag__ = 'bmap_core_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
-    return typedResult;
+  static Future<List<BMKCoordinateRegion>> create_batch__(int length, { bool init = true /* ios only */ }) async {
+    assert(true);
+    final __result_batch__ = await  kBmapCoreFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchBMKCoordinateRegion',
+      {'length': length, 'init': init}
+    );
+    return __result_batch__
+        .map((it) => BmapCoreFluttifyIOSAs<BMKCoordinateRegion>(it))
+        .toList();
   }
   
   //endregion
 
   //region getters
   Future<CLLocationCoordinate2D> get_center() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKCoordinateRegion::get_center", {'refId': refId});
-    kNativeObjectPool.add(CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_core_fluttify');
-    return CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_core_fluttify';
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKCoordinateRegion::get_center", {'__this__': this});
+    return BmapCoreFluttifyIOSAs<CLLocationCoordinate2D>(__result__);
   }
   
   Future<BMKCoordinateSpan> get_span() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKCoordinateRegion::get_span", {'refId': refId});
-    kNativeObjectPool.add(BMKCoordinateSpan()..refId = __result__..tag__ = 'bmap_core_fluttify');
-    return BMKCoordinateSpan()..refId = __result__..tag__ = 'bmap_core_fluttify';
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKCoordinateRegion::get_span", {'__this__': this});
+    return BmapCoreFluttifyIOSAs<BMKCoordinateSpan>(__result__);
   }
   
   //endregion
 
   //region setters
   Future<void> set_center(CLLocationCoordinate2D center) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKCoordinateRegion::set_center', {'refId': refId, "center": center.refId});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKCoordinateRegion::set_center', <String, dynamic>{'__this__': this, "center": center});
   
   
   }
   
   Future<void> set_span(BMKCoordinateSpan span) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKCoordinateRegion::set_span', {'refId': refId, "span": span.refId});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKCoordinateRegion::set_span', <String, dynamic>{'__this__': this, "span": span});
   
   
   }
@@ -75,35 +75,36 @@ class BMKCoordinateRegion extends NSObject  {
   //region methods
   
   //endregion
+
+  @override
+  String toString() {
+    return 'BMKCoordinateRegion{refId: $refId, runtimeType: $runtimeType, tag__: $tag__}';
+  }
 }
 
 extension BMKCoordinateRegion_Batch on List<BMKCoordinateRegion> {
   //region getters
   Future<List<CLLocationCoordinate2D>> get_center_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKCoordinateRegion::get_center_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<int>().map((__result__) => CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_core_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKCoordinateRegion::get_center_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => BmapCoreFluttifyIOSAs<CLLocationCoordinate2D>(__result__))?.cast<CLLocationCoordinate2D>()?.toList();
   }
   
   Future<List<BMKCoordinateSpan>> get_span_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKCoordinateRegion::get_span_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<int>().map((__result__) => BMKCoordinateSpan()..refId = __result__..tag__ = 'bmap_core_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKCoordinateRegion::get_span_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => BmapCoreFluttifyIOSAs<BMKCoordinateSpan>(__result__))?.cast<BMKCoordinateSpan>()?.toList();
   }
   
   //endregion
 
   //region setters
   Future<void> set_center_batch(List<CLLocationCoordinate2D> center) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKCoordinateRegion::set_center_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "center": center[__i__].refId}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKCoordinateRegion::set_center_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "center": center[__i__]}]);
   
   
   }
   
   Future<void> set_span_batch(List<BMKCoordinateSpan> span) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKCoordinateRegion::set_span_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "span": span[__i__].refId}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKCoordinateRegion::set_span_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "span": span[__i__]}]);
   
   
   }

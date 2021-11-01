@@ -5,14 +5,23 @@
 #import "BmapCoreFluttifyPlugin.h"
 #import <objc/runtime.h>
 #import "SubHandler/SubHandler0.h"
-#import "SubHandler/SubHandlerCustom.h"
+#import "SubHandler/Custom/SubHandlerCustom.h"
+#import "FluttifyMessageCodec.h"
+#import <BaiduMapAPI_Base/BMKUserLocation.h>
+#import <BaiduMapAPI_Base/BMKVersion.h>
+#import <BaiduMapAPI_Base/BMKTypes.h>
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>
+#import <BaiduMapAPI_Base/BMKMapManager.h>
+#import <BaiduMapAPI_Base/BMKGeneralDelegate.h>
 
 // Dart端一次方法调用所存在的栈, 只有当MethodChannel传递参数受限时, 再启用这个容器
 extern NSMutableDictionary<NSString*, NSObject*>* STACK;
 // Dart端随机存取对象的容器
-extern NSMutableDictionary<NSNumber*, NSObject*>* HEAP;
+extern NSMutableDictionary<NSString*, NSObject*>* HEAP;
 // 日志打印开关
 extern BOOL enableLog;
+
+@interface BmapCoreFluttifyPlugin (_Delegate) <BMKGeneralDelegate> @end
 
 @implementation BmapCoreFluttifyPlugin {
   NSMutableDictionary<NSString*, Handler>* _handlerMap;
@@ -34,8 +43,9 @@ extern BOOL enableLog;
 
 + (void)registerWithRegistrar:(NSObject <FlutterPluginRegistrar> *)registrar {
   FlutterMethodChannel *channel = [FlutterMethodChannel
-      methodChannelWithName:@"com.fluttify/bmap_core_fluttify"
-            binaryMessenger:[registrar messenger]];
+      methodChannelWithName:@"me.yohom/bmap_core_fluttify"
+            binaryMessenger:[registrar messenger]
+                      codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
 
   [registrar addMethodCallDelegate:[[BmapCoreFluttifyPlugin alloc] initWithFlutterPluginRegistrar:registrar]
                            channel:channel];
@@ -57,8 +67,9 @@ extern BOOL enableLog;
 - (void)onGetNetworkState : (int)iError
 {
   FlutterMethodChannel *channel = [FlutterMethodChannel
-      methodChannelWithName:@"BMKGeneralDelegate::Callback"
-            binaryMessenger:[_registrar messenger]];
+        methodChannelWithName:@"BMKGeneralDelegate::Callback"
+              binaryMessenger:[_registrar messenger]
+                        codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
   // print log
   if (enableLog) {
     NSLog(@"BMKGeneralDelegate::onGetNetworkState");
@@ -68,15 +79,18 @@ extern BOOL enableLog;
   // primitive callback arg
   NSNumber* argiError = @(iError);
 
-  [channel invokeMethod:@"Callback::BMKGeneralDelegate::onGetNetworkState" arguments:@{@"iError": argiError}];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [channel invokeMethod:@"Callback::BMKGeneralDelegate::onGetNetworkState" arguments:@{@"iError": argiError == nil ? [NSNull null] : argiError}];
+  });
   
 }
 
 - (void)onGetPermissionState : (int)iError
 {
   FlutterMethodChannel *channel = [FlutterMethodChannel
-      methodChannelWithName:@"BMKGeneralDelegate::Callback"
-            binaryMessenger:[_registrar messenger]];
+        methodChannelWithName:@"BMKGeneralDelegate::Callback"
+              binaryMessenger:[_registrar messenger]
+                        codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
   // print log
   if (enableLog) {
     NSLog(@"BMKGeneralDelegate::onGetPermissionState");
@@ -86,7 +100,9 @@ extern BOOL enableLog;
   // primitive callback arg
   NSNumber* argiError = @(iError);
 
-  [channel invokeMethod:@"Callback::BMKGeneralDelegate::onGetPermissionState" arguments:@{@"iError": argiError}];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [channel invokeMethod:@"Callback::BMKGeneralDelegate::onGetPermissionState" arguments:@{@"iError": argiError == nil ? [NSNull null] : argiError}];
+  });
   
 }
 

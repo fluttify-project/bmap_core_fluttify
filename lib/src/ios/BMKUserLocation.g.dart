@@ -6,7 +6,6 @@
 import 'dart:typed_data';
 
 import 'package:bmap_core_fluttify/src/ios/ios.export.g.dart';
-import 'package:bmap_core_fluttify/src/android/android.export.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -17,59 +16,57 @@ class BMKUserLocation extends NSObject  {
   //region constants
   static const String name__ = 'BMKUserLocation';
 
+  @override
+  final String tag__ = 'bmap_core_fluttify';
+
   
   //endregion
 
   //region creators
-  static Future<BMKUserLocation> create__() async {
-    final int refId = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('ObjectFactory::createBMKUserLocation');
-    final object = BMKUserLocation()..refId = refId..tag__ = 'bmap_core_fluttify';
-  
-    kNativeObjectPool.add(object);
-    return object;
+  static Future<BMKUserLocation> create__({ bool init = true /* ios only */ }) async {
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod(
+      'ObjectFactory::createBMKUserLocation',
+      {'init': init}
+    );
+    return BmapCoreFluttifyIOSAs<BMKUserLocation>(__result__);
   }
   
-  static Future<List<BMKUserLocation>> create_batch__(int length) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('ObjectFactory::create_batchBMKUserLocation', {'length': length});
-  
-    final List<BMKUserLocation> typedResult = resultBatch.map((result) => BMKUserLocation()..refId = result..tag__ = 'bmap_core_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
-    return typedResult;
+  static Future<List<BMKUserLocation>> create_batch__(int length, { bool init = true /* ios only */ }) async {
+    assert(true);
+    final __result_batch__ = await  kBmapCoreFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchBMKUserLocation',
+      {'length': length, 'init': init}
+    );
+    return __result_batch__
+        .map((it) => BmapCoreFluttifyIOSAs<BMKUserLocation>(it))
+        .toList();
   }
   
   //endregion
 
   //region getters
   Future<bool> get_updating() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKUserLocation::get_isUpdating", {'refId': refId});
-  
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_isUpdating", {'__this__': this});
     return __result__;
   }
   
   Future<CLLocation> get_location() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKUserLocation::get_location", {'refId': refId});
-    kNativeObjectPool.add(CLLocation()..refId = __result__..tag__ = 'bmap_core_fluttify');
-    return CLLocation()..refId = __result__..tag__ = 'bmap_core_fluttify';
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_location", {'__this__': this});
+    return BmapCoreFluttifyIOSAs<CLLocation>(__result__);
   }
   
   Future<CLHeading> get_heading() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKUserLocation::get_heading", {'refId': refId});
-    kNativeObjectPool.add(CLHeading()..refId = __result__..tag__ = 'bmap_core_fluttify');
-    return CLHeading()..refId = __result__..tag__ = 'bmap_core_fluttify';
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_heading", {'__this__': this});
+    return BmapCoreFluttifyIOSAs<CLHeading>(__result__);
   }
   
   Future<String> get_title() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKUserLocation::get_title", {'refId': refId});
-  
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_title", {'__this__': this});
     return __result__;
   }
   
   Future<String> get_subtitle() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKUserLocation::get_subtitle", {'refId': refId});
-  
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_subtitle", {'__this__': this});
     return __result__;
   }
   
@@ -77,31 +74,31 @@ class BMKUserLocation extends NSObject  {
 
   //region setters
   Future<void> set_updating(bool updating) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKUserLocation::set_updating', {'refId': refId, "updating": updating});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKUserLocation::set_updating', <String, dynamic>{'__this__': this, "updating": updating});
   
   
   }
   
   Future<void> set_location(CLLocation location) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKUserLocation::set_location', {'refId': refId, "location": location.refId});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKUserLocation::set_location', <String, dynamic>{'__this__': this, "location": location});
   
   
   }
   
   Future<void> set_heading(CLHeading heading) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKUserLocation::set_heading', {'refId': refId, "heading": heading.refId});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKUserLocation::set_heading', <String, dynamic>{'__this__': this, "heading": heading});
   
   
   }
   
   Future<void> set_title(String title) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKUserLocation::set_title', {'refId': refId, "title": title});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKUserLocation::set_title', <String, dynamic>{'__this__': this, "title": title});
   
   
   }
   
   Future<void> set_subtitle(String subtitle) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKUserLocation::set_subtitle', {'refId': refId, "subtitle": subtitle});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKUserLocation::set_subtitle', <String, dynamic>{'__this__': this, "subtitle": subtitle});
   
   
   }
@@ -111,74 +108,69 @@ class BMKUserLocation extends NSObject  {
   //region methods
   
   //endregion
+
+  @override
+  String toString() {
+    return 'BMKUserLocation{refId: $refId, runtimeType: $runtimeType, tag__: $tag__}';
+  }
 }
 
 extension BMKUserLocation_Batch on List<BMKUserLocation> {
   //region getters
   Future<List<bool>> get_updating_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKUserLocation::get_isUpdating_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
-  
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_isUpdating_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<bool>()?.toList();
   }
   
   Future<List<CLLocation>> get_location_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKUserLocation::get_location_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<int>().map((__result__) => CLLocation()..refId = __result__..tag__ = 'bmap_core_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_location_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => BmapCoreFluttifyIOSAs<CLLocation>(__result__))?.cast<CLLocation>()?.toList();
   }
   
   Future<List<CLHeading>> get_heading_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKUserLocation::get_heading_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<int>().map((__result__) => CLHeading()..refId = __result__..tag__ = 'bmap_core_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_heading_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => BmapCoreFluttifyIOSAs<CLHeading>(__result__))?.cast<CLHeading>()?.toList();
   }
   
   Future<List<String>> get_title_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKUserLocation::get_title_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
-  
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_title_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
   }
   
   Future<List<String>> get_subtitle_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKUserLocation::get_subtitle_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
-  
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_subtitle_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
   }
   
   //endregion
 
   //region setters
   Future<void> set_updating_batch(List<bool> updating) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKUserLocation::set_updating_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "updating": updating[__i__]}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKUserLocation::set_updating_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "updating": updating[__i__]}]);
   
   
   }
   
   Future<void> set_location_batch(List<CLLocation> location) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKUserLocation::set_location_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "location": location[__i__].refId}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKUserLocation::set_location_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "location": location[__i__]}]);
   
   
   }
   
   Future<void> set_heading_batch(List<CLHeading> heading) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKUserLocation::set_heading_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "heading": heading[__i__].refId}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKUserLocation::set_heading_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "heading": heading[__i__]}]);
   
   
   }
   
   Future<void> set_title_batch(List<String> title) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKUserLocation::set_title_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "title": title[__i__]}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKUserLocation::set_title_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "title": title[__i__]}]);
   
   
   }
   
   Future<void> set_subtitle_batch(List<String> subtitle) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKUserLocation::set_subtitle_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "subtitle": subtitle[__i__]}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKUserLocation::set_subtitle_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "subtitle": subtitle[__i__]}]);
   
   
   }

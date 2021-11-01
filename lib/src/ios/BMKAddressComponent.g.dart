@@ -6,7 +6,6 @@
 import 'dart:typed_data';
 
 import 'package:bmap_core_fluttify/src/ios/ios.export.g.dart';
-import 'package:bmap_core_fluttify/src/android/android.export.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -17,95 +16,87 @@ class BMKAddressComponent extends NSObject  {
   //region constants
   static const String name__ = 'BMKAddressComponent';
 
+  @override
+  final String tag__ = 'bmap_core_fluttify';
+
   
   //endregion
 
   //region creators
-  static Future<BMKAddressComponent> create__() async {
-    final int refId = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('ObjectFactory::createBMKAddressComponent');
-    final object = BMKAddressComponent()..refId = refId..tag__ = 'bmap_core_fluttify';
-  
-    kNativeObjectPool.add(object);
-    return object;
+  static Future<BMKAddressComponent> create__({ bool init = true /* ios only */ }) async {
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod(
+      'ObjectFactory::createBMKAddressComponent',
+      {'init': init}
+    );
+    return BmapCoreFluttifyIOSAs<BMKAddressComponent>(__result__);
   }
   
-  static Future<List<BMKAddressComponent>> create_batch__(int length) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('ObjectFactory::create_batchBMKAddressComponent', {'length': length});
-  
-    final List<BMKAddressComponent> typedResult = resultBatch.map((result) => BMKAddressComponent()..refId = result..tag__ = 'bmap_core_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
-    return typedResult;
+  static Future<List<BMKAddressComponent>> create_batch__(int length, { bool init = true /* ios only */ }) async {
+    assert(true);
+    final __result_batch__ = await  kBmapCoreFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchBMKAddressComponent',
+      {'length': length, 'init': init}
+    );
+    return __result_batch__
+        .map((it) => BmapCoreFluttifyIOSAs<BMKAddressComponent>(it))
+        .toList();
   }
   
   //endregion
 
   //region getters
   Future<String> get_country() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_country", {'refId': refId});
-  
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_country", {'__this__': this});
     return __result__;
   }
   
   Future<String> get_province() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_province", {'refId': refId});
-  
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_province", {'__this__': this});
     return __result__;
   }
   
   Future<String> get_city() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_city", {'refId': refId});
-  
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_city", {'__this__': this});
     return __result__;
   }
   
   Future<String> get_district() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_district", {'refId': refId});
-  
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_district", {'__this__': this});
     return __result__;
   }
   
   Future<String> get_town() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_town", {'refId': refId});
-  
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_town", {'__this__': this});
     return __result__;
   }
   
   Future<String> get_streetName() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_streetName", {'refId': refId});
-  
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_streetName", {'__this__': this});
     return __result__;
   }
   
   Future<String> get_streetNumber() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_streetNumber", {'refId': refId});
-  
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_streetNumber", {'__this__': this});
     return __result__;
   }
   
   Future<String> get_adCode() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_adCode", {'refId': refId});
-  
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_adCode", {'__this__': this});
     return __result__;
   }
   
   Future<String> get_countryCode() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_countryCode", {'refId': refId});
-  
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_countryCode", {'__this__': this});
     return __result__;
   }
   
   Future<String> get_direction() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_direction", {'refId': refId});
-  
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_direction", {'__this__': this});
     return __result__;
   }
   
   Future<String> get_distance() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_distance", {'refId': refId});
-  
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_distance", {'__this__': this});
     return __result__;
   }
   
@@ -113,67 +104,67 @@ class BMKAddressComponent extends NSObject  {
 
   //region setters
   Future<void> set_country(String country) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_country', {'refId': refId, "country": country});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_country', <String, dynamic>{'__this__': this, "country": country});
   
   
   }
   
   Future<void> set_province(String province) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_province', {'refId': refId, "province": province});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_province', <String, dynamic>{'__this__': this, "province": province});
   
   
   }
   
   Future<void> set_city(String city) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_city', {'refId': refId, "city": city});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_city', <String, dynamic>{'__this__': this, "city": city});
   
   
   }
   
   Future<void> set_district(String district) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_district', {'refId': refId, "district": district});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_district', <String, dynamic>{'__this__': this, "district": district});
   
   
   }
   
   Future<void> set_town(String town) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_town', {'refId': refId, "town": town});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_town', <String, dynamic>{'__this__': this, "town": town});
   
   
   }
   
   Future<void> set_streetName(String streetName) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_streetName', {'refId': refId, "streetName": streetName});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_streetName', <String, dynamic>{'__this__': this, "streetName": streetName});
   
   
   }
   
   Future<void> set_streetNumber(String streetNumber) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_streetNumber', {'refId': refId, "streetNumber": streetNumber});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_streetNumber', <String, dynamic>{'__this__': this, "streetNumber": streetNumber});
   
   
   }
   
   Future<void> set_adCode(String adCode) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_adCode', {'refId': refId, "adCode": adCode});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_adCode', <String, dynamic>{'__this__': this, "adCode": adCode});
   
   
   }
   
   Future<void> set_countryCode(String countryCode) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_countryCode', {'refId': refId, "countryCode": countryCode});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_countryCode', <String, dynamic>{'__this__': this, "countryCode": countryCode});
   
   
   }
   
   Future<void> set_direction(String direction) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_direction', {'refId': refId, "direction": direction});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_direction', <String, dynamic>{'__this__': this, "direction": direction});
   
   
   }
   
   Future<void> set_distance(String distance) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_distance', {'refId': refId, "distance": distance});
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_distance', <String, dynamic>{'__this__': this, "distance": distance});
   
   
   }
@@ -183,152 +174,135 @@ class BMKAddressComponent extends NSObject  {
   //region methods
   
   //endregion
+
+  @override
+  String toString() {
+    return 'BMKAddressComponent{refId: $refId, runtimeType: $runtimeType, tag__: $tag__}';
+  }
 }
 
 extension BMKAddressComponent_Batch on List<BMKAddressComponent> {
   //region getters
   Future<List<String>> get_country_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_country_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
-  
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_country_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
   }
   
   Future<List<String>> get_province_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_province_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
-  
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_province_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
   }
   
   Future<List<String>> get_city_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_city_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
-  
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_city_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
   }
   
   Future<List<String>> get_district_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_district_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
-  
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_district_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
   }
   
   Future<List<String>> get_town_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_town_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
-  
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_town_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
   }
   
   Future<List<String>> get_streetName_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_streetName_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
-  
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_streetName_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
   }
   
   Future<List<String>> get_streetNumber_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_streetNumber_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
-  
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_streetNumber_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
   }
   
   Future<List<String>> get_adCode_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_adCode_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
-  
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_adCode_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
   }
   
   Future<List<String>> get_countryCode_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_countryCode_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
-  
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_countryCode_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
   }
   
   Future<List<String>> get_direction_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_direction_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
-  
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_direction_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
   }
   
   Future<List<String>> get_distance_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod("BMKAddressComponent::get_distance_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
-  
-    return typedResult;
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_distance_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
   }
   
   //endregion
 
   //region setters
   Future<void> set_country_batch(List<String> country) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_country_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "country": country[__i__]}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_country_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "country": country[__i__]}]);
   
   
   }
   
   Future<void> set_province_batch(List<String> province) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_province_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "province": province[__i__]}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_province_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "province": province[__i__]}]);
   
   
   }
   
   Future<void> set_city_batch(List<String> city) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_city_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "city": city[__i__]}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_city_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "city": city[__i__]}]);
   
   
   }
   
   Future<void> set_district_batch(List<String> district) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_district_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "district": district[__i__]}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_district_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "district": district[__i__]}]);
   
   
   }
   
   Future<void> set_town_batch(List<String> town) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_town_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "town": town[__i__]}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_town_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "town": town[__i__]}]);
   
   
   }
   
   Future<void> set_streetName_batch(List<String> streetName) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_streetName_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "streetName": streetName[__i__]}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_streetName_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "streetName": streetName[__i__]}]);
   
   
   }
   
   Future<void> set_streetNumber_batch(List<String> streetNumber) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_streetNumber_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "streetNumber": streetNumber[__i__]}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_streetNumber_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "streetNumber": streetNumber[__i__]}]);
   
   
   }
   
   Future<void> set_adCode_batch(List<String> adCode) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_adCode_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "adCode": adCode[__i__]}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_adCode_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "adCode": adCode[__i__]}]);
   
   
   }
   
   Future<void> set_countryCode_batch(List<String> countryCode) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_countryCode_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "countryCode": countryCode[__i__]}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_countryCode_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "countryCode": countryCode[__i__]}]);
   
   
   }
   
   Future<void> set_direction_batch(List<String> direction) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_direction_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "direction": direction[__i__]}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_direction_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "direction": direction[__i__]}]);
   
   
   }
   
   Future<void> set_distance_batch(List<String> distance) async {
-    await MethodChannel('com.fluttify/bmap_core_fluttify').invokeMethod('BMKAddressComponent::set_distance_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "distance": distance[__i__]}]);
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_distance_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "distance": distance[__i__]}]);
   
   
   }
