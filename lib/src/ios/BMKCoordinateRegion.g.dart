@@ -83,6 +83,11 @@ class BMKCoordinateRegion extends NSObject  {
 }
 
 extension BMKCoordinateRegion_Batch on List<BMKCoordinateRegion> {
+  String get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
   Future<List<CLLocationCoordinate2D>> get_center_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKCoordinateRegion::get_center_batch", [for (final __item__ in this) {'__this__': __item__}]);

@@ -83,6 +83,11 @@ class BMKGeoPoint extends NSObject  {
 }
 
 extension BMKGeoPoint_Batch on List<BMKGeoPoint> {
+  String get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
   Future<List<int>> get_latitudeE6_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKGeoPoint::get_latitudeE6_batch", [for (final __item__ in this) {'__this__': __item__}]);

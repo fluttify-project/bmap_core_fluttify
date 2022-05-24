@@ -5,14 +5,10 @@
 #import "BmapCoreFluttifyPlugin.h"
 #import <objc/runtime.h>
 #import "SubHandler/SubHandler0.h"
+#import "SubHandler/SubHandler1.h"
 #import "SubHandler/Custom/SubHandlerCustom.h"
 #import "FluttifyMessageCodec.h"
-#import <BaiduMapAPI_Base/BMKUserLocation.h>
-#import <BaiduMapAPI_Base/BMKVersion.h>
-#import <BaiduMapAPI_Base/BMKTypes.h>
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>
-#import <BaiduMapAPI_Base/BMKMapManager.h>
-#import <BaiduMapAPI_Base/BMKGeneralDelegate.h>
 
 // Dart端一次方法调用所存在的栈, 只有当MethodChannel传递参数受限时, 再启用这个容器
 extern NSMutableDictionary<NSString*, NSObject*>* STACK;
@@ -35,6 +31,7 @@ extern BOOL enableLog;
     _handlerMap = @{}.mutableCopy;
 
     [_handlerMap addEntriesFromDictionary: [self getSubHandler0]];
+    [_handlerMap addEntriesFromDictionary: [self getSubHandler1]];
     [_handlerMap addEntriesFromDictionary: [self getSubHandlerCustom]];
   }
 

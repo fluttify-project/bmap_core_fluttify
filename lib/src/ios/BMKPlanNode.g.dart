@@ -105,6 +105,11 @@ class BMKPlanNode extends NSObject  {
 }
 
 extension BMKPlanNode_Batch on List<BMKPlanNode> {
+  String get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
   Future<List<String>> get_cityName_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKPlanNode::get_cityName_batch", [for (final __item__ in this) {'__this__': __item__}]);

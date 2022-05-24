@@ -229,6 +229,11 @@ class BMKMapManager extends NSObject  {
 }
 
 extension BMKMapManager_Batch on List<BMKMapManager> {
+  String get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
   
   //endregion

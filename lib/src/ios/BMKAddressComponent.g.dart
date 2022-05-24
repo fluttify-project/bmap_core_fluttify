@@ -90,6 +90,26 @@ class BMKAddressComponent extends NSObject  {
     return __result__;
   }
   
+  Future<String> get_countryCodeISO() async {
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_countryCodeISO", {'__this__': this});
+    return __result__;
+  }
+  
+  Future<String> get_countryCodeISO2() async {
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_countryCodeISO2", {'__this__': this});
+    return __result__;
+  }
+  
+  Future<String> get_townCode() async {
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_townCode", {'__this__': this});
+    return __result__;
+  }
+  
+  Future<String> get_cityLevel() async {
+    final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_cityLevel", {'__this__': this});
+    return __result__;
+  }
+  
   Future<String> get_direction() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_direction", {'__this__': this});
     return __result__;
@@ -157,6 +177,30 @@ class BMKAddressComponent extends NSObject  {
   
   }
   
+  Future<void> set_countryCodeISO(String countryCodeISO) async {
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_countryCodeISO', <String, dynamic>{'__this__': this, "countryCodeISO": countryCodeISO});
+  
+  
+  }
+  
+  Future<void> set_countryCodeISO2(String countryCodeISO2) async {
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_countryCodeISO2', <String, dynamic>{'__this__': this, "countryCodeISO2": countryCodeISO2});
+  
+  
+  }
+  
+  Future<void> set_townCode(String townCode) async {
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_townCode', <String, dynamic>{'__this__': this, "townCode": townCode});
+  
+  
+  }
+  
+  Future<void> set_cityLevel(String cityLevel) async {
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_cityLevel', <String, dynamic>{'__this__': this, "cityLevel": cityLevel});
+  
+  
+  }
+  
   Future<void> set_direction(String direction) async {
     await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_direction', <String, dynamic>{'__this__': this, "direction": direction});
   
@@ -182,6 +226,11 @@ class BMKAddressComponent extends NSObject  {
 }
 
 extension BMKAddressComponent_Batch on List<BMKAddressComponent> {
+  String get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
   Future<List<String>> get_country_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_country_batch", [for (final __item__ in this) {'__this__': __item__}]);
@@ -225,6 +274,26 @@ extension BMKAddressComponent_Batch on List<BMKAddressComponent> {
   
   Future<List<String>> get_countryCode_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_countryCode_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+  }
+  
+  Future<List<String>> get_countryCodeISO_batch() async {
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_countryCodeISO_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+  }
+  
+  Future<List<String>> get_countryCodeISO2_batch() async {
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_countryCodeISO2_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+  }
+  
+  Future<List<String>> get_townCode_batch() async {
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_townCode_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+  }
+  
+  Future<List<String>> get_cityLevel_batch() async {
+    final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKAddressComponent::get_cityLevel_batch", [for (final __item__ in this) {'__this__': __item__}]);
     return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
   }
   
@@ -291,6 +360,30 @@ extension BMKAddressComponent_Batch on List<BMKAddressComponent> {
   
   Future<void> set_countryCode_batch(List<String> countryCode) async {
     await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_countryCode_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "countryCode": countryCode[__i__]}]);
+  
+  
+  }
+  
+  Future<void> set_countryCodeISO_batch(List<String> countryCodeISO) async {
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_countryCodeISO_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "countryCodeISO": countryCodeISO[__i__]}]);
+  
+  
+  }
+  
+  Future<void> set_countryCodeISO2_batch(List<String> countryCodeISO2) async {
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_countryCodeISO2_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "countryCodeISO2": countryCodeISO2[__i__]}]);
+  
+  
+  }
+  
+  Future<void> set_townCode_batch(List<String> townCode) async {
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_townCode_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "townCode": townCode[__i__]}]);
+  
+  
+  }
+  
+  Future<void> set_cityLevel_batch(List<String> cityLevel) async {
+    await kBmapCoreFluttifyChannel.invokeMethod('BMKAddressComponent::set_cityLevel_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "cityLevel": cityLevel[__i__]}]);
   
   
   }

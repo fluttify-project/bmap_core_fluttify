@@ -5,3 +5,17 @@
 import 'package:flutter/services.dart';
 import '../facade/shared.g.dart';
 
+import 'package:bmap_core_fluttify/src/ios/ios.export.g.dart';
+import 'package:bmap_core_fluttify/src/android/android.export.g.dart';
+
+Future<BMKMapSize> get BMKMapSizeWorld async {
+  return kBmapCoreFluttifyChannel.invokeMethod('getBMKMapSizeWorld');
+}
+
+Future<BMKMapRect> get BMKMapRectWorld async {
+  return kBmapCoreFluttifyChannel.invokeMethod('getBMKMapRectWorld');
+}
+
+Future<BMKMapRect> get BMKMapRectNull async {
+  return kBmapCoreFluttifyChannel.invokeMethod('getBMKMapRectNull');
+}

@@ -83,6 +83,11 @@ class BMKMapPoint extends NSObject  {
 }
 
 extension BMKMapPoint_Batch on List<BMKMapPoint> {
+  String get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
   Future<List<double>> get_x_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKMapPoint::get_x_batch", [for (final __item__ in this) {'__this__': __item__}]);

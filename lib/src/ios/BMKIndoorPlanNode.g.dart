@@ -83,6 +83,11 @@ class BMKIndoorPlanNode extends NSObject  {
 }
 
 extension BMKIndoorPlanNode_Batch on List<BMKIndoorPlanNode> {
+  String get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
   Future<List<String>> get_floor_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKIndoorPlanNode::get_floor_batch", [for (final __item__ in this) {'__this__': __item__}]);

@@ -116,6 +116,11 @@ class BMKUserLocation extends NSObject  {
 }
 
 extension BMKUserLocation_Batch on List<BMKUserLocation> {
+  String get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
   Future<List<bool>> get_updating_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_isUpdating_batch", [for (final __item__ in this) {'__this__': __item__}]);

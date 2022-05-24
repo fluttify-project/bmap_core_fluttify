@@ -83,6 +83,11 @@ class BMKMapSize extends NSObject  {
 }
 
 extension BMKMapSize_Batch on List<BMKMapSize> {
+  String get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
   Future<List<double>> get_width_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKMapSize::get_width_batch", [for (final __item__ in this) {'__this__': __item__}]);

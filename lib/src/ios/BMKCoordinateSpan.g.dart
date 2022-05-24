@@ -83,6 +83,11 @@ class BMKCoordinateSpan extends NSObject  {
 }
 
 extension BMKCoordinateSpan_Batch on List<BMKCoordinateSpan> {
+  String get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
   Future<List<double>> get_latitudeDelta_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKCoordinateSpan::get_latitudeDelta_batch", [for (final __item__ in this) {'__this__': __item__}]);

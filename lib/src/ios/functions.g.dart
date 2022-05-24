@@ -204,3 +204,35 @@ Future<double> BMKMapRectGetMaxY(BMKMapRect rect) async {
 
   return __result__;
 }
+
+Future<String> BMKGetMapApiVersion() async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKGetMapApiVersion::BMKGetMapApiVersion([])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKGetMapApiVersion::BMKGetMapApiVersion', );
+  
+
+  // handle native call
+  
+
+  return __result__;
+}
+
+Future<String> BMKGetMapApiBaseComponentVersion() async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKGetMapApiBaseComponentVersion::BMKGetMapApiBaseComponentVersion([])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKGetMapApiBaseComponentVersion::BMKGetMapApiBaseComponentVersion', );
+  
+
+  // handle native call
+  
+
+  return __result__;
+}

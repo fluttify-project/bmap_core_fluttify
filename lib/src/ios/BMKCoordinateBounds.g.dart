@@ -83,6 +83,11 @@ class BMKCoordinateBounds extends NSObject  {
 }
 
 extension BMKCoordinateBounds_Batch on List<BMKCoordinateBounds> {
+  String get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
   Future<List<CLLocationCoordinate2D>> get_northEast_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKCoordinateBounds::get_northEast_batch", [for (final __item__ in this) {'__this__': __item__}]);
