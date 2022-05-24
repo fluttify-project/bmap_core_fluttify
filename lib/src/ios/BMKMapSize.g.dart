@@ -23,12 +23,12 @@ class BMKMapSize extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKMapSize> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKMapSize?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKMapSize',
       {'init': init}
     );
-    return BmapCoreFluttifyIOSAs<BMKMapSize>(__result__);
+    return BmapCoreFluttifyIOSAs<BMKMapSize?>(__result__);
   }
   
   static Future<List<BMKMapSize>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,19 +38,21 @@ class BMKMapSize extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapCoreFluttifyIOSAs<BMKMapSize>(it))
-        .toList();
+        ?.map((it) => BmapCoreFluttifyIOSAs<BMKMapSize>(it))
+        .where((element) => element !=null)
+        .cast<BMKMapSize>()
+        .toList() ?? <BMKMapSize>[];
   }
   
   //endregion
 
   //region getters
-  Future<double> get_width() async {
+  Future<double?> get_width() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKMapSize::get_width", {'__this__': this});
     return __result__;
   }
   
-  Future<double> get_height() async {
+  Future<double?> get_height() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKMapSize::get_height", {'__this__': this});
     return __result__;
   }
@@ -83,15 +85,20 @@ class BMKMapSize extends NSObject  {
 }
 
 extension BMKMapSize_Batch on List<BMKMapSize> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
-  Future<List<double>> get_width_batch() async {
+  Future<List<double?>> get_width_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKMapSize::get_width_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<double>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<double?>().toList();
   }
   
-  Future<List<double>> get_height_batch() async {
+  Future<List<double?>> get_height_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKMapSize::get_height_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<double>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<double?>().toList();
   }
   
   //endregion

@@ -23,12 +23,12 @@ class BMKGeoPoint extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKGeoPoint> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKGeoPoint?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKGeoPoint',
       {'init': init}
     );
-    return BmapCoreFluttifyIOSAs<BMKGeoPoint>(__result__);
+    return BmapCoreFluttifyIOSAs<BMKGeoPoint?>(__result__);
   }
   
   static Future<List<BMKGeoPoint>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,19 +38,21 @@ class BMKGeoPoint extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapCoreFluttifyIOSAs<BMKGeoPoint>(it))
-        .toList();
+        ?.map((it) => BmapCoreFluttifyIOSAs<BMKGeoPoint>(it))
+        .where((element) => element !=null)
+        .cast<BMKGeoPoint>()
+        .toList() ?? <BMKGeoPoint>[];
   }
   
   //endregion
 
   //region getters
-  Future<int> get_latitudeE6() async {
+  Future<int?> get_latitudeE6() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKGeoPoint::get_latitudeE6", {'__this__': this});
     return __result__;
   }
   
-  Future<int> get_longitudeE6() async {
+  Future<int?> get_longitudeE6() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKGeoPoint::get_longitudeE6", {'__this__': this});
     return __result__;
   }
@@ -83,15 +85,20 @@ class BMKGeoPoint extends NSObject  {
 }
 
 extension BMKGeoPoint_Batch on List<BMKGeoPoint> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
-  Future<List<int>> get_latitudeE6_batch() async {
+  Future<List<int?>> get_latitudeE6_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKGeoPoint::get_latitudeE6_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<int>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
-  Future<List<int>> get_longitudeE6_batch() async {
+  Future<List<int?>> get_longitudeE6_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKGeoPoint::get_longitudeE6_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<int>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
   //endregion

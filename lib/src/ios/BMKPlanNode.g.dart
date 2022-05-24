@@ -23,12 +23,12 @@ class BMKPlanNode extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKPlanNode> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKPlanNode?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKPlanNode',
       {'init': init}
     );
-    return BmapCoreFluttifyIOSAs<BMKPlanNode>(__result__);
+    return BmapCoreFluttifyIOSAs<BMKPlanNode?>(__result__);
   }
   
   static Future<List<BMKPlanNode>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,29 +38,31 @@ class BMKPlanNode extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapCoreFluttifyIOSAs<BMKPlanNode>(it))
-        .toList();
+        ?.map((it) => BmapCoreFluttifyIOSAs<BMKPlanNode>(it))
+        .where((element) => element !=null)
+        .cast<BMKPlanNode>()
+        .toList() ?? <BMKPlanNode>[];
   }
   
   //endregion
 
   //region getters
-  Future<String> get_cityName() async {
+  Future<String?> get_cityName() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKPlanNode::get_cityName", {'__this__': this});
     return __result__;
   }
   
-  Future<int> get_cityID() async {
+  Future<int?> get_cityID() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKPlanNode::get_cityID", {'__this__': this});
     return __result__;
   }
   
-  Future<String> get_name() async {
+  Future<String?> get_name() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKPlanNode::get_name", {'__this__': this});
     return __result__;
   }
   
-  Future<CLLocationCoordinate2D> get_pt() async {
+  Future<CLLocationCoordinate2D?> get_pt() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKPlanNode::get_pt", {'__this__': this});
     return BmapCoreFluttifyIOSAs<CLLocationCoordinate2D>(__result__);
   }
@@ -105,25 +107,30 @@ class BMKPlanNode extends NSObject  {
 }
 
 extension BMKPlanNode_Batch on List<BMKPlanNode> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
-  Future<List<String>> get_cityName_batch() async {
+  Future<List<String?>> get_cityName_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKPlanNode::get_cityName_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<int>> get_cityID_batch() async {
+  Future<List<int?>> get_cityID_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKPlanNode::get_cityID_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<int>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
-  Future<List<String>> get_name_batch() async {
+  Future<List<String?>> get_name_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKPlanNode::get_name_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<CLLocationCoordinate2D>> get_pt_batch() async {
+  Future<List<CLLocationCoordinate2D?>> get_pt_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKPlanNode::get_pt_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => BmapCoreFluttifyIOSAs<CLLocationCoordinate2D>(__result__))?.cast<CLLocationCoordinate2D>()?.toList();
+    return (resultBatch as List).map((__result__) => BmapCoreFluttifyIOSAs<CLLocationCoordinate2D>(__result__)).cast<CLLocationCoordinate2D?>().toList();
   }
   
   //endregion

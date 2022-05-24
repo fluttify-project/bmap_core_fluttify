@@ -23,12 +23,12 @@ class BMKUserLocation extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKUserLocation> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKUserLocation?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKUserLocation',
       {'init': init}
     );
-    return BmapCoreFluttifyIOSAs<BMKUserLocation>(__result__);
+    return BmapCoreFluttifyIOSAs<BMKUserLocation?>(__result__);
   }
   
   static Future<List<BMKUserLocation>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,34 +38,36 @@ class BMKUserLocation extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapCoreFluttifyIOSAs<BMKUserLocation>(it))
-        .toList();
+        ?.map((it) => BmapCoreFluttifyIOSAs<BMKUserLocation>(it))
+        .where((element) => element !=null)
+        .cast<BMKUserLocation>()
+        .toList() ?? <BMKUserLocation>[];
   }
   
   //endregion
 
   //region getters
-  Future<bool> get_updating() async {
+  Future<bool?> get_updating() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_isUpdating", {'__this__': this});
     return __result__;
   }
   
-  Future<CLLocation> get_location() async {
+  Future<CLLocation?> get_location() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_location", {'__this__': this});
     return BmapCoreFluttifyIOSAs<CLLocation>(__result__);
   }
   
-  Future<CLHeading> get_heading() async {
+  Future<CLHeading?> get_heading() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_heading", {'__this__': this});
     return BmapCoreFluttifyIOSAs<CLHeading>(__result__);
   }
   
-  Future<String> get_title() async {
+  Future<String?> get_title() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_title", {'__this__': this});
     return __result__;
   }
   
-  Future<String> get_subtitle() async {
+  Future<String?> get_subtitle() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_subtitle", {'__this__': this});
     return __result__;
   }
@@ -116,30 +118,35 @@ class BMKUserLocation extends NSObject  {
 }
 
 extension BMKUserLocation_Batch on List<BMKUserLocation> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
-  Future<List<bool>> get_updating_batch() async {
+  Future<List<bool?>> get_updating_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_isUpdating_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<bool>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
-  Future<List<CLLocation>> get_location_batch() async {
+  Future<List<CLLocation?>> get_location_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_location_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => BmapCoreFluttifyIOSAs<CLLocation>(__result__))?.cast<CLLocation>()?.toList();
+    return (resultBatch as List).map((__result__) => BmapCoreFluttifyIOSAs<CLLocation>(__result__)).cast<CLLocation?>().toList();
   }
   
-  Future<List<CLHeading>> get_heading_batch() async {
+  Future<List<CLHeading?>> get_heading_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_heading_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => BmapCoreFluttifyIOSAs<CLHeading>(__result__))?.cast<CLHeading>()?.toList();
+    return (resultBatch as List).map((__result__) => BmapCoreFluttifyIOSAs<CLHeading>(__result__)).cast<CLHeading?>().toList();
   }
   
-  Future<List<String>> get_title_batch() async {
+  Future<List<String?>> get_title_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_title_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<String>> get_subtitle_batch() async {
+  Future<List<String?>> get_subtitle_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKUserLocation::get_subtitle_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
   //endregion

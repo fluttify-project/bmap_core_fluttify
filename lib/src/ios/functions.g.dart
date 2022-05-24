@@ -13,7 +13,7 @@ import 'package:flutter/services.dart';
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
-Future<BMKCoordinateSpan> BMKCoordinateSpanMake(double latitudeDelta, double longitudeDelta) async {
+Future<BMKCoordinateSpan?> BMKCoordinateSpanMake(double latitudeDelta, double longitudeDelta) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKCoordinateSpanMake::BMKCoordinateSpanMake([\'latitudeDelta\':$latitudeDelta, \'longitudeDelta\':$longitudeDelta])');
@@ -29,7 +29,7 @@ Future<BMKCoordinateSpan> BMKCoordinateSpanMake(double latitudeDelta, double lon
   return BmapCoreFluttifyIOSAs<BMKCoordinateSpan>(__result__);
 }
 
-Future<BMKCoordinateRegion> BMKCoordinateRegionMake(CLLocationCoordinate2D centerCoordinate, BMKCoordinateSpan span) async {
+Future<BMKCoordinateRegion?> BMKCoordinateRegionMake(CLLocationCoordinate2D centerCoordinate, BMKCoordinateSpan span) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKCoordinateRegionMake::BMKCoordinateRegionMake([])');
@@ -45,7 +45,7 @@ Future<BMKCoordinateRegion> BMKCoordinateRegionMake(CLLocationCoordinate2D cente
   return BmapCoreFluttifyIOSAs<BMKCoordinateRegion>(__result__);
 }
 
-Future<BMKMapPoint> BMKMapPointMake(double x, double y) async {
+Future<BMKMapPoint?> BMKMapPointMake(double x, double y) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapPointMake::BMKMapPointMake([\'x\':$x, \'y\':$y])');
@@ -61,7 +61,7 @@ Future<BMKMapPoint> BMKMapPointMake(double x, double y) async {
   return BmapCoreFluttifyIOSAs<BMKMapPoint>(__result__);
 }
 
-Future<BMKMapSize> BMKMapSizeMake(double width, double height) async {
+Future<BMKMapSize?> BMKMapSizeMake(double width, double height) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapSizeMake::BMKMapSizeMake([\'width\':$width, \'height\':$height])');
@@ -77,7 +77,7 @@ Future<BMKMapSize> BMKMapSizeMake(double width, double height) async {
   return BmapCoreFluttifyIOSAs<BMKMapSize>(__result__);
 }
 
-Future<BMKMapRect> BMKMapRectMake(double x, double y, double width, double height) async {
+Future<BMKMapRect?> BMKMapRectMake(double x, double y, double width, double height) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectMake::BMKMapRectMake([\'x\':$x, \'y\':$y, \'width\':$width, \'height\':$height])');
@@ -93,7 +93,7 @@ Future<BMKMapRect> BMKMapRectMake(double x, double y, double width, double heigh
   return BmapCoreFluttifyIOSAs<BMKMapRect>(__result__);
 }
 
-Future<bool> BMKMapRectIsNull(BMKMapRect rect) async {
+Future<bool?> BMKMapRectIsNull(BMKMapRect rect) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectIsNull::BMKMapRectIsNull([])');
@@ -109,7 +109,7 @@ Future<bool> BMKMapRectIsNull(BMKMapRect rect) async {
   return __result__;
 }
 
-Future<double> BMKMapRectGetMinX(BMKMapRect rect) async {
+Future<double?> BMKMapRectGetMinX(BMKMapRect rect) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectGetMinX::BMKMapRectGetMinX([])');
@@ -125,7 +125,7 @@ Future<double> BMKMapRectGetMinX(BMKMapRect rect) async {
   return __result__;
 }
 
-Future<double> BMKMapRectGetMinY(BMKMapRect rect) async {
+Future<double?> BMKMapRectGetMinY(BMKMapRect rect) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectGetMinY::BMKMapRectGetMinY([])');
@@ -141,7 +141,7 @@ Future<double> BMKMapRectGetMinY(BMKMapRect rect) async {
   return __result__;
 }
 
-Future<double> BMKMapRectGetMidX(BMKMapRect rect) async {
+Future<double?> BMKMapRectGetMidX(BMKMapRect rect) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectGetMidX::BMKMapRectGetMidX([])');
@@ -157,7 +157,7 @@ Future<double> BMKMapRectGetMidX(BMKMapRect rect) async {
   return __result__;
 }
 
-Future<double> BMKMapRectGetMidY(BMKMapRect rect) async {
+Future<double?> BMKMapRectGetMidY(BMKMapRect rect) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectGetMidY::BMKMapRectGetMidY([])');
@@ -173,7 +173,7 @@ Future<double> BMKMapRectGetMidY(BMKMapRect rect) async {
   return __result__;
 }
 
-Future<double> BMKMapRectGetMaxX(BMKMapRect rect) async {
+Future<double?> BMKMapRectGetMaxX(BMKMapRect rect) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectGetMaxX::BMKMapRectGetMaxX([])');
@@ -189,7 +189,7 @@ Future<double> BMKMapRectGetMaxX(BMKMapRect rect) async {
   return __result__;
 }
 
-Future<double> BMKMapRectGetMaxY(BMKMapRect rect) async {
+Future<double?> BMKMapRectGetMaxY(BMKMapRect rect) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectGetMaxY::BMKMapRectGetMaxY([])');
@@ -197,6 +197,38 @@ Future<double> BMKMapRectGetMaxY(BMKMapRect rect) async {
 
   // invoke native method
   final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapRectGetMaxY::BMKMapRectGetMaxY', {"rect": rect});
+  
+
+  // handle native call
+  
+
+  return __result__;
+}
+
+Future<String?> BMKGetMapApiVersion() async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKGetMapApiVersion::BMKGetMapApiVersion([])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKGetMapApiVersion::BMKGetMapApiVersion', );
+  
+
+  // handle native call
+  
+
+  return __result__;
+}
+
+Future<String?> BMKGetMapApiBaseComponentVersion() async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKGetMapApiBaseComponentVersion::BMKGetMapApiBaseComponentVersion([])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapCoreFluttifyChannel.invokeMethod('BMKGetMapApiBaseComponentVersion::BMKGetMapApiBaseComponentVersion', );
   
 
   // handle native call

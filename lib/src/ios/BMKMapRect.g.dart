@@ -23,12 +23,12 @@ class BMKMapRect extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKMapRect> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKMapRect?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKMapRect',
       {'init': init}
     );
-    return BmapCoreFluttifyIOSAs<BMKMapRect>(__result__);
+    return BmapCoreFluttifyIOSAs<BMKMapRect?>(__result__);
   }
   
   static Future<List<BMKMapRect>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,19 +38,21 @@ class BMKMapRect extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapCoreFluttifyIOSAs<BMKMapRect>(it))
-        .toList();
+        ?.map((it) => BmapCoreFluttifyIOSAs<BMKMapRect>(it))
+        .where((element) => element !=null)
+        .cast<BMKMapRect>()
+        .toList() ?? <BMKMapRect>[];
   }
   
   //endregion
 
   //region getters
-  Future<BMKMapPoint> get_origin() async {
+  Future<BMKMapPoint?> get_origin() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKMapRect::get_origin", {'__this__': this});
     return BmapCoreFluttifyIOSAs<BMKMapPoint>(__result__);
   }
   
-  Future<BMKMapSize> get_size() async {
+  Future<BMKMapSize?> get_size() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKMapRect::get_size", {'__this__': this});
     return BmapCoreFluttifyIOSAs<BMKMapSize>(__result__);
   }
@@ -83,15 +85,20 @@ class BMKMapRect extends NSObject  {
 }
 
 extension BMKMapRect_Batch on List<BMKMapRect> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
-  Future<List<BMKMapPoint>> get_origin_batch() async {
+  Future<List<BMKMapPoint?>> get_origin_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKMapRect::get_origin_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => BmapCoreFluttifyIOSAs<BMKMapPoint>(__result__))?.cast<BMKMapPoint>()?.toList();
+    return (resultBatch as List).map((__result__) => BmapCoreFluttifyIOSAs<BMKMapPoint>(__result__)).cast<BMKMapPoint?>().toList();
   }
   
-  Future<List<BMKMapSize>> get_size_batch() async {
+  Future<List<BMKMapSize?>> get_size_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKMapRect::get_size_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => BmapCoreFluttifyIOSAs<BMKMapSize>(__result__))?.cast<BMKMapSize>()?.toList();
+    return (resultBatch as List).map((__result__) => BmapCoreFluttifyIOSAs<BMKMapSize>(__result__)).cast<BMKMapSize?>().toList();
   }
   
   //endregion

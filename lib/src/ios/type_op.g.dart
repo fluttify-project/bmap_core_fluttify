@@ -21,14 +21,32 @@ Future<bool> BmapCoreFluttifyIOSIs<T>(dynamic __this__) async {
   if (RegExp(r'^(List<)?(String|int|double)(>)?|(Map<String,(String|int|double)>)$').hasMatch(typeName)) {
     return __this__ is T;
   }
-  else if (T == BMKUserLocation) {
+  else if (T == BMKBaseLog) {
+    final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKBaseLog', {'__this__': __this__});
+    return result;
+  } else if (T == BMKUserLocation) {
     final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKUserLocation', {'__this__': __this__});
+    return result;
+  } else if (T == BMKMapPoint) {
+    final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKMapPoint', {'__this__': __this__});
+    return result;
+  } else if (T == BMKMapRect) {
+    final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKMapRect', {'__this__': __this__});
     return result;
   } else if (T == BMKCoordinateSpan) {
     final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKCoordinateSpan', {'__this__': __this__});
     return result;
+  } else if (T == BMKIndoorPlanNode) {
+    final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKIndoorPlanNode', {'__this__': __this__});
+    return result;
+  } else if (T == BMKMapManager) {
+    final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKMapManager', {'__this__': __this__});
+    return result;
   } else if (T == BMKCoordinateBounds) {
     final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKCoordinateBounds', {'__this__': __this__});
+    return result;
+  } else if (T == BMKMapSize) {
+    final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKMapSize', {'__this__': __this__});
     return result;
   } else if (T == BMKCoordinateRegion) {
     final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKCoordinateRegion', {'__this__': __this__});
@@ -36,26 +54,14 @@ Future<bool> BmapCoreFluttifyIOSIs<T>(dynamic __this__) async {
   } else if (T == BMKGeoPoint) {
     final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKGeoPoint', {'__this__': __this__});
     return result;
-  } else if (T == BMKMapPoint) {
-    final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKMapPoint', {'__this__': __this__});
-    return result;
-  } else if (T == BMKMapSize) {
-    final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKMapSize', {'__this__': __this__});
-    return result;
-  } else if (T == BMKMapRect) {
-    final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKMapRect', {'__this__': __this__});
-    return result;
-  } else if (T == BMKPlanNode) {
-    final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKPlanNode', {'__this__': __this__});
-    return result;
-  } else if (T == BMKIndoorPlanNode) {
-    final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKIndoorPlanNode', {'__this__': __this__});
+  } else if (T == BMKBuildInfo) {
+    final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKBuildInfo', {'__this__': __this__});
     return result;
   } else if (T == BMKAddressComponent) {
     final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKAddressComponent', {'__this__': __this__});
     return result;
-  } else if (T == BMKMapManager) {
-    final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKMapManager', {'__this__': __this__});
+  } else if (T == BMKPlanNode) {
+    final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfBMKPlanNode', {'__this__': __this__});
     return result;
   } else if (T == CLLocation) {
     final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfCLLocation', {'__this__': __this__});
@@ -83,9 +89,6 @@ Future<bool> BmapCoreFluttifyIOSIs<T>(dynamic __this__) async {
     return result;
   } else if (T == NSError) {
     final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfNSError', {'__this__': __this__});
-    return result;
-  } else if (T == NSCopying) {
-    final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfNSCopying', {'__this__': __this__});
     return result;
   } else if (T == UIView) {
     final result = await kBmapCoreFluttifyChannel.invokeMethod('RefClass::isKindOfUIView', {'__this__': __this__});
@@ -123,7 +126,7 @@ Future<bool> BmapCoreFluttifyIOSIs<T>(dynamic __this__) async {
 // type cast
 // 给一个可选的泛型, 如果没有指定泛型就返回dynamic
 @optionalTypeArgs
-T BmapCoreFluttifyIOSAs<T>(dynamic __this__) {
+T? BmapCoreFluttifyIOSAs<T>(dynamic __this__) {
   final typeName = T.toString();
 
   if (__this__ == null) {
@@ -131,30 +134,34 @@ T BmapCoreFluttifyIOSAs<T>(dynamic __this__) {
   } else if (RegExp(r'^(List<)?(String|int|double)(>)?|(Map<String,(String|int|double)>)$').hasMatch(typeName)) {
     return __this__ as T;
   }
-  else if (T == BMKUserLocation) {
+  else if (T == BMKBaseLog) {
+    return (BMKBaseLog()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKUserLocation) {
     return (BMKUserLocation()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKMapPoint) {
+    return (BMKMapPoint()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKMapRect) {
+    return (BMKMapRect()..refId = (__this__ as Ref).refId) as T;
   } else if (T == BMKCoordinateSpan) {
     return (BMKCoordinateSpan()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKIndoorPlanNode) {
+    return (BMKIndoorPlanNode()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKMapManager) {
+    return (BMKMapManager()..refId = (__this__ as Ref).refId) as T;
   } else if (T == BMKCoordinateBounds) {
     return (BMKCoordinateBounds()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKMapSize) {
+    return (BMKMapSize()..refId = (__this__ as Ref).refId) as T;
   } else if (T == BMKCoordinateRegion) {
     return (BMKCoordinateRegion()..refId = (__this__ as Ref).refId) as T;
   } else if (T == BMKGeoPoint) {
     return (BMKGeoPoint()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == BMKMapPoint) {
-    return (BMKMapPoint()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == BMKMapSize) {
-    return (BMKMapSize()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == BMKMapRect) {
-    return (BMKMapRect()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == BMKPlanNode) {
-    return (BMKPlanNode()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == BMKIndoorPlanNode) {
-    return (BMKIndoorPlanNode()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKBuildInfo) {
+    return (BMKBuildInfo()..refId = (__this__ as Ref).refId) as T;
   } else if (T == BMKAddressComponent) {
     return (BMKAddressComponent()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == BMKMapManager) {
-    return (BMKMapManager()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKPlanNode) {
+    return (BMKPlanNode()..refId = (__this__ as Ref).refId) as T;
   } else if (T == CLLocation) {
     return (CLLocation()..refId = (__this__ as Ref).refId) as T;
   } else if (T == CLHeading) {
@@ -173,8 +180,6 @@ T BmapCoreFluttifyIOSAs<T>(dynamic __this__) {
     return (CLLocationManager()..refId = (__this__ as Ref).refId) as T;
   } else if (T == NSError) {
     return (NSError()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == NSCopying) {
-    return (NSCopying.subInstance()..refId = (__this__ as Ref).refId) as T;
   } else if (T == UIView) {
     return (UIView()..refId = (__this__ as Ref).refId) as T;
   } else if (T == UIViewController) {

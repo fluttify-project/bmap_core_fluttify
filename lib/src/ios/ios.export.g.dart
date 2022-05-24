@@ -1,4 +1,6 @@
 export 'BMKIndoorPlanNode.g.dart';
+export 'BMKBuildInfo.g.dart';
+export 'BMKWeatherDataType.g.dart';
 export 'BMKUserLocation.g.dart';
 export 'BMKMapType.g.dart';
 export 'type_op.g.dart';
@@ -17,8 +19,11 @@ export 'BMKMapSize.g.dart';
 export 'functions.g.dart';
 export 'BMKSearchErrorCode.g.dart';
 export 'BMKMapRect.g.dart';
+export 'BMKWeatherServerType.g.dart';
 export 'BMKAddressComponent.g.dart';
+export 'BMKBaseLog.g.dart';
 export 'BMKMapPoint.g.dart';
 export 'BMKCoordinateBounds.g.dart';
+export 'BMKLanguageType.g.dart';
 export 'BMKErrorCode.g.dart';
 export '../facade/shared.g.dart';

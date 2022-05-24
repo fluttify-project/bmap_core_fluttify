@@ -5,16 +5,16 @@
 
 enum BMK_COORD_TYPE {
   BMK_COORDTYPE_GPS /* 0 */,
-  BMK_COORDTYPE_COMMON /* null */,
-  BMK_COORDTYPE_BD09LL /* null */
+  BMK_COORDTYPE_COMMON /* 1 */,
+  BMK_COORDTYPE_BD09LL /* 2 */
 }
 
 extension BMK_COORD_TYPEToX on BMK_COORD_TYPE {
   int toValue() {
     switch (this) {
       case BMK_COORD_TYPE.BMK_COORDTYPE_GPS: return 0;
-      case BMK_COORD_TYPE.BMK_COORDTYPE_COMMON: return BMK_COORD_TYPE.BMK_COORDTYPE_COMMON.index + 0;
-      case BMK_COORD_TYPE.BMK_COORDTYPE_BD09LL: return BMK_COORD_TYPE.BMK_COORDTYPE_BD09LL.index + 0;
+      case BMK_COORD_TYPE.BMK_COORDTYPE_COMMON: return 1;
+      case BMK_COORD_TYPE.BMK_COORDTYPE_BD09LL: return 2;
       default: return 0;
     }
   }
@@ -24,6 +24,8 @@ extension BMK_COORD_TYPEFromX on int {
   BMK_COORD_TYPE toBMK_COORD_TYPE() {
     switch (this) {
       case 0: return BMK_COORD_TYPE.BMK_COORDTYPE_GPS;
+      case 1: return BMK_COORD_TYPE.BMK_COORDTYPE_COMMON;
+      case 2: return BMK_COORD_TYPE.BMK_COORDTYPE_BD09LL;
       default: return BMK_COORD_TYPE.values[this + 0];
     }
   }

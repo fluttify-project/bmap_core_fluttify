@@ -4,13 +4,15 @@
 //////////////////////////////////////////////////////////
 
 enum BMKMapModule {
-  BMKMapModuleTile /* 0 */
+  BMKMapModuleTile /* 0 */,
+  BMKMapModuleBasic /* 1 */
 }
 
 extension BMKMapModuleToX on BMKMapModule {
   int toValue() {
     switch (this) {
       case BMKMapModule.BMKMapModuleTile: return 0;
+      case BMKMapModule.BMKMapModuleBasic: return 1;
       default: return 0;
     }
   }
@@ -20,6 +22,7 @@ extension BMKMapModuleFromX on int {
   BMKMapModule toBMKMapModule() {
     switch (this) {
       case 0: return BMKMapModule.BMKMapModuleTile;
+      case 1: return BMKMapModule.BMKMapModuleBasic;
       default: return BMKMapModule.values[this + 0];
     }
   }

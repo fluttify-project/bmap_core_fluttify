@@ -23,12 +23,12 @@ class BMKIndoorPlanNode extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKIndoorPlanNode> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKIndoorPlanNode?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKIndoorPlanNode',
       {'init': init}
     );
-    return BmapCoreFluttifyIOSAs<BMKIndoorPlanNode>(__result__);
+    return BmapCoreFluttifyIOSAs<BMKIndoorPlanNode?>(__result__);
   }
   
   static Future<List<BMKIndoorPlanNode>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,19 +38,21 @@ class BMKIndoorPlanNode extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapCoreFluttifyIOSAs<BMKIndoorPlanNode>(it))
-        .toList();
+        ?.map((it) => BmapCoreFluttifyIOSAs<BMKIndoorPlanNode>(it))
+        .where((element) => element !=null)
+        .cast<BMKIndoorPlanNode>()
+        .toList() ?? <BMKIndoorPlanNode>[];
   }
   
   //endregion
 
   //region getters
-  Future<String> get_floor() async {
+  Future<String?> get_floor() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKIndoorPlanNode::get_floor", {'__this__': this});
     return __result__;
   }
   
-  Future<CLLocationCoordinate2D> get_pt() async {
+  Future<CLLocationCoordinate2D?> get_pt() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKIndoorPlanNode::get_pt", {'__this__': this});
     return BmapCoreFluttifyIOSAs<CLLocationCoordinate2D>(__result__);
   }
@@ -83,15 +85,20 @@ class BMKIndoorPlanNode extends NSObject  {
 }
 
 extension BMKIndoorPlanNode_Batch on List<BMKIndoorPlanNode> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
-  Future<List<String>> get_floor_batch() async {
+  Future<List<String?>> get_floor_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKIndoorPlanNode::get_floor_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<CLLocationCoordinate2D>> get_pt_batch() async {
+  Future<List<CLLocationCoordinate2D?>> get_pt_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKIndoorPlanNode::get_pt_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => BmapCoreFluttifyIOSAs<CLLocationCoordinate2D>(__result__))?.cast<CLLocationCoordinate2D>()?.toList();
+    return (resultBatch as List).map((__result__) => BmapCoreFluttifyIOSAs<CLLocationCoordinate2D>(__result__)).cast<CLLocationCoordinate2D?>().toList();
   }
   
   //endregion
