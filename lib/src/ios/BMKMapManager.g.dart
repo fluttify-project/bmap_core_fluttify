@@ -23,12 +23,12 @@ class BMKMapManager extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKMapManager> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKMapManager?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKMapManager',
       {'init': init}
     );
-    return BmapCoreFluttifyIOSAs<BMKMapManager>(__result__);
+    return BmapCoreFluttifyIOSAs<BMKMapManager?>(__result__);
   }
   
   static Future<List<BMKMapManager>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,8 +38,10 @@ class BMKMapManager extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapCoreFluttifyIOSAs<BMKMapManager>(it))
-        .toList();
+        ?.map((it) => BmapCoreFluttifyIOSAs<BMKMapManager>(it))
+        .where((element) => element !=null)
+        .cast<BMKMapManager>()
+        .toList() ?? <BMKMapManager>[];
   }
   
   //endregion
@@ -54,7 +56,7 @@ class BMKMapManager extends NSObject  {
 
   //region methods
   
-  static Future<BMKMapManager> sharedInstance() async {
+  static Future<BMKMapManager?> sharedInstance() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: BMKMapManager::sharedInstance([])');
@@ -71,7 +73,7 @@ class BMKMapManager extends NSObject  {
   }
   
   
-  static Future<bool> setCoordinateTypeUsedInBaiduMapSDK(BMK_COORD_TYPE coorType) async {
+  static Future<bool?> setCoordinateTypeUsedInBaiduMapSDK(BMK_COORD_TYPE coorType) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: BMKMapManager::setCoordinateTypeUsedInBaiduMapSDK([])');
@@ -88,7 +90,7 @@ class BMKMapManager extends NSObject  {
   }
   
   
-  static Future<BMK_COORD_TYPE> getCoordinateTypeUsedInBaiduMapSDK() async {
+  static Future<BMK_COORD_TYPE?> getCoordinateTypeUsedInBaiduMapSDK() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: BMKMapManager::getCoordinateTypeUsedInBaiduMapSDK([])');
@@ -122,7 +124,7 @@ class BMKMapManager extends NSObject  {
   }
   
   
-  Future<bool> start_generalDelegate(String key, BMKGeneralDelegate delegate) async {
+  Future<bool?> start_generalDelegate(String key, BMKGeneralDelegate delegate) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: BMKMapManager@$refId::start([\'key\':$key])');
@@ -145,7 +147,7 @@ class BMKMapManager extends NSObject  {
                 }
           
                 // handle the native call
-                await delegate?.onGetNetworkState(args['iError']);
+                await delegate.onGetNetworkState(args['iError']);
                 break;
               case 'Callback::BMKGeneralDelegate::onGetPermissionState':
                 // print log
@@ -154,14 +156,14 @@ class BMKMapManager extends NSObject  {
                 }
           
                 // handle the native call
-                await delegate?.onGetPermissionState(args['iError']);
+                await delegate.onGetPermissionState(args['iError']);
                 break;
               default:
                 throw MissingPluginException('方法${methodCall.method}未实现');
                 break;
             }
           } catch (e) {
-            debugPrint(e);
+            debugPrint(e.toString());
             rethrow;
           }
         });
@@ -170,7 +172,7 @@ class BMKMapManager extends NSObject  {
   }
   
   
-  Future<int> getTotalSendFlaxLength() async {
+  Future<int?> getTotalSendFlaxLength() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: BMKMapManager@$refId::getTotalSendFlaxLength([])');
@@ -187,7 +189,7 @@ class BMKMapManager extends NSObject  {
   }
   
   
-  Future<int> getTotalRecvFlaxLength() async {
+  Future<int?> getTotalRecvFlaxLength() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: BMKMapManager@$refId::getTotalRecvFlaxLength([])');
@@ -204,7 +206,7 @@ class BMKMapManager extends NSObject  {
   }
   
   
-  Future<bool> stop() async {
+  Future<bool?> stop() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: BMKMapManager@$refId::stop([])');
@@ -229,7 +231,7 @@ class BMKMapManager extends NSObject  {
 }
 
 extension BMKMapManager_Batch on List<BMKMapManager> {
-  String get refId {
+  String? get refId {
     if (isEmpty) return null;
     return first.refId;
   }
@@ -244,36 +246,36 @@ extension BMKMapManager_Batch on List<BMKMapManager> {
 
   //region methods
   
-  static Future<List<BMKMapManager>> sharedInstance_batch() async {
+  static Future<List<BMKMapManager?>> sharedInstance_batch() async {
     assert(true);
   
     // invoke native method
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::sharedInstance_batch', );
   
   
-    return (resultBatch as List).map((__result__) => BmapCoreFluttifyIOSAs<BMKMapManager>(__result__)).cast<BMKMapManager>().toList();
+    return (resultBatch as List).map((__result__) => BmapCoreFluttifyIOSAs<BMKMapManager>(__result__)).cast<BMKMapManager?>().toList();
   }
   
   
-  static Future<List<bool>> setCoordinateTypeUsedInBaiduMapSDK_batch(List<BMK_COORD_TYPE> coorType) async {
+  static Future<List<bool?>> setCoordinateTypeUsedInBaiduMapSDK_batch(List<BMK_COORD_TYPE> coorType) async {
     assert(true);
   
     // invoke native method
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::setCoordinateTypeUsedInBaiduMapSDK_batch', [for (int __i__ = 0; __i__ < coorType.length; __i__++) {"coorType": coorType[__i__].toValue()}]);
   
   
-    return (resultBatch as List).map((__result__) => __result__).cast<bool>().toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
-  static Future<List<BMK_COORD_TYPE>> getCoordinateTypeUsedInBaiduMapSDK_batch() async {
+  static Future<List<BMK_COORD_TYPE?>> getCoordinateTypeUsedInBaiduMapSDK_batch() async {
     assert(true);
   
     // invoke native method
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::getCoordinateTypeUsedInBaiduMapSDK_batch', );
   
   
-    return (resultBatch as List).map((__result__) => (__result__ as int).toBMK_COORD_TYPE()).cast<BMK_COORD_TYPE>().toList();
+    return (resultBatch as List).map((__result__) => (__result__ as int).toBMK_COORD_TYPE()).cast<BMK_COORD_TYPE?>().toList();
   }
   
   
@@ -288,36 +290,36 @@ extension BMKMapManager_Batch on List<BMKMapManager> {
   }
   
   
-  Future<List<int>> getTotalSendFlaxLength_batch() async {
+  Future<List<int?>> getTotalSendFlaxLength_batch() async {
     assert(true);
   
     // invoke native method
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::getTotalSendFlaxLength_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).map((__result__) => __result__).cast<int>().toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
   
-  Future<List<int>> getTotalRecvFlaxLength_batch() async {
+  Future<List<int?>> getTotalRecvFlaxLength_batch() async {
     assert(true);
   
     // invoke native method
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::getTotalRecvFlaxLength_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).map((__result__) => __result__).cast<int>().toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
   
-  Future<List<bool>> stop_batch() async {
+  Future<List<bool?>> stop_batch() async {
     assert(true);
   
     // invoke native method
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod('BMKMapManager::stop_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).map((__result__) => __result__).cast<bool>().toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   //endregion

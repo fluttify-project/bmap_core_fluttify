@@ -23,12 +23,12 @@ class BMKCoordinateSpan extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKCoordinateSpan> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKCoordinateSpan?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKCoordinateSpan',
       {'init': init}
     );
-    return BmapCoreFluttifyIOSAs<BMKCoordinateSpan>(__result__);
+    return BmapCoreFluttifyIOSAs<BMKCoordinateSpan?>(__result__);
   }
   
   static Future<List<BMKCoordinateSpan>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,19 +38,21 @@ class BMKCoordinateSpan extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapCoreFluttifyIOSAs<BMKCoordinateSpan>(it))
-        .toList();
+        ?.map((it) => BmapCoreFluttifyIOSAs<BMKCoordinateSpan>(it))
+        .where((element) => element !=null)
+        .cast<BMKCoordinateSpan>()
+        .toList() ?? <BMKCoordinateSpan>[];
   }
   
   //endregion
 
   //region getters
-  Future<double> get_latitudeDelta() async {
+  Future<double?> get_latitudeDelta() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKCoordinateSpan::get_latitudeDelta", {'__this__': this});
     return __result__;
   }
   
-  Future<double> get_longitudeDelta() async {
+  Future<double?> get_longitudeDelta() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKCoordinateSpan::get_longitudeDelta", {'__this__': this});
     return __result__;
   }
@@ -83,20 +85,20 @@ class BMKCoordinateSpan extends NSObject  {
 }
 
 extension BMKCoordinateSpan_Batch on List<BMKCoordinateSpan> {
-  String get refId {
+  String? get refId {
     if (isEmpty) return null;
     return first.refId;
   }
 
   //region getters
-  Future<List<double>> get_latitudeDelta_batch() async {
+  Future<List<double?>> get_latitudeDelta_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKCoordinateSpan::get_latitudeDelta_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<double>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<double?>().toList();
   }
   
-  Future<List<double>> get_longitudeDelta_batch() async {
+  Future<List<double?>> get_longitudeDelta_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKCoordinateSpan::get_longitudeDelta_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<double>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<double?>().toList();
   }
   
   //endregion

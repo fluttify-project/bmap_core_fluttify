@@ -23,12 +23,12 @@ class BMKMapPoint extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKMapPoint> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKMapPoint?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKMapPoint',
       {'init': init}
     );
-    return BmapCoreFluttifyIOSAs<BMKMapPoint>(__result__);
+    return BmapCoreFluttifyIOSAs<BMKMapPoint?>(__result__);
   }
   
   static Future<List<BMKMapPoint>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,19 +38,21 @@ class BMKMapPoint extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapCoreFluttifyIOSAs<BMKMapPoint>(it))
-        .toList();
+        ?.map((it) => BmapCoreFluttifyIOSAs<BMKMapPoint>(it))
+        .where((element) => element !=null)
+        .cast<BMKMapPoint>()
+        .toList() ?? <BMKMapPoint>[];
   }
   
   //endregion
 
   //region getters
-  Future<double> get_x() async {
+  Future<double?> get_x() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKMapPoint::get_x", {'__this__': this});
     return __result__;
   }
   
-  Future<double> get_y() async {
+  Future<double?> get_y() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKMapPoint::get_y", {'__this__': this});
     return __result__;
   }
@@ -83,20 +85,20 @@ class BMKMapPoint extends NSObject  {
 }
 
 extension BMKMapPoint_Batch on List<BMKMapPoint> {
-  String get refId {
+  String? get refId {
     if (isEmpty) return null;
     return first.refId;
   }
 
   //region getters
-  Future<List<double>> get_x_batch() async {
+  Future<List<double?>> get_x_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKMapPoint::get_x_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<double>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<double?>().toList();
   }
   
-  Future<List<double>> get_y_batch() async {
+  Future<List<double?>> get_y_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKMapPoint::get_y_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<double>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<double?>().toList();
   }
   
   //endregion

@@ -23,12 +23,12 @@ class BMKBuildInfo extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKBuildInfo> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKBuildInfo?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKBuildInfo',
       {'init': init}
     );
-    return BmapCoreFluttifyIOSAs<BMKBuildInfo>(__result__);
+    return BmapCoreFluttifyIOSAs<BMKBuildInfo?>(__result__);
   }
   
   static Future<List<BMKBuildInfo>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,29 +38,31 @@ class BMKBuildInfo extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapCoreFluttifyIOSAs<BMKBuildInfo>(it))
-        .toList();
+        ?.map((it) => BmapCoreFluttifyIOSAs<BMKBuildInfo>(it))
+        .where((element) => element !=null)
+        .cast<BMKBuildInfo>()
+        .toList() ?? <BMKBuildInfo>[];
   }
   
   //endregion
 
   //region getters
-  Future<double> get_height() async {
+  Future<double?> get_height() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKBuildInfo::get_height", {'__this__': this});
     return __result__;
   }
   
-  Future<int> get_accuracy() async {
+  Future<int?> get_accuracy() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKBuildInfo::get_accuracy", {'__this__': this});
     return __result__;
   }
   
-  Future<String> get_paths() async {
+  Future<String?> get_paths() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKBuildInfo::get_paths", {'__this__': this});
     return __result__;
   }
   
-  Future<String> get_center() async {
+  Future<String?> get_center() async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod("BMKBuildInfo::get_center", {'__this__': this});
     return __result__;
   }
@@ -82,30 +84,30 @@ class BMKBuildInfo extends NSObject  {
 }
 
 extension BMKBuildInfo_Batch on List<BMKBuildInfo> {
-  String get refId {
+  String? get refId {
     if (isEmpty) return null;
     return first.refId;
   }
 
   //region getters
-  Future<List<double>> get_height_batch() async {
+  Future<List<double?>> get_height_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKBuildInfo::get_height_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<double>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<double?>().toList();
   }
   
-  Future<List<int>> get_accuracy_batch() async {
+  Future<List<int?>> get_accuracy_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKBuildInfo::get_accuracy_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<int>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
-  Future<List<String>> get_paths_batch() async {
+  Future<List<String?>> get_paths_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKBuildInfo::get_paths_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<String>> get_center_batch() async {
+  Future<List<String?>> get_center_batch() async {
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod("BMKBuildInfo::get_center_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
   //endregion

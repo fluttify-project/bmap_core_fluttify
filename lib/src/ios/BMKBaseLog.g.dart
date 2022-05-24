@@ -23,12 +23,12 @@ class BMKBaseLog extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKBaseLog> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKBaseLog?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapCoreFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKBaseLog',
       {'init': init}
     );
-    return BmapCoreFluttifyIOSAs<BMKBaseLog>(__result__);
+    return BmapCoreFluttifyIOSAs<BMKBaseLog?>(__result__);
   }
   
   static Future<List<BMKBaseLog>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,8 +38,10 @@ class BMKBaseLog extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapCoreFluttifyIOSAs<BMKBaseLog>(it))
-        .toList();
+        ?.map((it) => BmapCoreFluttifyIOSAs<BMKBaseLog>(it))
+        .where((element) => element !=null)
+        .cast<BMKBaseLog>()
+        .toList() ?? <BMKBaseLog>[];
   }
   
   //endregion
@@ -54,7 +56,7 @@ class BMKBaseLog extends NSObject  {
 
   //region methods
   
-  static Future<bool> getlogEnableWithModule(BMKMapModule mapModule) async {
+  static Future<bool?> getlogEnableWithModule(BMKMapModule mapModule) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: BMKBaseLog::getlogEnableWithModule([])');
@@ -71,7 +73,7 @@ class BMKBaseLog extends NSObject  {
   }
   
   
-  static Future<String> getLogFilePathWithModule(BMKMapModule mapModule) async {
+  static Future<String?> getLogFilePathWithModule(BMKMapModule mapModule) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: BMKBaseLog::getLogFilePathWithModule([])');
@@ -130,7 +132,7 @@ class BMKBaseLog extends NSObject  {
 }
 
 extension BMKBaseLog_Batch on List<BMKBaseLog> {
-  String get refId {
+  String? get refId {
     if (isEmpty) return null;
     return first.refId;
   }
@@ -145,25 +147,25 @@ extension BMKBaseLog_Batch on List<BMKBaseLog> {
 
   //region methods
   
-  static Future<List<bool>> getlogEnableWithModule_batch(List<BMKMapModule> mapModule) async {
+  static Future<List<bool?>> getlogEnableWithModule_batch(List<BMKMapModule> mapModule) async {
     assert(true);
   
     // invoke native method
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod('BMKBaseLog::getlogEnableWithModule_batch', [for (int __i__ = 0; __i__ < mapModule.length; __i__++) {"mapModule": mapModule[__i__].toValue()}]);
   
   
-    return (resultBatch as List).map((__result__) => __result__).cast<bool>().toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
-  static Future<List<String>> getLogFilePathWithModule_batch(List<BMKMapModule> mapModule) async {
+  static Future<List<String?>> getLogFilePathWithModule_batch(List<BMKMapModule> mapModule) async {
     assert(true);
   
     // invoke native method
     final resultBatch = await kBmapCoreFluttifyChannel.invokeMethod('BMKBaseLog::getLogFilePathWithModule_batch', [for (int __i__ = 0; __i__ < mapModule.length; __i__++) {"mapModule": mapModule[__i__].toValue()}]);
   
   
-    return (resultBatch as List).map((__result__) => __result__).cast<String>().toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
   

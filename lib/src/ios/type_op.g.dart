@@ -126,7 +126,7 @@ Future<bool> BmapCoreFluttifyIOSIs<T>(dynamic __this__) async {
 // type cast
 // 给一个可选的泛型, 如果没有指定泛型就返回dynamic
 @optionalTypeArgs
-T BmapCoreFluttifyIOSAs<T>(dynamic __this__) {
+T? BmapCoreFluttifyIOSAs<T>(dynamic __this__) {
   final typeName = T.toString();
 
   if (__this__ == null) {

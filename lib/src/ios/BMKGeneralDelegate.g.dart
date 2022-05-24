@@ -27,10 +27,10 @@ mixin BMKGeneralDelegate on NSObject {
   
 
   /* @mustCallSuper */
-  Future<void> onGetNetworkState(int iError) {}
+  Future<void> onGetNetworkState(int iError) async {}
   
   /* @mustCallSuper */
-  Future<void> onGetPermissionState(int iError) {}
+  Future<void> onGetPermissionState(int iError) async {}
   
 }
 
